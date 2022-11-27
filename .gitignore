@@ -18,7 +18,7 @@
 
 ### VisualStudioCode ###
 .vscode/*
-.vscode/settings.json
+JavaScript Algorithms and Data Structures/.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
