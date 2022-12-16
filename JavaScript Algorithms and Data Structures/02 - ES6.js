@@ -1,3 +1,5 @@
+/* cSpell:disable; */
+
 /* ES6
 ECMAScript, o ES, es una versión estandarizada de JavaScript.Debido a que todos los principales 
 navegadores siguen esta especificación, los términos ECMAScript y JavaScript son intercambiables.
