@@ -1,3 +1,5 @@
+/* cSpell: disable; */
+
 /* Debugging
 
 La depuración es el proceso de revisar tu código, encontrando cualquier problema, y arreglándolo.
@@ -10,12 +12,12 @@ En este curso, aprenderás como usar la consola de JavaScript para depurar progr
 errores comunes antes de que ocurran. */
 
 /* Usa la consola de JavaScript para comprobar el valor de una variable
-Tanto Chrome como Firefox tienen excelentes consolas de JavaScript, también conocidas como DevTools, 
-para depurar tu JavaScript.
+Tanto Chrome como Firefox tienen excelentes consolas de JavaScript, también conocidas como 
+DevTools, para depurar tu JavaScript.
 
 Puedes encontrar las herramientas para desarrolladores en el menú de Chrome o la consola web en el 
-menú de Firefox.Si utilizas otro navegador, o un teléfono móvil, te recomendamos encarecidamente que 
-cambies a Firefox o Chrome de escritorio.
+menú de Firefox.Si utilizas otro navegador, o un teléfono móvil, te recomendamos encarecidamente 
+que cambies a Firefox o Chrome de escritorio.
 
 El método console.log(), que "imprime" la salida de lo que está dentro de sus paréntesis a la 
 consola, será probablemente la herramienta de depuración más útil.Colocarlo en puntos estratégicos 
@@ -39,8 +41,8 @@ let sumAB = a + b;
 console.log(sumAB);
 
 /* Entendiendo las diferencias entre la consola de freeCodeCamp y la del navegador
-Habrás notado que algunos desafíos de freeCodeCamp tienen su propia consola.Esta consola se comporta 
-un poco diferente a la consola del navegador.
+Habrás notado que algunos desafíos de freeCodeCamp tienen su propia consola.Esta consola se 
+comporta un poco diferente a la consola del navegador.
 
 Hay muchos métodos para usar con console para mostrar mensajes.log, warn y clear para nombrar 
 algunos.La consola de freeCodeCamp solamente mostrará mensajes de tipo log, mientras que la consola 
@@ -93,7 +95,8 @@ console.log(typeof three);
 
 /* Captura nombres de variables y funciones mal escritos
 Los métodos console.log() y typeof son las dos formas principales de comprobar los valores 
-intermedios y los tipos de salida de un programa.Ahora es el momento de entrar en las formas comúnes 
+intermedios y los tipos de salida de un programa.Ahora es el momento de entrar en las formas 
+comúnes 
 que adoptan los errores(bugs).Un problema a nivel de sintaxis con el que las personas que escriben 
 rápido pueden simpatizar es el humilde error ortográfico.
 
@@ -128,8 +131,8 @@ let arraySum = myArray.reduce((previous, current) => previous + current);
 console.log(`Sum of array values is: ${arraySum}`);
 
 /* Captura el uso mixto de comillas simples y dobles
-JavaScript permite el uso de comillas simples(') y dobles (") para declarar una cadena. Decidir cuál 
-usar se reduce generalmente a la preferencia personal, con algunas excepciones.
+JavaScript permite el uso de comillas simples(') y dobles (") para declarar una cadena. Decidir 
+cuál usar se reduce generalmente a la preferencia personal, con algunas excepciones.
 
 Tener dos opciones es genial cuando una cadena tiene contracciones u otro fragmento de texto que 
 está entre comillas.Sólo hay que tener cuidado de no cerrar la cadena demasiado pronto, lo que 
@@ -143,11 +146,13 @@ const quoteInString = "Groucho Marx once said 'Quote me as saying I was mis-quot
 
 /* Los dos primeros son correctos, pero el tercero es incorrecto.
 
-Por supuesto, está bien utilizar sólo un estilo de comillas.Puedes escapar las comillas dentro de una cadena usando el carácter de barra diagonal invertida(\): */
+Por supuesto, está bien utilizar sólo un estilo de comillas.Puedes escapar las comillas dentro de 
+una cadena usando el carácter de barra diagonal invertida(\): */
 
 const allSameQuotes = 'I\'ve had a perfectly wonderful evening, but this wasn\'t it.';
 
-/* Corrige la cadena para que use comillas diferentes para el valor de href, o realiza un escape de las existentes.Mantén las comillas dobles alrededor de toda la cadena. */
+/* Corrige la cadena para que use comillas diferentes para el valor de href, o realiza un escape de 
+las existentes.Mantén las comillas dobles alrededor de toda la cadena. */
 
 //let innerHtml = '<p>Click here to <a href=\'#Home\'>return home</a></p>';
 //let innerHtml = '<p>Click here to <a href="#Home">return home</a></p>';
@@ -160,12 +165,12 @@ ciertas condiciones, se basan en las sentencias if, else if y else de JavaScript
 veces toma la forma de probar si un resultado es igual a un valor.
 
 Esta lógica se habla(en español, al menos) como "si x es igual a y, entonces...", lo que puede 
-traducirse literalmente en código utilizando el =, u operador de asignación.Esto lleva a un flujo de 
-control inesperado en tu programa.
+traducirse literalmente en código utilizando el =, u operador de asignación.Esto lleva a un flujo 
+de control inesperado en tu programa.
 
 Como hemos visto en desafíos anteriores, el operador de asignación(=) en JavaScript asigna un valor 
 a una variable.Y los operadores == y === comprueban la igualdad(el triple === comprueba la igualdad 
-    estricta, lo que significa que tanto el valor como el tipo son iguales).
+estricta, lo que significa que tanto el valor como el tipo son iguales).
 
 El código siguiente asigna a x el valor de 2, que se evalúa como true.Casi todos los valores por sí 
 solos en JavaScript se evalúan como true, excepto lo que se conoce como valores "falsos"(falsy 
@@ -215,8 +220,8 @@ console.log(result);
 Cuando una función o método no recibe argumentos, puedes olvidarte de incluir los paréntesis de 
 apertura y cierre(vacíos) al llamarla.A menudo, el resultado de una llamada a una función se guarda 
 en una variable para su uso en el código.Este error puede detectarse registrando los valores de las 
-variables(o sus tipos) en la consola y viendo que uno de ellos se establece como una referencia a la 
-función, en lugar del valor esperado que la función devuelve.
+variables(o sus tipos) en la consola y viendo que uno de ellos se establece como una referencia a 
+la función, en lugar del valor esperado que la función devuelve.
 
 Las variables del siguiente ejemplo son diferentes: */
 
@@ -255,9 +260,9 @@ console.log(result1);
 /* Captura argumentos pasados en el orden incorrecto al llamar a una función
 Siguiendo con la discusión sobre la llamada a funciones, el siguiente error a tener en cuenta es 
 cuando los argumentos de una función se suministran en el orden incorrecto.Si los argumentos son de 
-tipos diferentes, como una función que espera un arreglo y un entero, es probable que se produzca un 
-error de ejecución.Si los argumentos son del mismo tipo(todos enteros, por ejemplo), la lógica del 
-código no tendrá sentido.Asegúrate de proporcionar todos los argumentos requeridos, en el orden 
+tipos diferentes, como una función que espera un arreglo y un entero, es probable que se produzca 
+un error de ejecución.Si los argumentos son del mismo tipo(todos enteros, por ejemplo), la lógica 
+del código no tendrá sentido.Asegúrate de proporcionar todos los argumentos requeridos, en el orden 
 correcto para evitar estos problemas.
 
 La función raiseToPower eleva una base a un exponente.Desafortunadamente, no se llama correctamente 
@@ -282,16 +287,16 @@ let power = raiseToPower(base, exp);
 console.log(power);
 
 /* Captura los errores por uno al utilizar indexación
-Los errores por uno o por un paso(en inglés: Off - by - one error - OBOE) aparecen cuando se intenta 
-apuntar a un índice específico de una cadena o arreglo(para cortar o acceder a un segmento), o 
-cuando se hace un bucle sobre los índices de los mismos.La indexación en JavaScript comienza en 
-cero, no en uno, lo que significa que el último índice es siempre uno menos que la longitud del 
-elemento.Si intentas acceder a un índice igual a la longitud, el programa puede lanzar un error de 
-referencia "index out of range"(índice fuera de rango) o imprimir undefined.
+Los errores por uno o por un paso(en inglés: Off - by - one error - OBOE) aparecen cuando se 
+intenta apuntar a un índice específico de una cadena o arreglo(para cortar o acceder a un 
+segmento), o cuando se hace un bucle sobre los índices de los mismos.La indexación en JavaScript 
+comienza en cero, no en uno, lo que significa que el último índice es siempre uno menos que la 
+longitud del elemento.Si intentas acceder a un índice igual a la longitud, el programa puede lanzar 
+un error de referencia "index out of range"(índice fuera de rango) o imprimir undefined.
 
 Cuando se utilizan métodos de cadenas o arreglos que toman rangos de índices como argumentos, es 
-útil leer la documentación y entender si son inclusivos(el elemento en el índice dado es parte de lo 
-    que se devuelve) o no.Estos son algunos ejemplos de errores por un paso: */
+útil leer la documentación y entender si son inclusivos(el elemento en el índice dado es parte de 
+lo que se devuelve) o no.Estos son algunos ejemplos de errores por un paso: */
 
 let alphabet = "abcdefghijklmnopqrstuvwxyz";
 let len = alphabet.length;
@@ -414,10 +419,10 @@ una variable de contador en la dirección incorrecta desde la condición termina
 accidentalmente un contador o una variable de índice dentro del código del bucle, en lugar de 
 incrementarlo o decrementarlo.
 
-La función myFunc() contiene un bucle infinito porque la condición terminal i != 4 nunca se evaluará 
-a false(y romperá el bucle) - i se incrementará en 2 en cada pasada, y saltará justo sobre 4, ya que 
-i es impar para empezar.Corrige el operador de comparación en la condición terminal para que el 
-bucle sólo se ejecute para i menor o igual a 4.
+La función myFunc() contiene un bucle infinito porque la condición terminal i != 4 nunca se 
+evaluará a false(y romperá el bucle) - i se incrementará en 2 en cada pasada, y saltará justo sobre 
+4, ya que i es impar para empezar.Corrige el operador de comparación en la condición terminal para 
+que el bucle sólo se ejecute para i menor o igual a 4.
 
 function myFunc() {
     for (let i = 1; i != 4; i += 2) {
