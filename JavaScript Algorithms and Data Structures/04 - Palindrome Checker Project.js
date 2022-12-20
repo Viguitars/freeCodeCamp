@@ -3,8 +3,8 @@
 /* Comprobador de palíndromos
 Devuelve true si la cadena proporcionada es un palíndromo.De lo contrario, devuelve false.
 
-Un palíndromo es una palabra o frase que se escribe de la misma manera hacia adelante y hacia atrás, 
-ignorando la puntuación, mayúsculas, minúsculas y espaciado.
+Un palíndromo es una palabra o frase que se escribe de la misma manera hacia adelante y hacia 
+atrás, ignorando la puntuación, mayúsculas, minúsculas y espaciado.
 
 Nota: Tendrás que eliminar todos los caracteres no alfanuméricos(puntuación, espacios y símbolos) y 
 convertir todo en mayúsculas o minúsculas para comprobar si hay palíndromos.
