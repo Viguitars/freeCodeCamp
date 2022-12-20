@@ -15,8 +15,8 @@ promesas, y módulos. */
 /* Compara el alcance de las palabras clave "var" y "let"
 Si no estás familiarizado con let, verifica este desafío sobre la diferencia entre let y var.
 
-Cuando declaras una variable con la palabra clave var, esta es declarada globalmente o localmente sí 
-es declarada dentro de una función.
+Cuando declaras una variable con la palabra clave var, esta es declarada globalmente o localmente 
+sí es declarada dentro de una función.
 
 La palabra clave let se comporta de forma similar, pero con algunas características adicionales. 
 Cuanto declaras una variable con la palabra clave let dentro de un bloque, una declaración o 
@@ -34,8 +34,8 @@ console.log(i);
 
 Aquí la consola mostrará los valores[0, 1, 2] y 3.
 
-Con la palabra clave var, i es declarada globalmente.Así, cuando i++es ejecutado, la variable global 
-es actualizada.Este código es similar al siguiente:
+Con la palabra clave var, i es declarada globalmente.Así, cuando i++es ejecutado, la variable 
+global es actualizada.Este código es similar al siguiente:
 
 var numArray = [];
 var i;
@@ -80,14 +80,14 @@ console.log(i);
 
 Aquí la consola mostrará el valor 2 y el error que i is not defined.
 
-i no está definida, porque no ha sido declarada en el ámbito global.Solo ha sido declarada dentro de 
-la sentencia de bucle for.printNumTwo() devolvió el valor correcto, porque tres variables diferentes 
-de i con valores únicos(0, 1 y 2) fueron creadas por la palabra clave let dentro de la sentencia del 
-bucle.
+i no está definida, porque no ha sido declarada en el ámbito global.Solo ha sido declarada dentro 
+de la sentencia de bucle for.printNumTwo() devolvió el valor correcto, porque tres variables 
+diferentes de i con valores únicos(0, 1 y 2) fueron creadas por la palabra clave let dentro de la 
+sentencia del bucle.
 
 Corrige el código para que la variable i, declarada en la sentencia if sea una variable separada de 
-la variable i, declarada en la primera línea de la función.Asegúrate de no utilizar la palabra clave 
-var en ninguna parte de tu código.
+la variable i, declarada en la primera línea de la función.Asegúrate de no utilizar la palabra 
+clave var en ninguna parte de tu código.
 
 Este ejercicio está diseñado para ilustrar la diferencia entre como las palabras claves var y let 
 asignan ámbito a la variable declarada.Cuando programas una función similar a la que es usada en 
@@ -113,8 +113,8 @@ La declaración const tiene muchos casos de uso, en el JavaScript moderno.
 Algunos desarrolladores prefieren asignar todas sus variables utilizando const por defecto, a menos 
 que sepan que necesitarán reasignar el valor.Solo en ese caso, utilizan let.
 
-Sin embargo, es importante comprender que los objetos (incluyendo arreglos y funciones), asignados a 
-una variable usando const siguen siendo mutables.Usar la declaración const solo previene la 
+Sin embargo, es importante comprender que los objetos (incluyendo arreglos y funciones), asignados 
+a una variable usando const siguen siendo mutables.Usar la declaración const solo previene la 
 reasignación del identificador de una variable. */
 
 const s = [5, 6, 7];
@@ -149,8 +149,8 @@ function editInPlace() {
 console.log(editInPlace());//s debe ser igual a [2, 5, 7].
 
 /* Prevenir la mutación del objeto
-Como se vio en el desafío anterior, la declaración const por sí sola no protege la información de la 
-mutación.Para asegurar que tu información no cambie, JavaScript provee una función Object.freeze 
+Como se vio en el desafío anterior, la declaración const por sí sola no protege la información de 
+la mutación.Para asegurar que tu información no cambie, JavaScript provee una función Object.freeze 
 para prevenir la mutación de datos.
 
 Cualquier intento de cambiar el objeto será rechazado, lanzando un error si el script se ejecuta en 
@@ -165,8 +165,9 @@ obj.review = "bad";
 obj.newProp = "Test";
 console.log(obj);
 
-/* Las asignaciones obj.review y obj.newProp provocarán errores, porque nuestro editor se ejecuta en 
-modo estricto por defecto, y la consola mostrará el valor {name: "FreeCodeCamp", review: "Awesome"}.
+/* Las asignaciones obj.review y obj.newProp provocarán errores, porque nuestro editor se ejecuta 
+en modo estricto por defecto, y la consola mostrará el valor {name: "FreeCodeCamp", review: 
+"Awesome"}.
 
 En este desafío vas a utilizar Object.freeze para prevenir el cambio de constantes matemáticas. 
 Necesitas congelar el objeto MATH_CONSTANTS para que nadie pueda alterar el valor de PI, añadir o 
@@ -291,9 +292,9 @@ console.log(increment(5)); //debe ser 6.
 
 /* Utiliza el parámetro rest con parámetros de función
 Para ayudarnos a crear funciones más flexibles, ES6 introduce el parámetro rest para los parámetros 
-de función.Con el parámetro rest, puedes crear funciones que tomen un número variable de argumentos. 
-Estos argumentos se almacenan en un arreglo al que se puede acceder más tarde desde dentro de la 
-función.
+de función.Con el parámetro rest, puedes crear funciones que tomen un número variable de 
+argumentos. Estos argumentos se almacenan en un arreglo al que se puede acceder más tarde desde 
+dentro de la función.
 
 Echa un vistazo a este código: */
 
@@ -331,8 +332,8 @@ console.log(maximus);
 /* maximus tendrá un valor de 89.
 
 Tuvimos que usar Math.max.apply(null, arr) porque Math.max(arr) devuelve NaN.Math.max() espera 
-argumentos separados por comas, pero no un arreglo.El operador de propagación hace que esta sintaxis 
-sea más fácil de leer y mantener. */
+argumentos separados por comas, pero no un arreglo.El operador de propagación hace que esta 
+sintaxis sea más fácil de leer y mantener. */
 
 const arr1 = [6, 89, 3, 454];
 const maximus2 = Math.max(...arr1);
@@ -420,9 +421,9 @@ console.log(user);
 console.log(userName);
 console.log(userAge);
 
-/* Puedes leerlo como "obtén el valor de user.name y asígnalo a una nueva variable llamada userName" 
-y así sucesivamente.El valor de userName sería la cadena John Doe, y el valor de userAge sería el 
-número 34.
+/* Puedes leerlo como "obtén el valor de user.name y asígnalo a una nueva variable llamada 
+userName"y así sucesivamente.El valor de userName sería la cadena John Doe, y el valor de userAge 
+sería el número 34.
 
 Reemplaza las dos asignaciones con una sintaxis de desestructuración equivalente.Todavía deben 
 seguir asignando las variables highToday y highTomorrow con los valores de today y tomorrow del 
@@ -492,8 +493,8 @@ console.log(highToday1);
 ES6 hace que desestructurar arreglos sea tan fácil como desestructurar objetos.
 
 Una diferencia clave entre el operador de propagación y la desestructuración de arreglos es que el 
-operador de propagación desempaca todos los contenidos de un arreglo en una lista separada por comas. 
-En consecuencia, no puedes elegir qué elementos deseas asignar como variables.
+operador de propagación desempaca todos los contenidos de un arreglo en una lista separada por 
+comas.En consecuencia, no puedes elegir qué elementos deseas asignar como variables.
 
 Desestructurar un arreglo nos permite hacer exactamente eso: */
 
@@ -511,8 +512,8 @@ console.log(a, b, c);
 
 /* La consola mostrará los valores de a, b, y c como 1, 2, 5.
 
-Utiliza la sintaxis de desestructuración para intercambiar los valores de a y b para que a reciba el 
-valor almacenado en b, y b reciba el valor almacenado en a. */
+Utiliza la sintaxis de desestructuración para intercambiar los valores de a y b para que a reciba 
+el valor almacenado en b, y b reciba el valor almacenado en a. */
 
 let a2 = 8, b2 = 6;
 // Cambia solo el código debajo de esta línea
@@ -523,8 +524,8 @@ console.log(b2); //b debe ser 8, después del intercambio.
 
 /* Utiliza la sintaxis de desestructuración con el parámetro rest para reasignar elementos de un 
 arreglo
-En algunas situaciones que implican la desestructuración de arreglos, tal vez queramos recolectar el 
-resto de elementos en un arreglo separado.
+En algunas situaciones que implican la desestructuración de arreglos, tal vez queramos recolectar 
+el resto de elementos en un arreglo separado.
 
 El resultado es similar a Array.prototype.slice(), como se muestra a continuación: */
 
@@ -536,9 +537,9 @@ console.log(arr4);
 
 Las variables a y b toman el primer y segundo valor del arreglo.Después de eso, debido a la 
 presencia del parámetro rest, arr obtiene el resto de los valores en forma de un arreglo. El 
-elemento rest sólo funciona correctamente como la última variable en la lista.Por ejemplo, no puedes 
-usar el parámetro rest para capturar un sub - arreglo que deje fuera el último elemento del arreglo 
-original.
+elemento rest sólo funciona correctamente como la última variable en la lista.Por ejemplo, no 
+puedes usar el parámetro rest para capturar un sub - arreglo que deje fuera el último elemento del 
+arreglo original.
 
 Utiliza una asignación de desestructuración con el parámetro rest para emular el comportamiento de 
 Array.prototype.slice().removeFirstTwo() debe devolver un sub - arreglo del arreglo original list 
@@ -568,8 +569,8 @@ const profileUpdate = (profileData) => {
     const { name, age, nationality, location } = profileData;
 }
 
-/* Esto desestructura efectivamente el objeto enviado a la función.Esto también se puede hacer en el 
-lugar: */
+/* Esto desestructura efectivamente el objeto enviado a la función.Esto también se puede hacer en 
+el lugar: */
 
 const profileUpdate1 = ({ name, age, nationality, location }) => {
 
@@ -618,22 +619,22 @@ console.log(greeting1);
 
 /* La consola mostrará las cadenas Hello, my name is Zodiac Hasbro! y I am 56 years old..
 
-Muchas cosas han ocurrido allí.En primer lugar, el ejemplo utiliza backticks(`), no comillas (' o "),
-para envolver la cadena. En segundo lugar, observe que la cadena es multi-línea tanto en el código 
-como cuando se imprime en pantalla. Esto guarda la inserción \n dentro de las cadenas. La sintaxis 
-${variable} utilizada anteriormente es un marcador de posición. Básicamente, ya no tendrás que 
-utilizar concatenación con el operador +. Para añadir variables a las cadenas, basta con colocar la 
-variable en una plantilla de cadena y envolverla con ${y}. Del mismo modo, puedes incluir otras 
-expresiones en tu literal de cadena, por ejemplo ${a + b}. Esta nueva forma de crear cadenas te da 
-mayor flexibilidad para crear cadenas robustas.
+Muchas cosas han ocurrido allí.En primer lugar, el ejemplo utiliza backticks(`), no comillas 
+(' o "),para envolver la cadena. En segundo lugar, observe que la cadena es multi-línea tanto en el 
+código como cuando se imprime en pantalla. Esto guarda la inserción \n dentro de las cadenas. La 
+sintaxis ${variable} utilizada anteriormente es un marcador de posición. Básicamente, ya no tendrás 
+que utilizar concatenación con el operador +. Para añadir variables a las cadenas, basta con 
+colocar la variable en una plantilla de cadena y envolverla con ${y}. Del mismo modo, puedes 
+incluir otras expresiones en tu literal de cadena, por ejemplo ${a + b}. Esta nueva forma de crear 
+cadenas te da mayor flexibilidad para crear cadenas robustas.
 
 Usa la sintaxis de plantilla literal con comillas invertidas para crear un arreglo de cadenas de 
-elemento lista (li). El texto de cada elemento de lista debe ser uno de los elementos del arreglo de 
-la propiedad failure en el objeto result y tener un atributo class con el valor text-warning. La 
+elemento lista (li). El texto de cada elemento de lista debe ser uno de los elementos del arreglo 
+de la propiedad failure en el objeto result y tener un atributo class con el valor text-warning. La 
 función makeList debe devolver el arreglo de cadenas de elemento lista.
 
-Utiliza un método de iteración (cualquier tipo de bucle) para obtener el resultado deseado (mostrado 
-a continuación).
+Utiliza un método de iteración (cualquier tipo de bucle) para obtener el resultado deseado 
+(mostrado a continuación).
 
 [
     '<li class="text-warning">no-var</li>',
@@ -675,8 +676,8 @@ const getMousePosition1 = (x, y) => ({
 
 /* getMousePosition es una función simple que devuelve un objeto que contiene dos propiedades. ES6 
 proporciona el azúcar sintáctico para eliminar la redundancia de tener que escribir x: x. Puedes 
-simplemente escribir x una vez, y se convertirá en x: x(o algo equivalente) de la nada. Aquí está la 
-misma función de arriba reescrita para usar esta nueva sintaxis: */
+simplemente escribir x una vez, y se convertirá en x: x(o algo equivalente) de la nada. Aquí está 
+la misma función de arriba reescrita para usar esta nueva sintaxis: */
 
 const getMousePosition2 = (x, y) => ({ x, y });
 
@@ -743,9 +744,9 @@ clases de un paradigma orientado a objetos, a diferencia de lenguajes como Java,
 En ES5, se puede crear un objeto definiendo una función constructor y usando la palabra clave new 
 para instanciar el objeto.
 
-En ES6, una declaración class tiene un método constructor que se invoca con la palabra clave new. Si 
-el método constructor no se define explícitamente, entonces se define implícitamente sin argumentos. 
-*/
+En ES6, una declaración class tiene un método constructor que se invoca con la palabra clave new. 
+Si el método constructor no se define explícitamente, entonces se define implícitamente sin 
+argumentos. */
 
 // Explicit constructor
 class SpaceShuttle {
@@ -778,9 +779,9 @@ un constructor.Este constructor se invoca cuando new es llamado para crear un nu
     Nota: UpperCamelCase debe ser utilizado por convención para nombres de clase en ES6, como 
     SpaceShuttle fue usado arriba.
 
-El método constructor es un método especial para crear e inicializar un objeto creado con una clase. 
-Aprenderás más sobre ello en la sección de Programación Orientada a Objetos de la Certificación en 
-Algoritmos de JavaScript y Estructuras de Datos.
+El método constructor es un método especial para crear e inicializar un objeto creado con una 
+clase. Aprenderás más sobre ello en la sección de Programación Orientada a Objetos de la 
+Certificación en Algoritmos de JavaScript y Estructuras de Datos.
 
 Usa la palabra clave class y escribe un constructor para crear la clase Vegetable.
 
@@ -803,8 +804,8 @@ Puedes obtener valores de un objeto y establecer el valor de una propiedad dentr
 
 Estas operaciones clásicamente se llaman getters y setters.
 
-Las funciones getter están destinadas a simplemente devolver(get) el valor de la variable privada de 
-un objeto al usuario sin que el usuario acceda directamente a la variable privada.
+Las funciones getter están destinadas a simplemente devolver(get) el valor de la variable privada 
+de un objeto al usuario sin que el usuario acceda directamente a la variable privada.
 
 Las funciones setter están destinadas a modificar(set) el valor de la variable privada de un objeto 
 basado en el valor pasado a la función setter.Este cambio podría implicar cálculos, o incluso 
@@ -834,11 +835,11 @@ Ten en cuenta la sintaxis usada para invocar el getter y el setter. Ni siquiera 
 funciones.Los getter y los setter son importantes porque ocultan los detalles internos de la 
 implementación.
 
-    Nota: Es convención preceder el nombre de una variable privada con un guion bajo(_).Sin embargo, 
-    la práctica en sí misma no hace una variable privada.
+Nota: Es convención preceder el nombre de una variable privada con un guion bajo(_).Sin embargo, la 
+práctica en sí misma no hace una variable privada.
 
-Utiliza la palabra clave class para crear una clase Thermostat.El constructor acepta una temperatura 
-Fahrenheit.
+Utiliza la palabra clave class para crear una clase Thermostat.El constructor acepta una 
+temperatura Fahrenheit.
 
 En la clase, crea un getter para obtener la temperatura en Celsius y un setter para ajustar la 
 temperatura en Celsius.
@@ -849,8 +850,8 @@ Fahrenheit y C es el valor de la misma temperatura en Celsius.
     Nota: Cuando implementes esto, rastrearás la temperatura dentro de la clase en una escala, ya 
     sea Fahrenheit o Celsius.
 
-Este es el poder de un getter y un setter.Estás creando una API para otro usuario, que puede obtener 
-el resultado correcto independientemente de cuál estés rastreando.
+Este es el poder de un getter y un setter.Estás creando una API para otro usuario, que puede 
+obtener el resultado correcto independientemente de cuál estés rastreando.
 
 En otras palabras, estás abstrayendo los detalles de la implementación del usuario. */
 
@@ -916,8 +917,8 @@ const add = (x, y) => {
 export { add };
 
 Cuando exportas una variable o función, puedes importarla en otro archivo y usarla sin tener que 
-volver a escribir el código.Puedes exportar diferentes cosas al repartir el primer ejemplo para cada 
-una de ellas si quieres exportar o al colocarlas en la declaración de exportación del segundo 
+volver a escribir el código.Puedes exportar diferentes cosas al repartir el primer ejemplo para 
+cada una de ellas si quieres exportar o al colocarlas en la declaración de exportación del segundo 
 ejemplo.Por ejemplo:
 
 export { add, subtract };
@@ -937,9 +938,9 @@ export { uppercaseString, lowercaseString }
 */
 
 /* Reutiliza código de JavaScript utilizando import
-import te permite elegir qué partes de un archivo o módulo cargar.En la lección previa, los ejemplos 
-exportaron add del archivo math_functions.js.Así es como puedes importarlo para utilizarlo en otro 
-archivo:
+import te permite elegir qué partes de un archivo o módulo cargar.En la lección previa, los 
+ejemplos exportaron add del archivo math_functions.js.Así es como puedes importarlo para utilizarlo 
+en otro archivo:
 
 import { add } from './math_functions.js';
 
@@ -966,9 +967,9 @@ lowercaseString("WORLD!");
 */
 
 /* Use * para importar todo de un archivo
-Supongamos que tienes un archivo y deseas importar todo su contenido en el archivo actual.Esto puede 
-hacerse con la sintaxis import * as.Este es un ejemplo donde los contenidos de un archivo llamado 
-math_functions.js son importados a un archivo dentro del mismo directorio:
+Supongamos que tienes un archivo y deseas importar todo su contenido en el archivo actual.Esto 
+puede hacerse con la sintaxis import * as.Este es un ejemplo donde los contenidos de un archivo 
+llamado math_functions.js son importados a un archivo dentro del mismo directorio:
 
 import * as myMathModule from "./math_functions.js";
 
@@ -1011,9 +1012,9 @@ export default function (x, y) {
 
 La primera es una función nombrada, y la segunda es una función anónima.
 
-Ya que export default es usado para declarar un valor fallback para un módulo o archivo, sólo puedes 
-tener un valor que sea exportación por defecto en cada módulo o archivo.Además, no puedes usar 
-export default con var, let, o const
+Ya que export default es usado para declarar un valor fallback para un módulo o archivo, sólo 
+puedes tener un valor que sea exportación por defecto en cada módulo o archivo.Además, no puedes 
+usar export default con var, let, o const
 
 La siguiente función debe ser el valor fallback para el módulo.Por favor, añade el código necesario 
 para hacerlo. 
@@ -1025,9 +1026,9 @@ export default function subtract(x, y) {
 
 /* Importa una exportación por defecto
 En el último desafío, aprendiste sobre export default (exportación por defecto) y sus usos.Para 
-importar una exportación por defecto, necesita utilizar la sintaxis import de manera diferente.En el 
-siguiente ejemplo, add es la exportación por defecto del archivo math_functions.js.A continuación, 
-cómo importarlo:
+importar una exportación por defecto, necesita utilizar la sintaxis import de manera diferente.En 
+el siguiente ejemplo, add es la exportación por defecto del archivo math_functions.js.A 
+continuación, cómo importarlo:
 
 import add from "./math_functions.js";
 
@@ -1057,7 +1058,8 @@ const myPromise = new Promise((resolve, reject) => {
 
 console.log(myPromise);
 
-/* Crea una nueva promesa llamada makeServerRequest.Pásale una función con parámetros resolve y reject al constructor. */
+/* Crea una nueva promesa llamada makeServerRequest.Pásale una función con parámetros resolve y 
+reject al constructor. */
 
 const makeServerRequest = new Promise((resolve, reject) => {
 
@@ -1105,11 +1107,12 @@ const makeServerRequest1 = new Promise((resolve, reject) => {
 console.log(makeServerRequest1);
 
 /* Maneja una promesa cumplida usando then
-Las promesas son muy útiles, cuando tu tienes un proceso que toma una cantidad de tiempo desconocida 
-en tu código(algo asíncrono por ejemplo), a menudo una petición de servidor.Cuando tu haces una 
-petición a un servidor, toma algo de tiempo, después de que termina, normalmente quieres hacer algo 
-con la respuesta del servidor.Esto se puede lograr utilizando el método then.El método then, se 
-ejecuta inmediatamente después de que tu promesa se cumple con resolve.A continuación un ejemplo: */
+Las promesas son muy útiles, cuando tu tienes un proceso que toma una cantidad de tiempo 
+desconocida en tu código(algo asíncrono por ejemplo), a menudo una petición de servidor.Cuando tu 
+haces una petición a un servidor, toma algo de tiempo, después de que termina, normalmente quieres 
+hacer algo con la respuesta del servidor.Esto se puede lograr utilizando el método then.El método 
+then, se ejecuta inmediatamente después de que tu promesa se cumple con resolve.A continuación un 
+ejemplo: */
 
 myPromise.then(result => {
 
@@ -1117,8 +1120,8 @@ myPromise.then(result => {
 
 /* result viene con el argumento proporcionado al método resolve.
 
-Añade el método then a tu promesa.Usa result como parámetro de tu función callback, asimismo imprime 
-result en la consola. */
+Añade el método then a tu promesa.Usa result como parámetro de tu función callback, asimismo 
+imprime result en la consola. */
 
 const makeServerRequest2 = new Promise((resolve, reject) => {
     /* responseFromServer1 es establecido a true para representar una respuesta satisfactoria del 
@@ -1151,7 +1154,8 @@ Añade el método catch a tu promesa. Usa error como el parámetro de tu funció
 error en la consola. */
 
 const makeServerRequest3 = new Promise((resolve, reject) => {
-    // responseFromServer es establecido a false para representar una respuesta no satisfactoria del servidor
+    /* responseFromServer es establecido a false para representar una respuesta no satisfactoria 
+    del servidor */
     let responseFromServer3 = false;
 
     if (responseFromServer3) {
