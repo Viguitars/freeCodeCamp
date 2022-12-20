@@ -1,3 +1,5 @@
+/* cSpell: disable; */
+
 /* Conversor de números romanos
 Convierte el número proporcionado en un número romano.
 
