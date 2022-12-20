@@ -58,9 +58,9 @@ let yourArray = ["Victor", 37, true, `15/03/1985`, "Mendoza"];
 
 /* Accede a los contenidos de un arreglo utilizando la notación de corchetes
 La principal característica de cualquier estructura de datos es, por supuesto, la habilidad no solo 
-de guardar datos, sino también de ser capaz de recuperar esos datos cuando le es requerido.Entonces, 
-ahora que hemos aprendido como crear un arreglo, comencemos a pensar en cómo podemos acceder a la 
-información de ese arreglo.
+de guardar datos, sino también de ser capaz de recuperar esos datos cuando le es requerido.
+Entonces, ahora que hemos aprendido como crear un arreglo, comencemos a pensar en cómo podemos 
+acceder a la información de ese arreglo.
 
 Cuando definimos un arreglo simple como el que se ve a continuación, hay 3 elementos en él: */
 
@@ -73,8 +73,8 @@ que los arreglos en JavaScript son indexados en base cero, es decir que el prime
 arreglo está en la posición cero, no en la uno.Para recuperar un elemento de un arreglo podemos 
 encerrar un índice entre corchetes y agregarlo al final de este, o más comúnmente, a una variable 
 que hace referencia a un objeto tipo arreglo.Esto es conocido como notación de corchetes.Por 
-ejemplo, si queremos recuperar la a de ourArray y asignársela a una variable, podemos hacerlo con el 
-siguiente código: */
+ejemplo, si queremos recuperar la a de ourArray y asignársela a una variable, podemos hacerlo con 
+el siguiente código: */
 
 let ourVariable = ourArray[0];
 console.log(ourVariable);
@@ -90,8 +90,8 @@ console.log(ourArray);
 /* Utilizando la notación de corchetes, ahora hemos restablecido el elemento en el índice 1 de la 
 cadena b, a not b anymore.Ahora ourArray es["a", "not b anymore", "c"].
 
-Para completar este desafío, establece la segunda posición(índice 1) de myArray a cualquier cosa que 
-quieras, además de la letra b. */
+Para completar este desafío, establece la segunda posición(índice 1) de myArray a cualquier cosa 
+que quieras, además de la letra b. */
 
 let myArray = ["a", "b", "c", "d"];
 // Cambia solo el código debajo de esta línea
@@ -140,9 +140,9 @@ function mixedNumbers(arr) {
 console.log(mixedNumbers(['IV', 5, 'six']));
 
 /* Elimina elementos de un arreglo con pop() y shift()
-Tanto push() como unshift() tienen métodos correspondientes que son casi opuestos funcionales: pop() 
-y shift().Como ya habrás adivinado, en lugar de agregar, pop() elimina un elemento al final de un 
-arreglo, mientras que shift() elimina un elemento al principio.La diferencia clave entre pop() y 
+Tanto push() como unshift() tienen métodos correspondientes que son casi opuestos funcionales: pop
+() y shift().Como ya habrás adivinado, en lugar de agregar, pop() elimina un elemento al final de 
+un arreglo, mientras que shift() elimina un elemento al principio.La diferencia clave entre pop() y 
 shift() y sus primos push() y unshift(), es que ninguno de los dos métodos toma parámetros, y cada 
 uno sólo permite modificar un arreglo por un solo elemento a la vez.
 
@@ -185,8 +185,8 @@ console.log(popShift(['challenge', 'is', 'not', 'complete']));
 Bien, ya hemos aprendido a eliminar elementos al principio y al final de los arreglos utilizando 
 shift() y pop(), pero ¿qué pasa si queremos eliminar un elemento de alguna parte del medio ? ¿O 
 eliminar más de un elemento a la vez ? Pues bien, ahí es donde entra splice().splice() nos permite 
-hacer precisamente eso: eliminar cualquier número de elementos consecutivos de cualquier parte de un 
-arreglo.
+hacer precisamente eso: eliminar cualquier número de elementos consecutivos de cualquier parte de 
+un arreglo.
 
 splice() puede tomar hasta 3 parámetros, pero por ahora, nos centraremos sólo en los 2 primeros.Los 
 primeros dos parámetros de splice() son enteros que representan índices, o posiciones, de elementos 
@@ -203,7 +203,6 @@ console.log(array);
 /* Aquí eliminamos 2 elementos, comenzando con el tercer elemento(en el índice 2).array tendrá el 
 valor['today', 'was', 'great'].
 
-    
 splice() no sólo modifica el arreglo que llama, sino que también devuelve un nuevo arreglo que 
 contiene el valor de los elementos eliminados: */
 
@@ -242,8 +241,8 @@ numbers ahora será[10, 11, 12, 13, 14, 15].
 Aquí, comenzamos con un arreglo de números.A continuación, pasamos lo siguiente a splice(): El 
 índice en el que empezar a borrar elementos(3), el número de elementos a borrar(1), y el resto de 
 argumentos(13, 14) se insertarán a partir de ese mismo índice.Ten en cuenta que puede haber 
-cualquier número de elementos(separados por comas) después de amountToDelete, cada uno de los cuales 
-es insertado.
+cualquier número de elementos(separados por comas) después de amountToDelete, cada uno de los 
+cuales es insertado.
 
 Hemos definido una función, htmlColorNames, que toma un arreglo de colores HTML como argumento.
 Modifica la función usando splice() para eliminar los dos primeros elementos del arreglo y agrega 
@@ -291,8 +290,8 @@ console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']
 
 /* Copia un arreglo con el operador de propagación
 Mientras que slice() nos permite ser selectivos sobre qué elementos de un arreglo copiar, entre 
-otras tareas útiles, el nuevo operador de propagación de ES6 nos permite copiar fácilmente todos los 
-elementos de una arreglo, en orden, con una sintaxis simple y altamente legible.La sintaxis de 
+otras tareas útiles, el nuevo operador de propagación de ES6 nos permite copiar fácilmente todos 
+los elementos de una arreglo, en orden, con una sintaxis simple y altamente legible.La sintaxis de 
 propagación simplemente se ve así: ...
 
 En la práctica, podemos utilizar el operador de propagación para copiar un arreglo de esta manera:*/
@@ -340,8 +339,8 @@ console.log(thatArray1);
 Usando la sintaxis de propagación, acabamos de lograr una operación que habría sido más compleja y 
 verbosa si hubiéramos usado métodos tradicionales.
 
-Hemos definido una función spreadOut que devuelve la variable sentence.Modifica la función usando el 
-operador de propagación para que devuelva el arreglo['learning', 'to', 'code', 'is', 'fun']. */
+Hemos definido una función spreadOut que devuelve la variable sentence.Modifica la función usando 
+el operador de propagación para que devuelva el arreglo['learning', 'to', 'code', 'is', 'fun']. */
 
 function spreadOut() {
     let fragment = ['to', 'code'];
@@ -389,10 +388,10 @@ console.log(quickCheck([true, false, false], undefined)); //debe devolver false
 /* Itera a través de todos los elementos de un arreglo utilizando bucles "for"
 A veces, cuando se trabaja con arreglos, es muy útil poder iterar a través de cada elemento para 
 encontrar uno o más elementos que podamos necesitar, o manipular un arreglo en función de los 
-elementos de datos que cumplen un determinado conjunto de criterios.JavaScript ofrece varios métodos 
-incorporados que iteran sobre arreglos de formas ligeramente diferentes para conseguir distintos 
-resultados(como every(), forEach(), map(), etc.), sin embargo, la técnica que es más flexible y nos 
-ofrece la mayor cantidad de control es un simple bucle for.
+elementos de datos que cumplen un determinado conjunto de criterios.JavaScript ofrece varios 
+métodos incorporados que iteran sobre arreglos de formas ligeramente diferentes para conseguir 
+distintos resultados(como every(), forEach(), map(), etc.), sin embargo, la técnica que es más 
+flexible y nos ofrece la mayor cantidad de control es un simple bucle for.
 
 Considera lo siguiente: */
 
@@ -413,11 +412,11 @@ simple prueba que hemos creado.De esta manera, hemos determinado de forma sencil
 qué elementos de datos son mayores que 10, y hemos devuelto un nuevo arreglo, [12, 14, 80], que 
 contiene esos elementos.
 
-Hemos definido una función, filteredArray, que toma arr, un arreglo anidado, y elem como argumentos, 
-y devuelve un nuevo arreglo.elem representa un elemento que puede o no estar presente en uno o más 
-de los arreglos anidados dentro de arr.Modifica la función, usando un bucle for, para que devuelva 
-una versión filtrada del arreglo pasado de forma que cualquier arreglo anidado dentro de arr que 
-contenga elem haya sido eliminado. */
+Hemos definido una función, filteredArray, que toma arr, un arreglo anidado, y elem como 
+argumentos, y devuelve un nuevo arreglo.elem representa un elemento que puede o no estar presente 
+en uno o más de los arreglos anidados dentro de arr.Modifica la función, usando un bucle for, para 
+que devuelva una versión filtrada del arreglo pasado de forma que cualquier arreglo anidado dentro 
+de arr que contenga elem haya sido eliminado. */
 
 function filteredArray(arr, elem) {
     let newArr = [];
@@ -440,13 +439,13 @@ secciones posteriores.Pero antes de pasar a ver los Objetos, vamos a echar un vi
 cómo los arreglos pueden llegar a ser un poco más complejos de lo que hemos visto en los desafíos 
 anteriores.
 
-Una de las características más poderosas cuando se piensa en los arreglos como estructuras de datos, 
-es que los arreglos pueden contener, o incluso estar completamente formados por otros arreglos.Hemos 
-visto arreglos que contienen arreglos en desafíos anteriores, pero bastante simples.Sin embargo, los 
-arreglos pueden contener una profundidad infinita de arreglos que pueden contener otros arreglos, 
-cada uno con sus propios niveles arbitrarios de profundidad, y así sucesivamente.De esta manera, un 
-arreglo puede convertirse rápidamente en una estructura de datos muy compleja, conocido como 
-multidimensional, o arreglo anidado.Considera el siguiente ejemplo: */
+Una de las características más poderosas cuando se piensa en los arreglos como estructuras de 
+datos, es que los arreglos pueden contener, o incluso estar completamente formados por otros 
+arreglos.Hemos visto arreglos que contienen arreglos en desafíos anteriores, pero bastante simples.
+Sin embargo, los arreglos pueden contener una profundidad infinita de arreglos que pueden contener 
+otros arreglos, cada uno con sus propios niveles arbitrarios de profundidad, y así sucesivamente.De 
+esta manera, un arreglo puede convertirse rápidamente en una estructura de datos muy compleja, 
+conocido como multidimensional, o arreglo anidado.Considera el siguiente ejemplo: */
 
 let nestedArray = [
     ['deep'],
@@ -486,10 +485,10 @@ console.log(nestedArray[2][1][0][0][0]);
 /* Ahora registra deeper still.
 
 Hemos definido una variable, myNestedArray, como un arreglo.Modifica myNestedArray, utilizando 
-cualquier combinación de cadenas, números y booleanos para los elementos de datos, de modo que tenga 
-exactamente cinco niveles de profundidad(recuerda que el arreglo más externo es el nivel 1).En algún 
-lugar del tercer nivel, incluye la cadena deep, en el cuarto nivel, incluye la cadena deeper y en el 
-quinto nivel, incluye la cadena deepest. */
+cualquier combinación de cadenas, números y booleanos para los elementos de datos, de modo que 
+tenga exactamente cinco niveles de profundidad(recuerda que el arreglo más externo es el nivel 1)En 
+algún lugar del tercer nivel, incluye la cadena deep, en el cuarto nivel, incluye la cadena deeper 
+y en el quinto nivel, incluye la cadena deepest. */
 
 let myNestedArray = [
     // Cambia solo el código debajo de esta línea
@@ -531,9 +530,9 @@ una propiedad adicional, como "origin"(origen), se puede hacer asignando origin 
 tekkenCharacter.origin = 'South Korea';
 console.log(tekkenCharacter);
 
-/* Esto usa la notación de puntos.Si observas el objeto tekkenCharacter, ahora incluirá la propiedad 
-origin.Hwoarang también tenía el cabello naranja.Puedes agregar esta propiedad con la notación de 
-corchetes: */
+/* Esto usa la notación de puntos.Si observas el objeto tekkenCharacter, ahora incluirá la 
+propiedad origin.Hwoarang también tenía el cabello naranja.Puedes agregar esta propiedad con la 
+notación de corchetes: */
 
 tekkenCharacter['hair color'] = 'dyed orange';
 console.log(tekkenCharacter);
@@ -600,9 +599,9 @@ let nestedObject = {
 
 /* nestedObject tiene tres propiedades: id(el valor es un número), date(el valor es una cadena), y 
 data(el valor es un objeto con su estructura anidada).Aunque las estructuras pueden volverse 
-rápidamente complejas, podemos seguir utilizando las mismas notaciones para acceder a la información 
-que necesitamos.Para asignar el valor 10 a la propiedad busy del objeto anidado onlineStatus, 
-utilizamos la notación de puntos para referenciar la propiedad: */
+rápidamente complejas, podemos seguir utilizando las mismas notaciones para acceder a la 
+información que necesitamos.Para asignar el valor 10 a la propiedad busy del objeto anidado 
+onlineStatus, utilizamos la notación de puntos para referenciar la propiedad: */
 
 nestedObject.data.onlineStatus.busy = 10;
 console.log(nestedObject);
@@ -640,9 +639,9 @@ clave en el objeto foods, o undefined si no está presente.La notación de corch
 porque a veces no conocemos las propiedades de los objetos antes de la ejecución o necesitamos 
 acceder a ellos de una manera más dinámica.
 
-Hemos definido una función, checkInventory, que recibe como argumento un elemento escaneado.Devuelve 
-el valor actual de la clave scannedItem en el objeto foods.Puedes asumir que sólo se proporcionarán 
-claves válidas como argumento a checkInventory. */
+Hemos definido una función, checkInventory, que recibe como argumento un elemento escaneado.
+Devuelve el valor actual de la clave scannedItem en el objeto foods.Puedes asumir que sólo se 
+proporcionarán claves válidas como argumento a checkInventory. */
 
 let foods1 = {
     apples: 25,
@@ -663,10 +662,10 @@ console.log(checkInventory("apples"));
 
 /* Usa la palabra clave "delete" para eliminar las propiedades de los objetos
 Ahora ya sabes qué son los objetos y sus características y ventajas básicas.En resumen, son 
-almacenes clave - valor que proporcionan una forma flexible e intuitiva de estructurar los datos, y, 
-proporcionan un tiempo de búsqueda muy rápido.A lo largo del resto de estos desafíos, describiremos 
-varias operaciones comúnes que puedes realizar sobre los objetos para que te sientas cómodo 
-aplicando estas útiles estructuras de datos en tus programas.
+almacenes clave - valor que proporcionan una forma flexible e intuitiva de estructurar los datos, 
+y, proporcionan un tiempo de búsqueda muy rápido.A lo largo del resto de estos desafíos, 
+describiremos varias operaciones comúnes que puedes realizar sobre los objetos para que te sientas 
+cómodo aplicando estas útiles estructuras de datos en tus programas.
 
 En desafíos anteriores, hemos agregado y modificado los pares clave - valor de un objeto.Aquí 
 veremos cómo podemos eliminar un par clave - valor de un objeto.
@@ -698,8 +697,8 @@ delete foods2.strawberries;
 console.log(foods2);
 
 /* Evalúa si un objeto tiene una propiedad
-Ahora podemos agregar, modificar y eliminar claves de los objetos.Pero, ¿y si sólo queremos saber si 
-un objeto tiene una propiedad específica ? JavaScript nos proporciona dos maneras diferentes de 
+Ahora podemos agregar, modificar y eliminar claves de los objetos.Pero, ¿y si sólo queremos saber 
+si un objeto tiene una propiedad específica ? JavaScript nos proporciona dos maneras diferentes de 
 hacerlo.Uno utiliza el método hasOwnProperty() y el otro utiliza la palabra clave in.Si tenemos un 
 objeto users con una propiedad de Alan, podríamos comprobar su presencia de cualquiera de las 
 siguientes maneras:
@@ -812,10 +811,10 @@ function countOnline(usersObj) {
 console.log(countOnline(users1));
 
 /* Genera un arreglo de todas las claves de los objetos con Object.keys()
-También podemos generar un arreglo que contenga todas las claves almacenadas en un objeto utilizando 
-el método Object.keys().Este método toma un objeto como argumento y devuelve un arrelgo de cadenas 
-que representan cada propiedad en el objeto.De nuevo, no habrá un orden específico para las entradas 
-en el arreglo.
+También podemos generar un arreglo que contenga todas las claves almacenadas en un objeto 
+utilizando el método Object.keys().Este método toma un objeto como argumento y devuelve un arrelgo 
+de cadenas que representan cada propiedad en el objeto.De nuevo, no habrá un orden específico para 
+las entradas en el arreglo.
 
 Termina de escribir la función getArrayOfUsers para que devuelva un arreglo que contenga todas las 
 propiedades del objeto que recibe como argumento. */
@@ -851,17 +850,18 @@ console.log(getArrayOfUsers(users2));
 Ahora ya has visto todas las operaciones básicas de los objetos de JavaScript.Puedes agregar, 
 modificar y eliminar pares clave - valor, comprobar si las claves existen e iterar sobre todas las 
 claves de un objeto.A medida que sigas aprendiendo JavaScript verás aplicaciones aún más versátiles 
-de los objetos.Además, las lecciones de Estructuras de Datos ubicadas en la sección Coding Interview 
-Prep del plan de estudios también cubren los objetos Map y Set de ES6, los cuales son similares a 
-los objetos ordinarios, pero proporcionan algunas características adicionales.Ahora que has 
-aprendido los fundamentos de los arreglos y los objetos, ¡estás totalmente preparado para empezar a 
-abordar problemas más complejos con JavaScript!
+de los objetos.Además, las lecciones de Estructuras de Datos ubicadas en la sección Coding 
+Interview Prep del plan de estudios también cubren los objetos Map y Set de ES6, los cuales son 
+similares a los objetos ordinarios, pero proporcionan algunas características adicionales.Ahora que 
+has aprendido los fundamentos de los arreglos y los objetos, ¡estás totalmente preparado para 
+empezar a abordar problemas más complejos con JavaScript!
 
 Echa un vistazo al objeto que hemos proporcionado en el editor de código.El objeto user contiene 
 tres claves.La clave data contiene cinco claves, una de las cuales contiene un arreglo de friends.A 
-partir de esto, puedes ver lo flexibles que son los objetos como estructuras de datos.Hemos empezado 
-a escribir una función addFriend.Termina de escribirla para que tome un objeto user y agregue el 
-nombre del argumento friend al arreglo almacenado en user.data.friends y devuelva ese arreglo. */
+partir de esto, puedes ver lo flexibles que son los objetos como estructuras de datos.Hemos 
+empezado a escribir una función addFriend.Termina de escribirla para que tome un objeto user y 
+agregue el nombre del argumento friend al arreglo almacenado en user.data.friends y devuelva ese 
+arreglo. */
 
 let user = {
     name: 'Kenneth',
