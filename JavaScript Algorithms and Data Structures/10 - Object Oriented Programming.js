@@ -9,8 +9,8 @@ En este curso, aprenderás los principios básicos de OOP en JavaScript incluyen
 this, cadenas prototipo, constructores, y herencias. */
 
 /* Crea un objeto básico de JavaScript
-Piensa en cosas que la gente ve todos los días, como coches, tiendas y aves.Todos estos son objetos: 
-cosas tangibles con las que la gente puede observar e interactuar.
+Piensa en cosas que la gente ve todos los días, como coches, tiendas y aves.Todos estos son 
+objetos: cosas tangibles con las que la gente puede observar e interactuar.
 
 ¿Cuáles son algunas de las cualidades de estos objetos ? Un coche tiene ruedas.Las tiendas venden 
 artículos.Las aves tienen alas.
@@ -21,17 +21,19 @@ propiedades.Por ejemplo, todos los coches tienen ruedas, pero no todos los coche
 cantidad de ruedas.
 
 Los objetos en JavaScript son usados para modelar objetos del mundo real, dándoles propiedades y 
-comportamientos como sus contrapartes del mundo real.Aquí hay un ejemplo usando estos conceptos para 
-crear un objeto duck(pato): */
+comportamientos como sus contrapartes del mundo real.Aquí hay un ejemplo usando estos conceptos 
+para crear un objeto duck(pato): */
 
 let duck = {
     name: "Aflac",
     numLegs: 2
 };
 
-/* El objeto duck tiene dos pares propiedad / valor: un name(nombre) de Aflac y un numLegs(número de patas) de 2.
+/* El objeto duck tiene dos pares propiedad / valor: un name(nombre) de Aflac y un numLegs(número 
+de patas) de 2.
 
-Crea un objeto dog con las propiedades name y numLegs y asígnales una cadena y un número, respectivamente. */
+Crea un objeto dog con las propiedades name y numLegs y asígnales una cadena y un número, 
+respectivamente. */
 
 let dog = {
     name: "Tangerine",
@@ -39,8 +41,8 @@ let dog = {
 };
 
 /* Utiliza notación de puntos para acceder a las propiedades de un objeto
-En el último desafío creaste un objeto con varias propiedades.Ahora verás cómo acceder a los valores 
-de esas propiedades.Por ejemplo: */
+En el último desafío creaste un objeto con varias propiedades.Ahora verás cómo acceder a los 
+valores de esas propiedades.Por ejemplo: */
 
 let duck1 = {
     name: "Aflac",
@@ -64,8 +66,8 @@ console.log(dog1.numLegs);
 /* Crea un método en un objeto
 Los objetos pueden tener un tipo de propiedad especial, llamada método.
 
-Los métodos son propiedades que son funciones.Estos agregan diferentes comportamientos a los objetos.
-Aquí esta el ejemplo de duck con un método: */
+Los métodos son propiedades que son funciones.Estos agregan diferentes comportamientos a los 
+objetos.Aquí esta el ejemplo de duck con un método: */
 
 let duck2 = {
     name: "Aflac",
@@ -97,8 +99,8 @@ sayName: function() { return "The name of this duck is " + duck.name + "."; }
 
 Aunque esta es una forma válida de acceder a la propiedad del objeto, existe un problema.Si el 
 nombre de la variable cambia, cualquier código que haga referencia al nombre original también 
-tendría que ser actualizado.En una definición breve de un objeto, esto no es un problema, pero si un 
-objeto tiene muchas referencias a sus propiedades hay una mayor probabilidad de error.
+tendría que ser actualizado.En una definición breve de un objeto, esto no es un problema, pero si 
+un objeto tiene muchas referencias a sus propiedades hay una mayor probabilidad de error.
 
 Una forma de evitar estos problemas es con palabra clave this: */
 
@@ -111,10 +113,10 @@ let duck3 = {
 console.log(duck3.sayName());
 
 
-/* this es un tema profundo, y el ejemplo anterior es sólo una forma de usarlo.En el contexto actual, 
-this se refiere al objeto con el que el método está asociado: duck.Si el nombre del objeto se cambia 
-a mallard, no es necesario encontrar todas las referencias a duck en el código.Hace que el código 
-sea reutilizable y mas fácil de leer.
+/* this es un tema profundo, y el ejemplo anterior es sólo una forma de usarlo.En el contexto 
+actual, this se refiere al objeto con el que el método está asociado: duck.Si el nombre del objeto 
+se cambia a mallard, no es necesario encontrar todas las referencias a duck en el código.Hace que 
+el código sea reutilizable y mas fácil de leer.
 
 Modifica el método dog.sayLegs para eliminar cualquier referencia a dog.Utiliza el ejemplo de duck 
 como orientación. */
@@ -200,8 +202,8 @@ console.log(hound);
 /* Extender constructores para recibir argumentos
 Los constructores de Bird y Dog del último desafío funcionaron bien.Sin embargo, nota que todas las 
 Birds que son creadas con el constructor Bird, automáticamente se nombran Albert, son de color azul 
-y tienen dos patas. ¿Qué pasa si quieres Birds(aves) con diferentes valores para nombre y color ? Es 
-posible cambiar manualmente las propiedades de cada Bird(ave), pero sería bastante trabajo: */
+y tienen dos patas. ¿Qué pasa si quieres Birds(aves) con diferentes valores para nombre y color ? 
+Es posible cambiar manualmente las propiedades de cada Bird(ave), pero sería bastante trabajo: */
 
 let swan = new Bird();
 swan.name = "Carlos";
@@ -209,8 +211,8 @@ swan.color = "white";
 
 /* Supongamos que estabas escribiendo un programa para hacer seguimiento de cientos o incluso miles 
 de aves diferentes en un aviario.Tardaría mucho tiempo en crear todas las aves, para luego cambiar 
-las propiedades a diferentes valores para cada una.Para crear más fácilmente diferentes objetos Bird, 
-puedes diseñar tu constructor de aves para aceptar parámetros: */
+las propiedades a diferentes valores para cada una.Para crear más fácilmente diferentes objetos 
+Bird, puedes diseñar tu constructor de aves para aceptar parámetros: */
 
 function Bird(name, color) {
     this.name = name;
@@ -222,8 +224,9 @@ function Bird(name, color) {
 
 let cardinal = new Bird("Bruce", "red");
 
-/*Esto genera una nueva instancia de Bird con propiedades name y color que tienen como valor Bruce y red, respectivamente.La propiedad numLegs aún está establecida 
-en 2. El cardinal tiene estas propiedades:*/
+/*Esto genera una nueva instancia de Bird con propiedades name y color que tienen como valor Bruce 
+y red, respectivamente.La propiedad numLegs aún está establecida en 2. El cardinal tiene estas 
+propiedades:*/
 
 cardinal.name
 cardinal.color
@@ -249,8 +252,8 @@ let terrier = new Dog("Tangerine", "orange");
 /* Verifica el constructor de un objeto con "instanceof"
 Cada vez que una función constructora crea un nuevo objeto, se dice que ese objeto es una instancia 
 de su constructor.JavaScript proporciona una manera conveniente de verificar esto con el operador 
-instanceof.instanceof permite comparar un objeto con un constructor, devuelve true o false basado en 
-si ese objeto fue creado o no con dicho constructor.Aquí hay un ejemplo:*/
+instanceof.instanceof permite comparar un objeto con un constructor, devuelve true o false basado 
+en si ese objeto fue creado o no con dicho constructor.Aquí hay un ejemplo:*/
 
 let Bird1 = function (name, color) {
     this.name = name;
@@ -264,8 +267,8 @@ console.log(crow instanceof Bird1);
 
 /* Aquí el método instanceof devolverá true.
 
-Si un objeto es creado sin usar un constructor, instanceof verificará que no es una instancia de ese 
-constructor: */
+Si un objeto es creado sin usar un constructor, instanceof verificará que no es una instancia de 
+ese constructor: */
 
 let canary = {
     name: "Mildred",
@@ -436,7 +439,9 @@ console.log(beagle2.constructor === Dog);
 
 /* Ambas llamadas console.log devolverían true en la consola.
 
-Ten en cuenta que la propiedad constructor hace referencia a la función constructor que creo la instancia.La ventaja de la propiedad constructor es que es posible verificar esta propiedad para averiguar qué tipo de objeto es.Así es como se podría utilizar: */
+Ten en cuenta que la propiedad constructor hace referencia a la función constructor que creo la 
+instancia.La ventaja de la propiedad constructor es que es posible verificar esta propiedad para 
+averiguar qué tipo de objeto es.Así es como se podría utilizar: */
 
 function joinBirdFraternity(candidate) {
     if (candidate.constructor === Bird) {
@@ -591,8 +596,8 @@ function Bird(name) {
 
 console.log(typeof Bird.prototype);
 
-/* Debido a que prototype es un objeto, ¡un prototype puede tener su propio prototype! En este caso, 
-el prototype de Bird.prototype es Object.prototype: */
+/* Debido a que prototype es un objeto, ¡un prototype puede tener su propio prototype! En este 
+caso, el prototype de Bird.prototype es Object.prototype: */
 
 console.log(Object.prototype.isPrototypeOf(Bird.prototype));
 
@@ -601,11 +606,11 @@ console.log(Object.prototype.isPrototypeOf(Bird.prototype));
 let duck8 = new Bird("Donald");
 console.log(duck.hasOwnProperty("name"));
 
-/*El método hasOwnProperty se define en Object.prototype al cual se puede acceder con Bird.prototype, 
-al que se puede acceder con duck.Este es un ejemplo de la cadena prototype.En esta cadena prototype, 
-Bird es el supertype de duck mientras que duck es el subtype.Object es un supertype de Bird y duck.
-Object es un supertype de todos los objetos en JavaScript.Por lo tanto, cualquier objeto puede 
-utilizar el método hasOwnProperty.
+/*El método hasOwnProperty se define en Object.prototype al cual se puede acceder con Bird.
+prototype, al que se puede acceder con duck.Este es un ejemplo de la cadena prototype.En esta 
+cadena prototype, Bird es el supertype de duck mientras que duck es el subtype.Object es un 
+supertype de Bird y duck.Object es un supertype de todos los objetos en JavaScript.Por lo tanto, 
+cualquier objeto puede utilizar el método hasOwnProperty.
 
 Modifica el código para mostrar la cadena de prototipos correcta. */
 
@@ -621,10 +626,10 @@ Dog.prototype.isPrototypeOf(beagle);  // produce true
 console.log(Object.prototype.isPrototypeOf(Dog.prototype));
 
 /* Usa herencia para que no te repitas
-Hay un principio en la programación llamado No te repitas(Don't Repeat Yourself "DRY"). La razón por 
-la que el código repetido es un problema es porque cualquier tipo de cambio requiere corregir código 
-en múltiples lugares. Esto suele significar más trabajo para los programadores y más espacio para 
-errores.
+Hay un principio en la programación llamado No te repitas(Don't Repeat Yourself "DRY"). La razón 
+por la que el código repetido es un problema es porque cualquier tipo de cambio requiere corregir 
+código en múltiples lugares. Esto suele significar más trabajo para los programadores y más espacio 
+para errores.
 
 Observa en el siguiente ejemplo como el método describe es compartido por Bird y Dog: */
 
@@ -744,8 +749,8 @@ let beagle5 = Object.create(Animal.prototype); // Cambia esta línea
 En el desafío anterior, viste el primer paso para heredar el comportamiento del supertipo(o padre) 
 Animal: creando una nueva instancia de Animal.
 
-Este desafío cubre el siguiente paso: establecer el prototipo prototype del subtipo(o hijo) —en este 
-caso, Bird— para ser una instancia de Animal. */
+Este desafío cubre el siguiente paso: establecer el prototipo prototype del subtipo(o hijo) —en 
+este caso, Bird— para ser una instancia de Animal. */
 
 Bird.prototype = Object.create(Animal.prototype);
 
@@ -776,8 +781,8 @@ Dog.prototype = Object.create(Animal.prototype);
 let beagle6 = new Dog();
 
 /* Restablece una propiedad "constructor" heredada
-Cuando un objeto hereda el prototype de otro objeto, también hereda la propiedad del constructor del 
-supertipo.
+Cuando un objeto hereda el prototype de otro objeto, también hereda la propiedad del constructor 
+del supertipo.
 
 Por ejemplo: */
 
@@ -963,8 +968,8 @@ plane.fly();
 Ten en cuenta cómo el mixin permite que el mismo método fly sea reutilizado por los objetos bird y 
 plane los cuales no están relacionados.
 
-Crea un mixin llamado glideMixin que defina un método llamado glide.Luego utiliza el glideMixin para 
-dar a bird y boat la habilidad de planear. */
+Crea un mixin llamado glideMixin que defina un método llamado glide.Luego utiliza el glideMixin 
+para dar a bird y boat la habilidad de planear. */
 
 let bird1 = {
     name: "Donald",
@@ -1036,8 +1041,9 @@ Un patrón común en JavaScript es la ejecución de una función apenas declarad
 inmediatamente.
 
 Ten en cuenta que la función no tiene nombre y que no se almacena en un valor.Los dos paréntesis() 
-al final de la expresión de la función hacen que se ejecute o invoque de forma inmediata.Este patrón 
-se conoce como una expresión de función inmediatamente invocada o IIFE(por sus siglas en inglés).
+al final de la expresión de la función hacen que se ejecute o invoque de forma inmediata.Este 
+patrón se conoce como una expresión de función inmediatamente invocada o IIFE(por sus siglas en 
+inglés).
 
 Reescribe la función makeNest y elimina su llamada, por lo que es una expresión de función anónima 
 inmediatamente invocada(IIFE). */
