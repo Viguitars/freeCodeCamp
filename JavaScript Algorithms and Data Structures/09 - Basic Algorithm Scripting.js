@@ -50,8 +50,8 @@ console.log(reverseString("Greetings from Earth"));//htraE morf sgniteerG.
 /* Factoriza un número
 Devuelve el factorial del entero proporcionado.
 
-Si el número entero es representado con la letra n, un factorial es el producto de todos los enteros 
-positivos menores o iguales a n.
+Si el número entero es representado con la letra n, un factorial es el producto de todos los 
+enteros positivos menores o iguales a n.
 
 Los factoriales suelen representarse con la abreviatura n!
 
@@ -271,8 +271,8 @@ console.log(booWho("true"));//false
 console.log(booWho("false"));//false
 
 /* Haz que la primera letra de una palabra este en mayúscula
-Devuelve la cadena proporcionada con la primera letra de cada palabra en mayúsculas.Asegúrate de que 
-el resto de la palabra esté en minúsculas.
+Devuelve la cadena proporcionada con la primera letra de cada palabra en mayúsculas.Asegúrate de 
+que el resto de la palabra esté en minúsculas.
 
 Como propósito de este ejercicio, debes también usar mayúsculas conectando palabras como the y of. 
 */
@@ -368,16 +368,16 @@ console.log(getIndexToIns([2, 5, 10], 15));//3.
 console.log(getIndexToIns([], 1));//0.
 
 /* Mutaciones
-Devuelve true si la cadena de caracteres en el primer elemento del arreglo contiene todas las letras 
-de la cadena en el segundo elemento del arreglo.
+Devuelve true si la cadena de caracteres en el primer elemento del arreglo contiene todas las 
+letras de la cadena en el segundo elemento del arreglo.
 
 Por ejemplo, ["hello", "Hello"], debe devolver true porque todas las letras de la segunda cadena 
 están presentes en la primera, ignorando mayúsculas o minúsculas.
 
 Los argumentos["hello", "hey"] deben devolver false porque la cadena hello no contiene y.
 
-Finalmente, ["Alien", "line"], debe devolver true porque todas las letras de line están presentes en 
-Alien. */
+Finalmente, ["Alien", "line"], debe devolver true porque todas las letras de line están presentes 
+en Alien. */
 
 //let regexStr1 = new RegExp(target + '$', 'g');
 
