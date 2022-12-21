@@ -274,11 +274,405 @@ de aumentar el valor en uno. */
 let fixedValue1 = 4;
 
 // Cambia solo el código debajo de esta línea
-function incrementer1(num) {
-    return num + 1;
+function incrementer1(dynamicValue) {
+    return dynamicValue + 1;
     // Cambia solo el código encima de esta línea
 }
-console.log(incrementer1(4));
+console.log(incrementer1(fixedValue1));
 console.log(fixedValue1);
 
+/* Refactoriza variables globales por fuera de funciones
+Hasta ahora, hemos visto dos principios distintos para la programación funcional:
+
+1) No alteres una variable u objeto: crea nuevas variables y objetos y devuélvelos, si es 
+necesario, desde una función.Pista: usar algo como const newArr = arrVar, donde arrVar es un 
+arreglo, simplemente creará una referencia a la variable existente y no una copia.Así que cambiar 
+un valor en newArr cambiaría el valor en arrVar.
+
+2) Declara parámetros de función: cualquier cálculo dentro de una función depende sólo de los 
+argumentos pasados a la función y no en ningún objeto o variable global.
+
+Añadir uno a un número no es muy emocionante, pero podemos aplicar estos principios cuando 
+trabajamos con arreglos u objetos más complejos.
+
+Reescribe el código para que el arreglo global bookList no sea cambiado dentro de ninguna de las 
+funciones.La función add debe agregar el bookName dado al final del arreglo pasado a esta y 
+devolver un nuevo arreglo (lista).La función remove debe eliminar el bookName dado del arreglo 
+pasado a esta.
+
+Nota: ambas funciones deben devolver un arreglo y cualquier nuevo parámetro debe ser añadido antes 
+del parámetro bookName. */
+
+// La variable global
+const bookList = [
+    "The Hound of the Baskervilles",
+    "On The Electrodynamics of Moving Bodies",
+    "Philosophiæ Naturalis Principia Mathematica",
+    "Disquisitiones Arithmeticae"
+];
+
+// Cambia el código debajo de esta línea
+function add(list, bookName) {
+    let newList = [...list];
+    newList.push(bookName);
+    return newList;
+    // Cambia el código encima de esta línea
+}
+
+// Cambia el código debajo de esta línea
+function remove(list, bookName) {
+    let newList = [...list];
+    const book_index = newList.indexOf(bookName);
+    if (book_index >= 0) {
+        newList.splice(book_index, 1);
+        return newList;
+        // Cambia el código encima de esta línea
+    }
+}
+
+console.log(add(bookList, "A Brief History of Time"));
+/* ["The Hound of the Baskervilles", 
+"On The Electrodynamics of Moving Bodies", 
+"Philosophiæ Naturalis Principia Mathematica", 
+"Disquisitiones Arithmeticae", 
+"A Brief History of Time"]. */
+console.log(remove(bookList, "On The Electrodynamics of Moving Bodies"));
+/* ["The Hound of the Baskervilles", 
+"Philosophiæ Naturalis Principia Mathematica", 
+"Disquisitiones Arithmeticae"]. */
+console.log(remove(
+    add(bookList, "A Brief History of Time"), "On The Electrodynamics of Moving Bodies")
+);
+/* ["The Hound of the Baskervilles", 
+"Philosophiæ Naturalis Principia Mathematica", 
+"Disquisitiones Arithmeticae", 
+"A Brief History of Time"]. */
+
+/* Usa el método "map" para extraer datos de un arreglo
+Hasta ahora hemos aprendido a utilizar funciones puras para evitar efectos secundarios en un 
+programa.Además, hemos aprendido el valor de tener una función que solo depende de sus argumentos 
+de entrada.
+
+Este es solo el principio.Como su nombre indica, la programación funcional se centra en una teoría 
+de funciones.
+
+Tendría sentido pasarlos como argumentos a otras funciones y devolver una función de otra función.
+Las funciones se consideran first class objects en JavaScript, lo que significa que pueden ser 
+usados como cualquier otro objeto.Pueden guardarse en variables, almacenarse en un objeto o pasarse 
+como argumentos de función.
+
+Empecemos con algunas funciones de arreglos simples, que son métodos en el prototipo de objetos del 
+arreglo.En este ejercicio estamos utilizando Array.prototype.map() o más específicamente map.
+
+El método map iterará sobre cada elemento de un arreglo y devuelve un nuevo arreglo que contiene 
+los resultados de llamar a la función callback en cada elemento.Esto lo hace sin mutar el arreglo 
+original.
+
+Cuando se utiliza la función callback, se pasan tres argumentos.El primer argumento es el elemento 
+actual que se está procesando.El segundo es el índice de ese elemento y el tercero es el arreglo al 
+que se llamó el método map.
+
+A continuación se muestra un ejemplo con el método map en el arreglo users para devolver un nuevo 
+arreglo que contiene solo los nombres de los usuarios como elementos.Para que sea más fácil, el 
+ejemplo solo utiliza el primer argumento del callback. */
+
+const users = [
+    { name: 'John', age: 34 },
+    { name: 'Amy', age: 20 },
+    { name: 'camperCat', age: 10 }
+];
+
+const names = users.map(user => user.name);
+console.log(names);
+
+/* La consola mostraría el valor['John', 'Amy', 'camperCat'].
+
+El arreglo watchList contiene objetos con información sobre varias películas.Usa map en watchList 
+para asignar un nuevo arreglo de objetos a la variable ratings.Cada película en el nuevo arreglo 
+debe tener solo una tecla title con el nombre de la película, y una tecla rating con la 
+calificación IMDB.El código en el editor utiliza actualmente un bucle for para hacer esto, por lo 
+que debes reemplazar la funcionalidad del bucle con tu expresión map. */
+
+// La variable global
+const watchList = [
+    {
+        "Title": "Inception",
+        "Year": "2010",
+        "Rated": "PG-13",
+        "Released": "16 Jul 2010",
+        "Runtime": "148 min",
+        "Genre": "Action, Adventure, Crime",
+        "Director": "Christopher Nolan",
+        "Writer": "Christopher Nolan",
+        "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+        "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+        "Language": "English, Japanese, French",
+        "Country": "USA, UK",
+        "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+        "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+        "Metascore": "74",
+        "imdbRating": "8.8",
+        "imdbVotes": "1,446,708",
+        "imdbID": "tt1375666",
+        "Type": "movie",
+        "Response": "True"
+    },
+    {
+        "Title": "Interstellar",
+        "Year": "2014",
+        "Rated": "PG-13",
+        "Released": "07 Nov 2014",
+        "Runtime": "169 min",
+        "Genre": "Adventure, Drama, Sci-Fi",
+        "Director": "Christopher Nolan",
+        "Writer": "Jonathan Nolan, Christopher Nolan",
+        "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+        "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        "Language": "English",
+        "Country": "USA, UK",
+        "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+        "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+        "Metascore": "74",
+        "imdbRating": "8.6",
+        "imdbVotes": "910,366",
+        "imdbID": "tt0816692",
+        "Type": "movie",
+        "Response": "True"
+    },
+    {
+        "Title": "The Dark Knight",
+        "Year": "2008",
+        "Rated": "PG-13",
+        "Released": "18 Jul 2008",
+        "Runtime": "152 min",
+        "Genre": "Action, Adventure, Crime",
+        "Director": "Christopher Nolan",
+        "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+        "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+        "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+        "Language": "English, Mandarin",
+        "Country": "USA, UK",
+        "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+        "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+        "Metascore": "82",
+        "imdbRating": "9.0",
+        "imdbVotes": "1,652,832",
+        "imdbID": "tt0468569",
+        "Type": "movie",
+        "Response": "True"
+    },
+    {
+        "Title": "Batman Begins",
+        "Year": "2005",
+        "Rated": "PG-13",
+        "Released": "15 Jun 2005",
+        "Runtime": "140 min",
+        "Genre": "Action, Adventure",
+        "Director": "Christopher Nolan",
+        "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+        "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+        "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+        "Language": "English, Urdu, Mandarin",
+        "Country": "USA, UK",
+        "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+        "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+        "Metascore": "70",
+        "imdbRating": "8.3",
+        "imdbVotes": "972,584",
+        "imdbID": "tt0372784",
+        "Type": "movie",
+        "Response": "True"
+    },
+    {
+        "Title": "Avatar",
+        "Year": "2009",
+        "Rated": "PG-13",
+        "Released": "18 Dec 2009",
+        "Runtime": "162 min",
+        "Genre": "Action, Adventure, Fantasy",
+        "Director": "James Cameron",
+        "Writer": "James Cameron",
+        "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+        "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "Language": "English, Spanish",
+        "Country": "USA, UK",
+        "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+        "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+        "Metascore": "83",
+        "imdbRating": "7.9",
+        "imdbVotes": "876,575",
+        "imdbID": "tt0499549",
+        "Type": "movie",
+        "Response": "True"
+    }
+];
+
+// Cambia solo el código debajo de esta línea
+/* 
+const ratings = [];
+for (let i = 0; i < watchList.length; i++) {
+    ratings.push({ title: watchList[i]["Title"], rating: watchList[i]["imdbRating"] });
+} 
+*/
+const ratings = watchList.map((film) => {
+    return {
+        title: film.Title,
+        rating: film.imdbRating
+    }
+});
+// Cambia solo el código encima de esta línea
+
+console.log(JSON.stringify(ratings));
+/* [
+    { "title": "Inception", "rating": "8.8" }, 
+    { "title": "Interstellar", "rating": "8.6" }, 
+    { "title": "The Dark Knight", "rating": "9.0" }, 
+    { "title": "Batman Begins", "rating": "8.3" }, 
+    { "title": "Avatar", "rating": "7.9" }
+] */
+
+/* Implementa map en un prototipo
+Como has visto anteriormente, al aplicar Array.prototype.map(), o simplemente map(), el método map 
+devuelve un arreglo de la misma longitud que el arreglo dentro del que fue llamado.Esto tampoco 
+altera el arreglo original, siempre y cuando su función callback no lo haga.
+ 
+En otras palabras, map es una función pura, y su salida depende únicamente de sus entradas.Además, 
+toma otra función como argumento.
+ 
+Puedes aprender mucho sobre el método map si implementas tu propia versión.Se recomienda utilizar 
+un bucle for o Array.prototype.forEach().
+ 
+Escribe tu propio Array.prototype.myMap(), el cual debe comportarse exactamente como Array.
+prototype.map().No debes utilizar el método incorporado map.Se puede acceder a la instancia de 
+Array en el método myMap usando this. */
+
+Array.prototype.myMap = function (callback) {
+    const newArray = [];
+    // Cambia solo el código debajo de esta línea
+    for (let i = 0; i < this.length; i++) {
+        newArray.push(callback(this[i], i, this));
+    }
+    // Cambia solo el código encima de esta línea
+    return newArray;
+};
+
+console.log([23, 65, 98, 5, 13].myMap(item => item * 2));
+//[46, 130, 196, 10, 26].
+console.log(["naomi", "quincy", "camperbot"].myMap(element => element.toUpperCase()));
+//["NAOMI", "QUINCY", "CAMPERBOT"].
+console.log([1, 1, 2, 5, 2].myMap((element, index, array) => array[index + 1] || array[0]));
+//[1, 2, 5, 2, 1].
+
+/* Usa el método de "filter" para extraer datos de un arreglo
+Otra función útil de los arreglos es Array.prototype.filter() o simplemente filter().
+
+filter Llama a una función sobre cada elemento del arreglo y devuelve un nuevo arreglo, conteniendo 
+solo los elementos para los cuales la función devolvió un valor de verdadero - Es decir, un valor 
+que devuelve true si paso al constructor Boolean().En otras palabras, filtra el arreglo, basándose 
+en la función que se le pasa.Al igual que map, hace esto sin necesidad de modificar el arreglo 
+original.
+
+La función callback acepta tres argumentos.El primer argumento es el elemento actual que se está 
+procesando.El segundo es el índice de ese elemento y el tercero es el arreglo sobre el que se llamó 
+al método filter.
+
+A continuación se muestra un ejemplo en el que se utiliza el método filter en el arreglo users para 
+devolver un nuevo arreglo que contiene sólo a los usuarios menores de 30 años.Para que sea más 
+fácil, el ejemplo solo utiliza el primer argumento de la función callback. */
+
+const users1 = [
+    { name: 'John', age: 34 },
+    { name: 'Amy', age: 20 },
+    { name: 'camperCat', age: 10 }
+];
+
+const usersUnder30 = users.filter(user => user.age < 30);
+console.log(usersUnder30);
+/* La consola muestra el valor[{ name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 }].
+
+La variable watchList contiene un arreglo de objetos con información sobre varias películas.Utiliza 
+una combinación de filter y map en watchList para asignar un nuevo arreglo de objetos con solo 
+title y rating claves.El nuevo arreglo solo debe incluir objetos donde imdbRating es mayor o igual 
+a 8.0.Ten en cuenta que los valores rating se guardan como cadenas en el objeto y puedes necesitar 
+convertirlos en números para realizar operaciones matemáticas en ellos. */
+
+// Cambia solo el código debajo de esta línea
+
+const filteredList = watchList
+    .filter(list => list.imdbRating >= 8.0)
+    .map(list => {
+        return {
+            title: list.Title,
+            rating: list.imdbRating
+        }
+    });
+// Cambia solo el código encima de esta línea
+
+console.log(filteredList);
+
+/* [{ "title": "Inception", "rating": "8.8" }, 
+{ "title": "Interstellar", "rating": "8.6" }, 
+{ "title": "The Dark Knight", "rating": "9.0" }, 
+{ "title": "Batman Begins", "rating": "8.3" }] */
+
+/* Implementa el método filter en un prototipo
+Puedes aprender mucho sobre el método filter si implementas tu propia versión.Se recomienda 
+utilizar un bucle for o Array.prototype.forEach().
+
+Escribe tu propio Array.prototype.myFilter(), que debe comportarse exactamente como Array.prototype.
+filter().No debes utilizar el método incorporado filter.Se puede acceder a la instancia Array en el 
+método myFilter usando this. */
+
+Array.prototype.myFilter = function (callback) {
+    const newArray = [];
+    // Cambia solo el código debajo de esta línea
+    for (let i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this)) {
+            newArray.push(this[i]);
+        }
+    }
+    // Cambia solo el código encima de esta línea
+    return newArray;
+};
+
+console.log([23, 65, 98, 5, 13].myFilter(item => item % 2));
+//[23, 65, 5, 13].
+console.log(["naomi", "quincy", "camperbot"].myFilter(element => element === "naomi"));
+//["naomi"].
+console.log([1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index));
+//[1, 2, 5].
+
+/* Devolver parte de un arreglo mediante el método slice
+El método slice devuelve una copia de ciertos elementos de un arreglo.Puede tomar dos argumentos, 
+el primero da el índice de dónde comenzar el corte, el segundo es el índice de dónde terminar el 
+corte(y no es inclusivo).Si no se proporcionan los argumentos, el valor predeterminado es comenzar 
+desde el principio del arreglo hasta el final, la cual es una manera fácil de hacer una copia de 
+todo el arreglo.El método slice no muta el arreglo original, pero devuelve uno nuevo.
+
+Por ejemplo: */
+
+const arr = ["Cat", "Dog", "Tiger", "Zebra"];
+const newArray = arr.slice(1, 3);
+console.log(newArray);
+
+/* newArray tendría el valor de["Dog", "Tiger"].
+
+Utiliza el método slice en la función sliceArray para retornar parte del arreglo anim dados los 
+índices beginSlice y endSlice.La función debe devolver un arreglo. */
+
+function sliceArray(anim, beginSlice, endSlice) {
+    // Cambia solo el código debajo de esta línea
+    const newAnim = anim.slice();
+    return newAnim.slice(beginSlice, endSlice);
+    // Cambia solo el código encima de esta línea
+}
+
+const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+console.log(sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 1, 3));
+//["Dog", "Tiger"].
+console.log(sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 0, 1));
+//["Cat"].
+console.log(sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 1, 4));
+//["Dog", "Tiger", "Zebra"].
+console.log(inputAnim);
 
