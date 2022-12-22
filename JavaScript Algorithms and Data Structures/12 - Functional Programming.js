@@ -676,3 +676,281 @@ console.log(sliceArray(["Cat", "Dog", "Tiger", "Zebra", "Ant"], 1, 4));
 //["Dog", "Tiger", "Zebra"].
 console.log(inputAnim);
 
+/* Remueve elementos de un arreglo usando slice en lugar de splice
+Un patrón común al trabajar con arreglos es cuando deseas eliminar elementos y conservar el resto 
+del arreglo.JavaScript ofrece el método splice para esto, que toma argumentos para el índice de 
+dónde comenzar a eliminar elementos, luego la cantidad de elementos para eliminar.Si no se 
+proporciona el segundo argumento, el valor predeterminado es eliminar elementos hasta el final.Sin 
+embargo, el método splice muta el arreglo original en el que se llama.Por ejemplo: */
+
+const cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+console.log(cities.splice(3, 1));
+console.log(cities);
+
+/* Aquí splice devuelve la "string" London y la elimina del arreglo cities.cities tendrá el valor 
+de["Chicago", "Delhi", "Islamabad", "Berlin"].
+
+Como vimos en el último desafío, el método slice no muta el arreglo original, pero devuelve uno 
+nuevo que puede ser guardado en una variable.Recuerda que el método slice recibe dos argumentos 
+para indicar el comienzo y el final del segmento(el final es no inclusivo) y retorna estos 
+elementos en un nuevo arreglo.Usar el método slice en lugar de splice ayuda a prevenir cualquier 
+efecto colateral de mutar un arreglo.
+
+Reescribe la función nonMutatingSplice usando slice en lugar de splice.Debe limitar el arreglo 
+proporcionado cities a una longitud de 3 y devolver un nuevo arreglo con solo los primeros tres 
+elementos.
+
+No modifiques el arreglo original proporcionado en la función. */
+
+function nonMutatingSplice(cities) {
+    // Cambia solo el código debajo de esta línea
+    return cities.slice(0, 3);
+    // Cambia solo el código encima de esta línea
+}
+
+const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+console.log(nonMutatingSplice(inputCities));
+console.log(inputCities);
+
+/* Combina dos arreglos utilizando el método "concat"
+Concatenation significa unir elementos de extremo a extremo.JavaScript ofrece el método concat para 
+cadenas y arreglos, que funciona de la misma manera.Para arreglos, el método es llamado desde un 
+arreglo, un segundo arreglo es proporcionado como argumento de concat, este se añadirá al final del 
+primer arreglo.Devuelve un nuevo arreglo, sin mutar ninguno de los arreglos originales.Aquí hay un 
+ejemplo: */
+
+console.log([1, 2, 3].concat([4, 5, 6]));
+
+/* El arreglo devuelto sería[1, 2, 3, 4, 5, 6].
+
+Usa el método concat en la función nonMutatingConcat para concatenar attach al final de original.La 
+función deber devolver el arreglo concatenado. */
+
+function nonMutatingConcat(original, attach) {
+    // Cambia solo el código debajo de esta línea
+    return original.concat(attach);
+    // Cambia solo el código encima de esta línea
+}
+
+const first = [1, 2, 3];
+const second = [4, 5];
+console.log(nonMutatingConcat(first, second));
+console.log(first);
+console.log(second);
+
+/* Agrega elementos al final de un arreglo utilizando concat en lugar de push
+La programación funcional consiste en crear y utilizar funciones no mutantes.
+
+En el reto anterior se introdujo el método concat como una forma de unir varios arreglos en uno 
+nuevo sin alterar los arreglos originales.Compara concat con el método push.push añade elementos al 
+final del propio arreglo sobre el que es invocado, alterando dicho arreglo.Aquí hay un ejemplo: */
+
+const arr1 = [1, 2, 3];
+arr1.push(4, 5, 6);
+console.log(arr1);
+
+/* arr habría sido modificado a[1, 2, 3, 4, 5, 6], hecho que no cumple con los principios de la 
+programación funcional.
+
+concat ofrece una manera de unir nuevos elementos al final del arreglo sin ningún efecto colateral.
+
+Cambia la función nonMutatingPush de manera que utilice concat para unir newItem al final de 
+original sin alterar los arreglos original o newItem.La función debe devolver un arreglo. */
+
+function nonMutatingPush(original, newItem) {
+    // Cambia solo el código debajo de esta línea
+    return original.concat(newItem);
+    // Cambia solo el código encima de esta línea
+}
+
+const first1 = [1, 2, 3];
+const second1 = [4, 5];
+console.log(nonMutatingPush(first1, second1));
+console.log(first1);
+console.log(second1);
+
+/* Utiliza el método "reduce" para analizar datos
+Array.prototype.reduce() o simplemente reduce() es la operación más común de todas para arreglos en 
+JavaScript.Se puede resolver casi cualquier problema de procesamiento de arreglos utilizando el 
+método reduce.
+
+El método reduce permite formas más generales de procesamiento de arreglos y es posible mostrar que 
+tanto filter como map pueden derivarse como aplicaciones especiales de reduce.El método reduce 
+itera sobre cada elemento del arreglo y devuelve un solo valor(por ejemplo una cadena, número, 
+objeto, arreglo).Esto se consigue mediante una función callback que se llama en cada iteración.
+
+La función callback acepta cuatro argumentos.El primer argumento se conoce como acumulador, que 
+recibe el valor retornado de la función callback de la iteración anterior, el segundo es el 
+elemento actual que se está procesando, el tercero es el índice de ese elemento y el cuarto es el 
+arreglo sobre el que se llama a la función reduce.
+
+Además de la función callback, reduce tiene un parámetro adicional que toma un valor inicial para 
+el acumulador.Si este segundo parámetro no se utiliza, entonces la primera iteración se omite y la 
+segunda se pasa por el primer elemento del arreglo como acumulador.
+
+Mira a continuación un ejemplo con reduce en el arreglo users para devolver la suma de todas las 
+edades de los usuarios.Para hacerlo más fácil, el ejemplo sólo utiliza el primer y segundo 
+argumento. */
+
+const users2 = [
+    { name: 'John', age: 34 },
+    { name: 'Amy', age: 20 },
+    { name: 'camperCat', age: 10 }
+];
+
+const sumOfAges = users2.reduce((sum, user2) => sum + user2.age, 0);
+console.log(sumOfAges);
+
+/* La consola mostrará el valor 64.
+
+En otro ejemplo, se puede observar cómo un objeto puede ser devuelto con los nombres de los 
+usuarios como propiedades con las edades como valores. */
+
+const users3 = [
+    { name: 'John', age: 34 },
+    { name: 'Amy', age: 20 },
+    { name: 'camperCat', age: 10 }
+];
+
+const usersObj = users3.reduce((obj, user3) => {
+    obj[user3.name] = user3.age;
+    return obj;
+}, {});
+console.log(usersObj);
+
+/* La consola mostrará el valor { John: 34, Amy: 20, camperCat: 10 }.
+
+La variable watchList contiene un arreglo de objetos con información sobre varias películas.Utiliza 
+reduce para encontrar la calificación media en IMDB de las películas dirigidas por Christopher 
+Nolan.Recuerda de desafíos anteriores filtrar(filter) los datos y mapear(map) sobre ellos para 
+extraer lo que necesitas.Puede que necesites crear otras variables y devolver la calificación media 
+con la función getRating.Ten en cuenta que los valores de calificación se guardan como cadenas en 
+el objeto y necesitan ser convertidos en números antes de ser utilizados en cualquier operación 
+matemática. */
+
+
+function getRating(watchList) {
+    // Cambia solo el código debajo de esta línea
+
+    // Se usa filter para buscar todas las peliculas de Christopher Nolan
+    const filmsDirectedBy = watchList.filter(film => film.Director === "Christopher Nolan");
+    console.log(filmsDirectedBy);
+    // Se usa map para convertir todos los ratings a numeros
+    const ratingsTurnedIntoNumbers = filmsDirectedBy.map(film => Number(film.imdbRating));
+    console.log(ratingsTurnedIntoNumbers);
+    // Largo del array de ratings
+    const ratingsLength = ratingsTurnedIntoNumbers.length;
+    console.log(ratingsLength);
+    // Se usa reduce para calular la suma de los ratings
+    const sumRatings = ratingsTurnedIntoNumbers.reduce((sum, rating) => sum + rating);
+    console.log(sumRatings);
+    // Se calula la calificación media del rating
+    let averageRating = sumRatings / ratingsLength;
+
+    // Cambia solo el código encima de esta línea
+    return averageRating;
+}
+
+console.log(getRating(watchList));//8.675.
+
+/* Utiliza las funciones de orden superior "map", "filter" o "reduce" para resolver un problema 
+complejo
+Ahora que has superado algunos desafíos usando funciones de orden superior como map(), filter(), y 
+reduce(), ahora puedes aplicarlos para resolver un desafío más complejo.
+
+Completa el código para la función squareList usando cualquier combinación de map(), filter(), y 
+reduce().La función debe devolver un nuevo arreglo que contenga los cuadrados de solamente los 
+enteros positivos(números decimales no son enteros) cuando se le pasa un arreglo de números reales.
+Un ejemplo de un arreglo que contiene números reales es[-3, 4.8, 5, 3, -3.2].
+
+Nota: Tu función no debe usar ningún tipo de bucle for o while o la función forEach(). */
+
+const squareList = arr => {
+    // Cambia solo el código debajo de esta línea
+    return arr
+        .filter(num => num > 0 && num % parseInt(num) === 0)
+        .map(num => num * num);;
+    // Cambia solo el código encima de esta línea
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);//[25, 9].
+console.log(squareList([4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2]));
+//[16, 1764, 36].
+console.log(squareList([-3.7, -5, 3, 10, 12.5, 7, -4.5, -17, 0.3]));
+//[9, 100, 49].
+
+/* Ordena un arreglo alfabéticamente con el método sort
+El método sort ordena los elementos de un arreglo de acuerdo a la función callback.
+
+Por ejemplo: */
+
+function ascendingOrder(arr) {
+    return arr.sort(function (a, b) {
+        return a - b;
+    });
+}
+
+console.log(ascendingOrder([1, 5, 2, 3, 4]));
+// Esto devolvería el valor de[1, 2, 3, 4, 5].
+
+function reverseAlpha(arr) {
+    return arr.sort(function (a, b) {
+        return a === b ? 0 : a < b ? 1 : -1;
+    });
+}
+
+console.log(reverseAlpha(['l', 'h', 'z', 'b', 's']));
+/* Esto devolvería el valor de['z', 's', 'l', 'h', 'b'].
+
+Por defecto, JavaScript ordena basándose en el valor "Unicode" de la cadena de caracteres, lo cual 
+puede dar resultados inesperados.Por lo tanto, se recomienda proporcionar una función callback para 
+especificar como se deben ordenar los elementos del arreglo.Cuando se proporciona dicha función 
+callback, normalmente llamada compareFunction, los elementos del arreglo se ordenan de acuerdo al 
+valor que devuelve la función compareFunction: Si compareFunction(a, b) devuelve un valor menor que 
+0 para dos elementos a y b, entonces a irá antes que b.Si compareFunction(a, b) devuelve un valor 
+mayor a 0 para dos elementos a y b, entonces b irá antes que a.Si compareFunction(a, b) devuelve un 
+valor igual a 0 para dos elementos a y b, entonces a y b se dejarán sin cambios.
+
+Utiliza el método sort en la función alphabeticalOrder para ordenar los elementos de arr en orden 
+alfabético.La función debe devolver el arreglo ordenado. */
+
+function alphabeticalOrder(arr) {
+    // Cambia solo el código debajo de esta línea
+    return arr.sort()
+    // Cambia solo el código encima de esta línea
+}
+
+console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+//["a", "a", "c", "d", "g", "z"].
+console.log(alphabeticalOrder(["x", "h", "a", "m", "n", "m"]));
+//["a", "h", "m", "m", "n", "x"].
+console.log(alphabeticalOrder(["a", "a", "a", "a", "x", "t"]));
+//["a", "a", "a", "a", "t", "x"].
+
+/* Devuelve un arreglo ordenado sin cambiar el arreglo original
+Un efecto secundario del método sort es que cambia el orden de los elementos en el arreglo original.
+En otras palabras, muta el arreglo en su sitio.Una forma de evitar esto es concatenar primero un 
+arreglo vacío al que está siendo ordenado(recuerda que slice y concat devuelven un nuevo arreglo), 
+luego ejecutar el método sort.
+
+Utiliza el método sort en la función nonMutatingSort para ordenar los elementos de un arreglo en 
+orden ascendente.La función debe devolver un nuevo arreglo y no mutar la variable globalArray. */
+
+const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
+    // Cambia solo el código debajo de esta línea
+    let newArray = [];
+    return newArray
+        .concat(arr)
+        .sort(function (a, b) {
+            return a - b;
+        });
+    // Cambia solo el código encima de esta línea
+}
+
+console.log(nonMutatingSort(globalArray));//[2, 3, 5, 6, 9].
+console.log(globalArray);
+console.log(nonMutatingSort([1, 30, 4, 21, 100000]));//[1, 4, 21, 30, 100000].
+console.log(nonMutatingSort([140000, 104, 99]));//[99, 104, 140000].
