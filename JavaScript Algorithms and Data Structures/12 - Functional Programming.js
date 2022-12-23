@@ -86,8 +86,8 @@ const prepareGreenTea = () => 'greenTea';
 const prepareBlackTea = () => 'blackTea';
 
 /*
-Dada una función (representando el tipo de té) y el número de tazas necesarias, la siguiente función 
-retorna un arreglo de cadenas de texto (cada una representando un tipo específico de té).
+Dada una función (representando el tipo de té) y el número de tazas necesarias, la siguiente 
+función retorna un arreglo de cadenas de texto (cada una representando un tipo específico de té).
 */
 const getTea1 = (prepareTea, numOfCups) => {
     const teaCups = [];
@@ -954,3 +954,233 @@ console.log(nonMutatingSort(globalArray));//[2, 3, 5, 6, 9].
 console.log(globalArray);
 console.log(nonMutatingSort([1, 30, 4, 21, 100000]));//[1, 4, 21, 30, 100000].
 console.log(nonMutatingSort([140000, 104, 99]));//[99, 104, 140000].
+
+/* Divide una cadena en un arreglo utilizando el método "split"
+El método split divide una cadena en un arreglo de cadenas.Se necesita un argumento para el 
+delimitador, el cual puede ser un carácter para separar la cadena o una expresión regular.Por 
+ejemplo, si el delimitador es un espacio, se obtiene un arreglo de palabras y si el delimitador es 
+una cadena vacía, se obtiene un arreglo de cada carácter en la cadena.
+
+Aquí hay dos ejemplos que dividen una cadena por espacios, luego otra por dígitos utilizando una 
+expresión regular: */
+
+const str = "Hello World";
+const bySpace = str.split(" ");
+console.log(bySpace);
+
+const otherString = "How9are7you2today";
+const byDigits = otherString.split(/\d/);
+console.log(byDigits);
+
+/* bySpace tendrá el valor["Hello", "World"] y byDigits tendrá el valor["How", "are", "you", 
+"today"].
+
+Dado que las cadenas son inmutables, el método split facilita el trabajo con ellas.
+
+Utiliza el método split dentro de la función splitify para dividir str en un arreglo de palabras.La 
+función debe devolver un arreglo.Ten en cuenta que las palabras no siempre están separadas por 
+espacios y que el arreglo no debe contener signos de puntuación. */
+
+function splitify(str) {
+    // Cambia solo el código debajo de esta línea
+    return str.split(/\W/);
+    // Cambia solo el código encima de esta línea
+}
+
+console.log(splitify("Hello World,I-am code"));
+//["Hello", "World", "I", "am", "code"].
+console.log(splitify("Earth-is-our home"));
+//["Earth", "is", "our", "home"].
+console.log(splitify("This.is.a-sentence"));
+//["This", "is", "a", "sentence"]
+
+/* Combina un arreglo en una cadena utilizando el método "join"
+El método join se utiliza para unir los elementos de un arreglo creando una cadena de texto.Se 
+necesita un argumento para especificar el delimitador a utilizar para separar los elementos del 
+arreglo en la cadena.
+
+Aquí hay un ejemplo: */
+
+const arr2 = ["Hello", "World"];
+const str1 = arr2.join(" ");
+console.log(str1);
+
+/* str tendrá una cadena con valor Hello World.
+
+Utiliza el método join(entre otros) dentro de la función sentensify para hacer una oración a partir 
+de las palabras en la cadena str.La función debe devolver una cadena.Por ejemplo, I - like - Star - 
+Wars se convertiría en I like Star Wars.Para este desafío, no utilices el método replace. */
+
+function sentensify(str) {
+    // Cambia solo el código debajo de esta línea
+    return str
+        .split(/\W/)
+        .join(" ");
+    // Cambia solo el código encima de esta línea
+}
+
+console.log(sentensify("May-the-force-be-with-you"));
+//May the force be with you
+console.log(sentensify("The.force.is.strong.with.this.one"));
+//The force is strong with this one
+console.log(sentensify("There,has,been,an,awakening"));
+//There has been an awakening
+
+/* Aplicar programación funcional para convertir cadenas a slugs de URL
+Los últimos desafíos abarcaban una serie de métodos útiles para arreglos y cadenas, que siguen los 
+principios de la programación funcional.También hemos aprendido acerca de reduce, que es un 
+poderoso método utilizado para reducir los problemas a formas más simples.Desde el cálculo de 
+promedios a la ordenación, cualquier operación con arreglos puede lograrse si lo aplicamos.Recuerda 
+que map y filter son casos especiales de reduce.
+
+Combinemos lo que hemos aprendido para resolver un problema práctico.
+
+Muchos sitios de gestión de contenidos(CMS) tienen los títulos de una publicación añadidos como 
+parte de la URL con el simple propósito de ser marcadores.Por ejemplo, si escribes una publicación 
+titulada Stop Using Reduce, es probable que la url tenga parte de este titulo en ella(.../
+stop-using-reduce). Puede que ya hayas notado esto en el sitio de freeCodeCamp.
+
+Rellena la función urlSlug para convertir una cadena title y devolver la versión con guiones para 
+la URL.Puedes utilizar cualquiera de los métodos vistos en esta sección y no utilices replace.Aquí 
+están los requisitos:
+
+La entrada es una cadena con espacios y palabras, en mayúsculas y minúsculas
+
+El resultado es una cadena con los espacios entre palabras reemplazadas por un guion(-)
+
+El resultado debe contener todas las letras minúsculas
+
+El resultado no debe tener espacios */
+
+// Cambia solo el código debajo de esta línea
+function urlSlug(title) {
+    return title
+        .split(/\W+/)
+        .filter(word => /^\w/.test(word))
+        .join("-")
+        .toLowerCase();
+}
+// Cambia solo el código encima de esta línea
+
+console.log(urlSlug("Winter Is Coming"));//winter-is-coming
+console.log(urlSlug(" Winter Is  Coming"));//winter-is-coming
+console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
+//a-mind-needs-books-like-a-sword-needs-a-whetstone
+console.log(urlSlug("Hold The Door"));//hold-the-door
+
+/* Usa el método "every" para comprobar que cada elemento de un arreglo atienda un criterio
+El método every funciona con arreglos para comprobar si every element pasa una prueba en particular.
+Devuelve un valor booleano - true si todos los valores cumplen los criterios, false si no.
+
+Por ejemplo, el siguiente código comprobaría si cada elemento en el arreglo numbers es menor a 10: 
+*/
+
+const numbers = [1, 5, 8, 0, 10, 11];
+
+numbers.every(function (currentValue) {
+    return currentValue < 10;
+
+});
+/* El método every devolvería false aquí.
+
+Utiliza el método every dentro de la función checkPositive para comprobar si cada elemento en arr 
+es positivo.La función debe devolver un valor booleano. */
+
+function checkPositive(arr) {
+    // Cambia solo el código debajo de esta línea
+    return arr.every(num => num > 0);
+    // Cambia solo el código encima de esta línea
+}
+
+console.log(checkPositive([1, 2, 3, -4, 5]));//false.
+console.log(checkPositive([1, 2, 3, 4, 5]));//true.
+console.log(checkPositive([1, -2, 3, -4, 5]));//false.
+
+/* Usa el método "some" para comprobar si algún elemento en un arreglo cumple un criterio
+El método some funciona con arreglos para comprobar si algún elemento pasa una prueba en particular.
+Devuelve un valor booleano true si alguno de los valores cumple el criterio, false si no.
+
+Por ejemplo, el siguiente código comprobará si algún elemento en el arreglo numbers es menor que 
+10: */
+
+const numbers1 = [10, 50, 8, 220, 110, 11];
+
+numbers1.some(function (currentValue) {
+    return currentValue < 10;
+});
+
+/* El método some devolverá true.
+
+Utiliza el método some dentro de la función checkPositive para comprobar si algún elemento en arr 
+es positivo.La función debe devolver un valor booleano. */
+
+function checkPositive1(arr) {
+    // Cambia solo el código debajo de esta línea
+    return arr.some(num => num > 0);
+    // Cambia solo el código encima de esta línea
+}
+
+console.log(checkPositive1([1, 2, 3, -4, 5]));//true.
+console.log(checkPositive1([1, 2, 3, 4, 5]));//true.
+console.log(checkPositive1([-1, -2, -3, -4, -5]));//false.
+
+/* Introducción a la currificación y a la aplicación de funciones parciales
+La aridad de una función es el número de argumentos que requiere.Currificar una función significa 
+convertir una función de N aridades a N funciones de 1 aridad.
+
+En otras palabras, reestructura una función, por lo que toma un argumento, luego devolverá otra 
+función que toma el siguiente argumento, y así sucesivamente.
+
+A continuación un ejemplo: */
+
+function unCurried(x, y) {
+    return x + y;
+}
+
+function curried(x) {
+    return function (y) {
+        return x + y;
+    }
+}
+
+const curried1 = x => y => x + y
+
+console.log(curried(1)(2));// devolverá 3.
+
+/*Esto es útil en tu programa si no puedes proporcionar todos los argumentos a una función al 
+mismo tiempo.Puedes guardar la llamada a cada función dentro de una variable, la cual mantendrá la 
+referencia de la función devuelta que toma el siguiente argumento cuando este disponible.Aquí hay 
+un ejemplo utilizando la función currificada del ejemplo anterior: */
+
+const funcForY = curried(1);
+console.log(funcForY(2)); // 3
+
+/* Similarmente, la aplicación de una función parcial puede describirse como aplicar algunos 
+argumentos a la función al mismo tiempo y devolviendo una función que se aplica a más argumentos.A 
+continuación un ejemplo: */
+
+function impartial(x, y, z) {
+    return x + y + z;
+}
+
+const partialFn = impartial.bind(this, 1, 2);
+console.log(partialFn(10)); // 13
+
+/* Completa el cuerpo de la función add para que use currificación para añadir parámetros 'x', 'y', 
+y 'z'. */
+
+function add1(x) {
+    // Cambia solo el código debajo de esta línea
+    return function (y) {
+        return function (z) {
+            return x + y + z;
+        }
+    }
+    // Cambia solo el código encima de esta línea
+}
+
+// Solución alternativa: const add1 = x => y => z => x + y + z;
+
+console.log(add1(10)(20)(30));//60.
+console.log(add1(1)(2)(3));//6.
+console.log(add1(11)(22)(33));//66.
