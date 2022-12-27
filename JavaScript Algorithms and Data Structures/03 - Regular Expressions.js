@@ -129,8 +129,8 @@ console.log(ourStr.match(ourRegex));
 Ten en cuenta que la sintaxis.match es lo "opuesto" al método.test que has estado utilizando hasta 
 ahora: */
 
-'string'.match(/regex/);
-/regex/.test('string');
+"string".match(/regex/);
+/regex/.test("string");
 
 // Aplica el método.match() para extraer la cadena coding.
 
@@ -225,7 +225,8 @@ encontrar todas las vocales en la cadena quoteSample.
 
     Nota: Asegúrate de hacer coincidir tanto las vocales mayúsculas como minúsculas. */
 
-let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+let quoteSample =
+  "Beware of bugs in the above code; I have only proved it correct, not tried it.";
 // let vowelRegex = /change/; // Cambia esta línea
 // let result7 = vowelRegex; // Cambia esta línea
 let vowelRegex = /[aeiou]/gi;
@@ -400,17 +401,17 @@ Este es un ejemplo para revisar cómo hacer esto:
 La expresión regular / z + / coincide con la letra z cuando aparece una o más veces seguidas. 
 Encontrará coincidencias en las siguientes cadenas: */
 
-"z"
-"zzzzzz"
-"ABCzzzz"
-"zzzzABC"
-"abczzzzzzzzzzzzzzzzzzzzzabc"
+("z");
+("zzzzzz");
+("ABCzzzz");
+("zzzzABC");
+("abczzzzzzzzzzzzzzzzzzzzzabc");
 
 // Pero no encuentra coincidencias en las siguientes cadenas, ya que no hay letras z:
 
-""
-"ABC"
-"abcabc"
+("");
+("ABC");
+("abcabc");
 
 /* Escribe una expresión regular codiciosa que encuentre uno o más criminales dentro de un grupo de 
 personas.Un criminal está representado por la letra mayúscula C. */
@@ -580,31 +581,31 @@ let result20 = userCheck.test(username);
 console.log(result20);
 
 username = "JACK";
-console.log(userCheck.test(username));//debe coincidir con la cadena JACK
+console.log(userCheck.test(username)); //debe coincidir con la cadena JACK
 username = "J";
-console.log(userCheck.test(username));//no debe coincidir con la cadena J
+console.log(userCheck.test(username)); //no debe coincidir con la cadena J
 username = "Jo";
-console.log(userCheck.test(username));//debe coincidir con la cadena Jo
+console.log(userCheck.test(username)); //debe coincidir con la cadena Jo
 username = "Oceans11";
-console.log(userCheck.test(username));//debe coincidir con la cadena Oceans11
+console.log(userCheck.test(username)); //debe coincidir con la cadena Oceans11
 username = "RegexGuru";
-console.log(userCheck.test(username));//debe coincidir con la cadena RegexGuru
+console.log(userCheck.test(username)); //debe coincidir con la cadena RegexGuru
 username = "007";
-console.log(userCheck.test(username));//no debe coincidir con la cadena 007
+console.log(userCheck.test(username)); //no debe coincidir con la cadena 007
 username = "9";
-console.log(userCheck.test(username));//no debe coincidir con la cadena 9
+console.log(userCheck.test(username)); //no debe coincidir con la cadena 9
 username = "A1";
-console.log(userCheck.test(username));//no debe coincidir con la cadena A1
+console.log(userCheck.test(username)); //no debe coincidir con la cadena A1
 username = "BadUs3rnam3";
-console.log(userCheck.test(username));//no debe coincidir con la cadena BadUs3rnam3
+console.log(userCheck.test(username)); //no debe coincidir con la cadena BadUs3rnam3
 username = "Z97";
-console.log(userCheck.test(username));//debe coincidir con la cadena Z97
+console.log(userCheck.test(username)); //debe coincidir con la cadena Z97
 username = "c57bT3";
-console.log(userCheck.test(username));//no debe coincidir con la cadena c57bT3
+console.log(userCheck.test(username)); //no debe coincidir con la cadena c57bT3
 username = "AB1";
-console.log(userCheck.test(username));//debe coincidir con la cadena AB1
+console.log(userCheck.test(username)); //debe coincidir con la cadena AB1
 username = "J % 4";
-console.log(userCheck.test(username));//no debe coincidir con la cadena J % 4
+console.log(userCheck.test(username)); //no debe coincidir con la cadena J % 4
 
 /* Haz coincidir espacios en blanco
 Los desafíos por el momento han cubierto las letras que coinciden con el alfabeto y los números. 
@@ -615,7 +616,7 @@ con los espacios en blanco, también con los caracteres de retorno de carro, tab
 alimentación de formulario y saltos de línea. Puedes pensar que es similar a las clases de 
 caracteres [ \r\t\f\n\v]. */
 
-let whiteSpace = "Whitespace. Whitespace everywhere!"
+let whiteSpace = "Whitespace. Whitespace everywhere!";
 let spaceRegex = /\s/g;
 console.log(whiteSpace.match(spaceRegex));
 
@@ -638,7 +639,7 @@ Busca caracteres que no sean espacios en blanco usando \S, la cual es una s may�
 coincidirá con los caracteres de espacios en blanco, retorno de carro, tabulaciones, alimentación de 
 formulario y saltos de línea.Puedes pensar que es similar a la clase de caracteres[^ \r\t\f\n\v]. */
 
-let whiteSpace1 = "Whitespace. Whitespace everywhere!"
+let whiteSpace1 = "Whitespace. Whitespace everywhere!";
 let nonSpaceRegex = /\S/g;
 console.log(whiteSpace.match(nonSpaceRegex).length);
 
@@ -775,9 +776,9 @@ misma cadena.
 
 Hay dos tipos de lookaheads: lookahead positivo y lookahead negativo.
 
-Un lookahead positivo buscará para asegurarse de que el elemento en el patrón de búsqueda este allí, 
-pero en realidad no lo coincidirá.Un lookahead positivo se usa como(?=...) donde el ... es la parte 
-requerida que no coincide.
+Un lookahead positivo buscará para asegurarse de que el elemento en el patrón de búsqueda este 
+allí, pero en realidad no lo coincidirá.Un lookahead positivo se usa como(?=...) donde el ... es la 
+parte requerida que no coincide.
 
 Por otro lado, un lookahead negativo buscará para asegurarse de que el elemento en el patrón de 
 búsqueda no este allí.Un lookahead negativo se usa como(?!...) donde el ... es el patrón que no 
@@ -894,7 +895,7 @@ console.log(wrongText.replace(silverRegex, "blue"));
 
 También puedes acceder a grupos de captura en la cadena de reemplazo con signos de dólar. ($). */
 
-"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+"Code Camp".replace(/(\w+)\s(\w+)/, "$2 $1");
 
 /* La llamada replace devolverá la cadena Camp Code.
 
