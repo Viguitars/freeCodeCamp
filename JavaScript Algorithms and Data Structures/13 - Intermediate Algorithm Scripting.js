@@ -290,3 +290,76 @@ console.log(translatePigLatin("algorithm")); //algorithmway.
 console.log(translatePigLatin("eight")); //eightway.
 console.log(translatePigLatin("schwartz")); //artzschway.
 console.log(translatePigLatin("rhythm")); //rhythmay.
+
+/* Busca y reemplaza
+Realiza una búsqueda y reemplaza en la oración usando los argumentos proporcionados y devuelve la 
+nueva oración.
+
+El primer argumento es la frase sobre la que se va a realizar la búsqueda y el reemplazo.
+
+El segundo argumento es la palabra que se reemplazará (antes).
+
+El tercer argumento es lo que reemplazará el segundo argumento (después).
+
+Note: Mantén la capitalización del primer carácter en la palabra original cuando lo estés 
+reemplazando. Por ejemplo, si quieres reemplazar la palabra Book por la palabra dog, debe ser 
+reemplazada como Dog */
+
+function myReplace(str, before, after) {
+  // Comprobar capitalizacion de before y modificar after
+  const isInUppercase = /^[A-Z]/.test(before);
+
+  if (isInUppercase) {
+    after = after[0].toUpperCase() + after.substring(1);
+  } else {
+    after = after[0].toLowerCase() + after.substring(1);
+  }
+
+  // Reemplazar before por after
+
+  return str.replace(before, after);
+}
+
+console.log(
+  myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")
+);
+
+console.log(myReplace("Let us go to the store", "store", "mall"));
+//Let us go to the mall.
+console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+//He is Sitting on the couch.
+console.log(myReplace("I think we should look up there", "up", "Down"));
+//I think we should look down there.
+console.log(myReplace("This has a spellngi error", "spellngi", "spelling"));
+//This has a spelling error.
+console.log(myReplace("His name is Tom", "Tom", "john"));
+//His name is John.
+console.log(
+  myReplace("Let us get back to more Coding", "Coding", "algorithms")
+);
+
+/* Emparejamiento de ADN
+El par de hebras del ADN esta formado por pares de nucleobases. Los pares de base son representados 
+por los caracteres AT y CG, que forman bloques de doble hélix ADN.
+
+A la cadena de ADN le falta el elemento de emparejamiento. Escribe una función que coincida con los 
+pares de base faltantes para la hebra de ADN proporcionada. Para cada carácter de la cadena 
+proporcionada, encuentra el carácter de par base. Devuelve los resultados como un arreglo 2d.
+
+Por ejemplo, la entrada GCG, devuelve [["G", "C"], ["C","G"], ["G", "C"]]
+
+El carácter y su par se emparejan en un arreglo, y todos los arreglos se agrupan en un arreglo 
+encapsulado. */
+
+function pairElement(str) {
+  return str;
+}
+
+console.log(pairElement("GCG"));
+//[["G", "C"], ["C","G"], ["G", "C"]].
+console.log(pairElement("ATCGA"));
+//[["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]].
+console.log(pairElement("TTGAG"));
+//[["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]].
+console.log(pairElement("CTCTA"));
+//[["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]].
