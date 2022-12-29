@@ -352,7 +352,30 @@ El carácter y su par se emparejan en un arreglo, y todos los arreglos se agrupa
 encapsulado. */
 
 function pairElement(str) {
-  return str;
+  let newStr = [];
+
+  for (let i = 0; i < str.length; i++) {
+    switch (str[i]) {
+      case "A":
+        newStr[i] = ["A", "T"];
+        break;
+      case "T":
+        newStr[i] = ["T", "A"];
+        break;
+      case "C":
+        newStr[i] = ["C", "G"];
+        break;
+      case "G":
+        newStr[i] = ["G", "C"];
+        break;
+
+      default:
+        newStr[i] = str;
+
+        break;
+    }
+  }
+  return newStr;
 }
 
 console.log(pairElement("GCG"));
@@ -363,3 +386,55 @@ console.log(pairElement("TTGAG"));
 //[["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]].
 console.log(pairElement("CTCTA"));
 //[["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]].
+
+/* Letras faltantes
+Encuentra la letra que falta en la siguiente cadena de letras y devuélvela.
+
+Si todas las letras están presentes en la cadena, devuelve undefined. */
+
+function fearNotLetter(str) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let index = alphabet.indexOf(str[0]);
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== alphabet[index]) {
+      newStr += alphabet[index];
+      return newStr;
+    }
+    index++;
+  }
+  return undefined;
+}
+
+console.log(fearNotLetter("abce")); //d.
+console.log(fearNotLetter("abcdefghjklmno")); //i.
+console.log(fearNotLetter("stvwx")); //u.
+console.log(fearNotLetter("bcdf")); //e.
+console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz")); //undefined
+
+/* Unión ordenada
+Escribe una función que tome dos o más arreglos y devuelve un nuevo arreglo de valores únicos 
+manteniendo el orden original de los arreglos proporcionados.
+
+En otras palabras, todos los valores presentes de todos los arreglos deben incluirse en su orden 
+original, pero sin duplicados en el arreglo final.
+
+Los números únicos deben ser ordenados según su orden original, pero el arreglo final no debe 
+ordenarse según el orden numérico.
+
+Revisa las pruebas de afirmación para ver ejemplos. */
+
+function uniteUnique(arr) {
+  return arr;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+// [1, 3, 2, 5, 4].
+console.log(uniteUnique([1, 2, 3], [5, 2, 1]));
+// [1, 2, 3, 5].
+console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
+// [1, 2, 3, 5, 4, 6, 7, 8].
+console.log(uniteUnique([1, 3, 2], [5, 4], [5, 6]));
+// [1, 3, 2, 5, 4, 6].
+console.log(uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]));
+// [1, 3, 2, 5, 4].
