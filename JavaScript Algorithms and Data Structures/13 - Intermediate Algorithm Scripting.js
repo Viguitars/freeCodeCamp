@@ -425,7 +425,17 @@ ordenarse según el orden numérico.
 Revisa las pruebas de afirmación para ver ejemplos. */
 
 function uniteUnique(arr) {
-  return arr;
+  const args = [...arguments];
+  const newArr = [];
+  for (let i = 0; i < args.length; i++) {
+    const element = args[i];
+    for (let j = 0; j < element.length; j++) {
+      if (newArr.indexOf(element[j]) < 0) {
+        newArr.push(element[j]);
+      }
+    }
+  }
+  return newArr;
 }
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
@@ -438,3 +448,178 @@ console.log(uniteUnique([1, 3, 2], [5, 4], [5, 6]));
 // [1, 3, 2, 5, 4, 6].
 console.log(uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]));
 // [1, 3, 2, 5, 4].
+
+/* Convierte entidades HTML
+Convierte los caracteres &, <, >, " (dobles comillas), y ' (apóstrofo), en un cadena con su 
+correspondiente entidad HTML. */
+
+const charactersToConvert = `&<>"'`;
+const HTMLEntityArray = ["&amp;", "&lt;", "&gt;", "&quot;", "&apos;"];
+const charactersToSearch = new RegExp("[" + charactersToConvert + "]");
+
+function convertHTML(str) {
+  return str
+    .split("")
+    .map((character) =>
+      charactersToSearch.test(character)
+        ? character.replace(
+            character,
+            HTMLEntityArray[charactersToConvert.indexOf(character)]
+          )
+        : character
+    )
+    .join("");
+}
+
+console.log(convertHTML("Dolce & Gabbana")); //Dolce &amp; Gabbana
+console.log(convertHTML("Hamburgers < Pizza < Tacos")); //Hamburgers &lt; Pizza &lt; Tacos
+console.log(convertHTML("Sixty > twelve")); //Sixty &gt; twelve
+console.log(convertHTML('Stuff in "quotation marks"')); //Stuff in &quot;quotation marks&quot;
+console.log(convertHTML("Schindler's List")); //Schindler&apos;s List */
+console.log(convertHTML("<>")); //&lt;&gt;
+console.log(convertHTML("abc")); //abc
+
+/* Suma todos los números impares de Fibonacci
+Dado un entero positivo num, devuelve la suma de todos los números impares de Fibonacci que son 
+menores o iguales a num.
+
+Los dos primeros números en la secuencia de Fibonacci son 1 y 1. Cada número adicional en la 
+secuencia es la suma de los dos números anteriores. Los seis primeros números de la secuencia de 
+Fibonacci son 1, 1, 2, 3, 5 y 8.
+
+Por ejemplo, sumFibs(10) debe devolver 10 porque todos los números impares de Fibonacci menores o 
+iguales a 10 son 1, 1, 3 y 5. */
+
+function fib(num) {
+  let arr = [1, 1];
+  for (let i = 2; i < num + 1; i++) {
+    arr.push(arr[i - 2] + arr[i - 1]);
+  }
+  return arr;
+}
+
+function sumFibs(num) {
+  return fib(num)
+    .filter((element) => (element % 2 !== 0) & (element <= num))
+    .reduce((sum, element) => sum + element, 0);
+}
+
+console.log(sumFibs(1)); //2
+console.log(sumFibs(1000)); //1785
+console.log(sumFibs(4000000)); //4613732
+console.log(sumFibs(4)); //5
+console.log(sumFibs(75024)); //60696
+console.log(sumFibs(75025)); //135721
+
+/* Suma todos los números primos
+Un número primo es un número entero mayor que 1 con sólo dos divisores: 1 y el propio número. Por 
+ejemplo, 2 es un número primo porque sólo es divisible entre 1 y 2. Por el contrario, 4 no es primo 
+ya que es divisible entre 1, 2 y 4.
+
+Reescribe sumPrimes para que devuelva la suma de todos los números primos que sean menores o 
+iguales a num. */
+
+function primeNumbers(num) {
+  let arr = [];
+  if (num > 1) {
+    for (let i = 2; i <= num; i++) {
+      let count = 0;
+      for (let j = 1; j <= i; j++) {
+        if (i % j === 0) {
+          count++;
+        }
+      }
+      if (count === 2) {
+        arr.push(i);
+      }
+    }
+    return arr;
+  }
+}
+console.log(primeNumbers(10)); //[2, 3, 5, 7]
+
+function sumPrimes(num) {
+  return primeNumbers(num).reduce((acc, cur) => acc + cur, 0);
+}
+
+console.log(sumPrimes(10)); //17.
+console.log(sumPrimes(977)); //73156.
+
+/* Mínimo común múltiplo
+Encuentra el múltiplo común más pequeño de los parámetros proporcionados que pueden dividirse 
+equitativamente por ambos, así como por todos los números consecutivos del rango entre estos 
+parámetros.
+
+El rango será un arreglo de dos números que no necesariamente estarán en orden numérico.
+
+Por ejemplo, si se dan 1 y 3, encuentra el múltiplo común más pequeño de 1 y 3 que también es 
+dividido por todos los números entre 1 y 3. La respuesta sería 6. */
+
+function smallestCommons(arr) {
+  const [min, max] = arr.sort((a, b) => a - b);
+  return arr;
+}
+
+console.log(smallestCommons([1, 5])); //60.
+console.log(smallestCommons([5, 1])); //60.
+console.log(smallestCommons([2, 10])); //2520.
+console.log(smallestCommons([1, 13])); //360360.
+console.log(smallestCommons([23, 18])); //6056820.
+
+/* Déjalo caer
+Dado el arreglo arr, itera y elimina cada elemento comenzando desde el primer elemento (el índice 
+0) hasta que la función func devuelva true cuando el elemento iterado se pasa a través de él.
+
+Luego devuelve el resto del arreglo una vez que se cumpla la condición, de lo contrario, arr debe 
+devolverse como un arreglo vacío. */
+
+function dropElements(arr, func) {
+  while (!func(arr[0]) && arr.length > 0) {
+    arr.shift();
+  }
+  return arr;
+}
+
+console.log(
+  dropElements([1, 2, 3, 4], function (n) {
+    return n >= 3;
+  })
+); //[3, 4].
+console.log(
+  dropElements([0, 1, 0, 1], function (n) {
+    return n === 1;
+  })
+); //[1, 0, 1].
+console.log(
+  dropElements([1, 2, 3], function (n) {
+    return n > 0;
+  })
+); //[1, 2, 3].
+console.log(
+  dropElements([1, 2, 3, 4], function (n) {
+    return n > 5;
+  })
+); //[].
+console.log(
+  dropElements([1, 2, 3, 7, 4], function (n) {
+    return n > 3;
+  })
+); //[7, 4].
+console.log(
+  dropElements([1, 2, 3, 9, 2], function (n) {
+    return n > 2;
+  })
+); //[3, 9, 2].
+
+/* Aplanadora
+Aplana un arreglo anidado. Debes tener en cuenta los diferentes niveles de anidación. */
+
+function steamrollArray(arr) {
+  let newArr = [];
+  return arr.map((element) => element);
+}
+
+console.log(steamrollArray([[["a"]], [["b"]]])); //["a", "b"].
+console.log(steamrollArray([1, [2], [3, [[4]]]])); //[1, 2, 3, 4].
+console.log(steamrollArray([1, [], [3, [[4]]]])); //[1, 3, 4].
+console.log(steamrollArray([1, {}, [3, [[4]]]])); //[1, {}, 3, 4]
