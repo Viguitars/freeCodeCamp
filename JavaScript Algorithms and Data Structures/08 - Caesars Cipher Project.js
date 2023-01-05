@@ -14,27 +14,25 @@ decodificada.
 Todas las letras estarán en mayúsculas. No transformes ningún carácter no alfabético (espacios, 
 puntuación, por ejemplo), pero si transmítelos. */
 
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function rot13(str) {
-    let decodedStr = '';
-    for (let i = 0; i < str.length; i++) {
-        let alphabetIndex = alphabet.indexOf(str[i]);
-        if (alphabetIndex >= 0 && alphabetIndex <= 12) {
-            decodedStr += alphabet[alphabetIndex + 13];
-        }
-        else if (alphabetIndex >= 13 && alphabetIndex <= 26) {
-            decodedStr += alphabet[alphabetIndex - 13];
-        }
-        else {
-            decodedStr += str[i];
-        }
+  let decodedStr = "";
+  for (let i = 0; i < str.length; i++) {
+    let alphabetIndex = alphabet.indexOf(str[i]);
+    if (alphabetIndex >= 0 && alphabetIndex <= 12) {
+      decodedStr += alphabet[alphabetIndex + 13];
+    } else if (alphabetIndex >= 13 && alphabetIndex <= 26) {
+      decodedStr += alphabet[alphabetIndex - 13];
+    } else {
+      decodedStr += str[i];
     }
-    return decodedStr;
+  }
+  return decodedStr;
 }
 
-console.log(rot13("SERR PBQR PNZC"));//FREE CODE CAMP
-console.log(rot13("SERR CVMMN!"));//FREE PIZZA!
-console.log(rot13("SERR YBIR?"));//FREE LOVE ?
+console.log(rot13("SERR PBQR PNZC")); //FREE CODE CAMP
+console.log(rot13("SERR CVMMN!")); //FREE PIZZA!
+console.log(rot13("SERR YBIR?")); //FREE LOVE ?
 console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
 //THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
