@@ -27,7 +27,7 @@ estado de tus cálculos a lo largo de tu código ayudará a acotar dónde está 
 
 Aquí hay un ejemplo para imprimir la cadena Hello world! en la consola: */
 
-console.log('Hello world!');
+console.log("Hello world!");
 
 /* Utiliza el método console.log() para imprimir el valor de la variable 'a' donde se indica en el 
 código. */
@@ -59,7 +59,7 @@ registros.Finalmente, utiliza console.clear luego de tu registro para borrar la 
 navegador.Ve la diferencia entre las dos consolas. */
 
 let output =
-    "Get this to show once in the freeCodeCamp console and not at all in the browser console";
+  "Get this to show once in the freeCodeCamp console and not at all in the browser console";
 console.log(output);
 console.clear();
 
@@ -140,8 +140,10 @@ provoca un error de sintaxis.
 
 Aquí hay algunos ejemplos de comillas mezcladas: */
 
-const grouchoContraction = "I've had a perfectly wonderful evening, but this wasn't it.";
-const quoteInString = "Groucho Marx once said 'Quote me as saying I was mis-quoted.'";
+const grouchoContraction =
+  "I've had a perfectly wonderful evening, but this wasn't it.";
+const quoteInString =
+  "Groucho Marx once said 'Quote me as saying I was mis-quoted.'";
 //const uhOhGroucho = 'I've had a perfectly wonderful evening, but this wasn't it.';
 
 /* Los dos primeros son correctos, pero el tercero es incorrecto.
@@ -149,14 +151,15 @@ const quoteInString = "Groucho Marx once said 'Quote me as saying I was mis-quot
 Por supuesto, está bien utilizar sólo un estilo de comillas.Puedes escapar las comillas dentro de 
 una cadena usando el carácter de barra diagonal invertida(\): */
 
-const allSameQuotes = 'I\'ve had a perfectly wonderful evening, but this wasn\'t it.';
+const allSameQuotes =
+  "I've had a perfectly wonderful evening, but this wasn't it.";
 
 /* Corrige la cadena para que use comillas diferentes para el valor de href, o realiza un escape de 
 las existentes.Mantén las comillas dobles alrededor de toda la cadena. */
 
 //let innerHtml = '<p>Click here to <a href=\'#Home\'>return home</a></p>';
 //let innerHtml = '<p>Click here to <a href="#Home">return home</a></p>';
-let innerHtml = "<p>Click here to <a href=\"#Home\">return home</a></p>";
+let innerHtml = '<p>Click here to <a href="#Home">return home</a></p>';
 console.log(innerHtml);
 
 /* Captura el uso del operador de asignación en lugar del operador de igualdad
@@ -178,10 +181,8 @@ values): false, 0, ""(una cadena vacía), NaN, undefined, y null. */
 
 let x = 1;
 let y = 2;
-if (x = y) {
-
+if ((x = y)) {
 } else {
-
 }
 console.log(x);
 
@@ -209,9 +210,9 @@ let y1 = 9;
 let result = "to come";
 
 if (x1 === y1) {
-    result = "Equal!";
+  result = "Equal!";
 } else {
-    result = "Not equal!";
+  result = "Not equal!";
 }
 
 console.log(result);
@@ -226,13 +227,12 @@ la función, en lugar del valor esperado que la función devuelve.
 Las variables del siguiente ejemplo son diferentes: */
 
 function myFunction() {
-    return "You rock!";
+  return "You rock!";
 }
 let varOne = myFunction;
 console.log(varOne);
 let varTwo = myFunction();
 console.log(varTwo);
-
 
 /* Aquí varOne es la función myFunction, y varTwo es la cadena You rock!.
 
@@ -249,9 +249,9 @@ let result1 = getNine;
 console.log(result); */
 
 function getNine() {
-    let x = 6;
-    let y = 3;
-    return x + y;
+  let x = 6;
+  let y = 3;
+  return x + y;
 }
 
 let result1 = getNine();
@@ -278,7 +278,7 @@ let power = raiseToPower(exp, base);
 console.log(power);*/
 
 function raiseToPower(b, e) {
-    return Math.pow(b, e);
+  return Math.pow(b, e);
 }
 
 let base = 2;
@@ -301,13 +301,13 @@ lo que se devuelve) o no.Estos son algunos ejemplos de errores por un paso: */
 let alphabet = "abcdefghijklmnopqrstuvwxyz";
 let len = alphabet.length;
 for (let i = 0; i <= len; i++) {
-    console.log(alphabet[i]);
+  console.log(alphabet[i]);
 }
 for (let j = 1; j < len; j++) {
-    console.log(alphabet[j]);
+  console.log(alphabet[j]);
 }
 for (let k = 0; k < len; k++) {
-    console.log(alphabet[k]);
+  console.log(alphabet[k]);
 }
 
 /* El primer ejemplo aquí hace un bucle de más, y el segundo hace un bucle de menos(falta el primer 
@@ -329,13 +329,13 @@ function countToFive() {
 countToFive();*/
 
 function countToFive() {
-    let firstFive = "12345";
-    let len = firstFive.length;
-    // Cambia solo el código debajo de esta línea
-    for (let i = 0; i < len; i++) {
-        // Cambia solo el código encima de esta línea
-        console.log(firstFive[i]);
-    }
+  let firstFive = "12345";
+  let len = firstFive.length;
+  // Cambia solo el código debajo de esta línea
+  for (let i = 0; i < len; i++) {
+    // Cambia solo el código encima de esta línea
+    console.log(firstFive[i]);
+  }
 }
 
 countToFive();
@@ -376,22 +376,21 @@ let matrix = zeroArray(3, 2);
 console.log(matrix);*/
 
 function zeroArray(m, n) {
-    // Crea un arreglo de 2 dimensiones con m filas y n columnas de ceros
-    let newArray = [];
-    let row = [];
-    for (let i = 0; i < m; i++) {
-        // Agrega la fila número m a newArray
+  // Crea un arreglo de 2 dimensiones con m filas y n columnas de ceros
+  let newArray = [];
+  let row = [];
+  for (let i = 0; i < m; i++) {
+    // Agrega la fila número m a newArray
 
-        for (let j = 0; j < n; j++) {
-            // Inserta n ceros a la fila actual para crear las columnas
-            row.push(0);
-        }
-        // Inserta la fila actual, que ahora contiene n ceros, al arreglo
-        newArray.push(row);
-        row = [];
-
+    for (let j = 0; j < n; j++) {
+      // Inserta n ceros a la fila actual para crear las columnas
+      row.push(0);
     }
-    return newArray;
+    // Inserta la fila actual, que ahora contiene n ceros, al arreglo
+    newArray.push(row);
+    row = [];
+  }
+  return newArray;
 }
 
 let matrix = zeroArray(3, 2);
@@ -431,8 +430,8 @@ function myFunc() {
 }*/
 
 function myFunc() {
-    for (let i = 1; i <= 4; i += 2) {
-        console.log("Still going!");
-    }
+  for (let i = 1; i <= 4; i += 2) {
+    console.log("Still going!");
+  }
 }
 console.log(myFunc());
