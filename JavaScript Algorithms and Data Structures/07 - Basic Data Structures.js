@@ -14,7 +14,7 @@ Esto se conoce como un arreglo unidimensional, lo que significa que sólo tiene 
 tiene otros arreglos anidados dentro de él.Observa que contiene booleanos, cadenas y números, entre 
 otros tipos de datos válidos de JavaScript: */
 
-let simpleArray = ['one', 2, 'three', true, false, undefined, null];
+let simpleArray = ["one", 2, "three", true, false, undefined, null];
 console.log(simpleArray.length);
 
 /* La llamada console.log muestra 7.
@@ -27,26 +27,26 @@ cerca en la siguiente sección, pero por ahora, todo lo que necesitas saber es q
 también son capaces de almacenar objetos complejos. */
 
 let complexArray = [
-    [
-        {
-            one: 1,
-            two: 2
-        },
-        {
-            three: 3,
-            four: 4
-        }
-    ],
-    [
-        {
-            a: "a",
-            b: "b"
-        },
-        {
-            c: "c",
-            d: "d"
-        }
-    ]
+  [
+    {
+      one: 1,
+      two: 2,
+    },
+    {
+      three: 3,
+      four: 4,
+    },
+  ],
+  [
+    {
+      a: "a",
+      b: "b",
+    },
+    {
+      c: "c",
+      d: "d",
+    },
+  ],
 ];
 console.log(complexArray);
 
@@ -109,10 +109,10 @@ Ambos métodos toman uno o más elementos como parámetros y los agregan al arre
 llamada; el método push() agrega los elementos al final del arreglo, mientras que unshift() los 
 agrega al inicio.Considera lo siguiente: */
 
-let twentyThree = 'XXIII';
-let romanNumerals = ['XXI', 'XXII'];
+let twentyThree = "XXIII";
+let romanNumerals = ["XXI", "XXII"];
 
-romanNumerals.unshift('XIX', 'XX');
+romanNumerals.unshift("XIX", "XX");
 console.log(romanNumerals);
 
 // romanNumerals tendrá el valor['XIX', 'XX', 'XXI', 'XXII'].
@@ -130,14 +130,14 @@ arreglo y 7, 'VIII', 9 al final, de tal modo que el arreglo devuelto contenga la
 de los números del 1 al 9 en orden. */
 
 function mixedNumbers(arr) {
-    // Cambia solo el código debajo de esta línea
-    arr.unshift('I', 2, 'three');
-    arr.push(7, 'VIII', 9);
-    // Cambia solo el código encima de esta línea
-    return arr;
+  // Cambia solo el código debajo de esta línea
+  arr.unshift("I", 2, "three");
+  arr.push(7, "VIII", 9);
+  // Cambia solo el código encima de esta línea
+  return arr;
 }
 
-console.log(mixedNumbers(['IV', 5, 'six']));
+console.log(mixedNumbers(["IV", 5, "six"]));
 
 /* Elimina elementos de un arreglo con pop() y shift()
 Tanto push() como unshift() tienen métodos correspondientes que son casi opuestos funcionales: pop
@@ -148,7 +148,7 @@ uno sólo permite modificar un arreglo por un solo elemento a la vez.
 
 Echemos un vistazo: */
 
-let greetings = ['whats up?', 'hello', 'see ya!'];
+let greetings = ["whats up?", "hello", "see ya!"];
 
 greetings.pop();
 console.log(greetings);
@@ -174,12 +174,12 @@ del arreglo, y asignar los elementos eliminados a sus correspondientes variables
 arreglo que se devuelva contenga sus valores. */
 
 function popShift(arr) {
-    let popped = arr.pop(); // Cambia esta línea
-    let shifted = arr.shift(); // Cambia esta línea
-    return [shifted, popped];
+  let popped = arr.pop(); // Cambia esta línea
+  let shifted = arr.shift(); // Cambia esta línea
+  return [shifted, popped];
 }
 
-console.log(popShift(['challenge', 'is', 'not', 'complete']));
+console.log(popShift(["challenge", "is", "not", "complete"]));
 
 /* Elimina elementos usando splice()
 Bien, ya hemos aprendido a eliminar elementos al principio y al final de los arreglos utilizando 
@@ -195,7 +195,7 @@ cero, por lo que para indicar el primer elemento de un arreglo, usaríamos 0. El
 splice() representa el índice del arreglo a partir del cual se empiezan a eliminar los elementos, 
 mientras que el segundo parámetro indica el número de elementos a eliminar.Por ejemplo: */
 
-let array = ['today', 'was', 'not', 'so', 'great'];
+let array = ["today", "was", "not", "so", "great"];
 
 array.splice(2, 2);
 console.log(array);
@@ -206,7 +206,7 @@ valor['today', 'was', 'great'].
 splice() no sólo modifica el arreglo que llama, sino que también devuelve un nuevo arreglo que 
 contiene el valor de los elementos eliminados: */
 
-let array1 = ['I', 'am', 'feeling', 'really', 'happy'];
+let array1 = ["I", "am", "feeling", "really", "happy"];
 
 let newArray = array1.splice(3, 2);
 console.log(newArray);
@@ -249,14 +249,21 @@ Modifica la función usando splice() para eliminar los dos primeros elementos de
 'DarkSalmon' y 'BlanchedAlmond' en sus respectivos lugares. */
 
 function htmlColorNames(arr) {
-    // Cambia solo el código debajo de esta línea
-    arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
-    // Cambia solo el código encima de esta línea
-    return arr;
+  // Cambia solo el código debajo de esta línea
+  arr.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
+  // Cambia solo el código encima de esta línea
+  return arr;
 }
 
-console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurquoise',
-    'FireBrick']));
+console.log(
+  htmlColorNames([
+    "DarkGoldenRod",
+    "WhiteSmoke",
+    "LavenderBlush",
+    "PaleTurquoise",
+    "FireBrick",
+  ])
+);
 
 /* Copia elementos de un arreglo usando slice()
 El siguiente método que cubriremos es slice().En lugar de modificar un arreglo, slice() copia o 
@@ -265,7 +272,7 @@ llama.slice() toma sólo 2 parámetros: el primero es el índice en el que se in
 el segundo es el índice en el que se detiene la extracción(la extracción se producirá hasta el 
 índice, pero sin incluir el elemento en este índice).Considera esto: */
 
-let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
+let weatherConditions = ["rain", "snow", "sleet", "hail", "clear"];
 
 let todaysWeather = weatherConditions.slice(1, 3);
 console.log(todaysWeather);
@@ -281,12 +288,14 @@ slice() para extraer información del arreglo de argumentos y devuelve un nuevo 
 los elementos warm y sunny. */
 
 function forecast(arr) {
-    // Cambia solo el código debajo de esta línea
-    let newArr = arr.slice(2, 4);
-    return newArr;
+  // Cambia solo el código debajo de esta línea
+  let newArr = arr.slice(2, 4);
+  return newArr;
 }
 // Cambia solo el código encima de esta línea
-console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+console.log(
+  forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
+);
 
 /* Copia un arreglo con el operador de propagación
 Mientras que slice() nos permite ser selectivos sobre qué elementos de un arreglo copiar, entre 
@@ -310,14 +319,14 @@ sintaxis de propagación para que funcione correctamente(sugerencia: ¡otro mét
 cubierto podría ser útil aquí!). */
 
 function copyMachine(arr, num) {
-    let newArr = [];
-    while (num >= 1) {
-        // Cambia solo el código debajo de esta línea
-        newArr.push([...arr]);
-        // Cambia solo el código encima de esta línea
-        num--;
-    }
-    return newArr;
+  let newArr = [];
+  while (num >= 1) {
+    // Cambia solo el código debajo de esta línea
+    newArr.push([...arr]);
+    // Cambia solo el código encima de esta línea
+    num--;
+  }
+  return newArr;
 }
 
 console.log(copyMachine([true, false, true], 2));
@@ -328,9 +337,9 @@ todos los elementos de un arreglo en otro, en cualquier índice.Con sintaxis má
 podemos concatenar arreglos, pero esto sólo nos permite combinar arreglos al final de uno, y al 
 principio de otro.La sintaxis de propagación hace la siguiente operación extremadamente simple: */
 
-let thisArray1 = ['sage', 'rosemary', 'parsley', 'thyme'];
+let thisArray1 = ["sage", "rosemary", "parsley", "thyme"];
 
-let thatArray1 = ['basil', 'cilantro', ...thisArray1, 'coriander'];
+let thatArray1 = ["basil", "cilantro", ...thisArray1, "coriander"];
 console.log(thatArray1);
 
 /* thatArray tendrá el valor['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 
@@ -343,9 +352,9 @@ Hemos definido una función spreadOut que devuelve la variable sentence.Modifica
 el operador de propagación para que devuelva el arreglo['learning', 'to', 'code', 'is', 'fun']. */
 
 function spreadOut() {
-    let fragment = ['to', 'code'];
-    let sentence = ['learning', ...fragment, 'is', 'fun']; // Cambia esta línea
-    return sentence;
+  let fragment = ["to", "code"];
+  let sentence = ["learning", ...fragment, "is", "fun"]; // Cambia esta línea
+  return sentence;
 }
 
 console.log(spreadOut());
@@ -360,11 +369,11 @@ elemento no existe en el arreglo.
 
 Por ejemplo: */
 
-let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+let fruits = ["apples", "pears", "oranges", "peaches", "pears"];
 
-console.log(fruits.indexOf('dates'));
-console.log(fruits.indexOf('oranges'));
-console.log(fruits.indexOf('pears'));
+console.log(fruits.indexOf("dates"));
+console.log(fruits.indexOf("oranges"));
+console.log(fruits.indexOf("pears"));
 
 /* indexOf('dates') devuelve - 1, indexOf('oranges') devuelve 2, e indexOf('pears') devuelve 1
 (el primer índice en el que existe cada elemento).
@@ -375,9 +384,9 @@ Modifica la función usando indexOf() para que devuelva true si el elemento pasa
 arreglo, y false si no existe. */
 
 function quickCheck(arr, elem) {
-    // Cambia solo el código debajo de esta línea
-    return arr.indexOf(elem) >= 0;
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return arr.indexOf(elem) >= 0;
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(quickCheck(["squash", "onions", "shallots"], "mushrooms")); //debe devolver false
@@ -396,13 +405,13 @@ flexible y nos ofrece la mayor cantidad de control es un simple bucle for.
 Considera lo siguiente: */
 
 function greaterThanTen(arr) {
-    let newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 10) {
-            newArr.push(arr[i]);
-        }
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 10) {
+      newArr.push(arr[i]);
     }
-    return newArr;
+  }
+  return newArr;
 }
 
 console.log(greaterThanTen([2, 12, 8, 14, 80, 0, 1]));
@@ -419,18 +428,28 @@ que devuelva una versión filtrada del arreglo pasado de forma que cualquier arr
 de arr que contenga elem haya sido eliminado. */
 
 function filteredArray(arr, elem) {
-    let newArr = [];
-    // Cambia solo el código debajo de esta línea
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].indexOf(elem) < 0) {
-            console.log(newArr.push(arr[i]));
-        }
+  let newArr = [];
+  // Cambia solo el código debajo de esta línea
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf(elem) < 0) {
+      newArr.push(arr[i]);
     }
-    // Cambia solo el código encima de esta línea
-    return newArr;
+  }
+  // Cambia solo el código encima de esta línea
+  return newArr;
 }
 
-console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+      [3, 13, 26],
+      [19, 3, 9],
+    ],
+    3
+  )
+);
 
 /* Crea arreglos complejos multidimensionales
 ¡Fantástico! ¡Acabas de aprender un montón sobre arreglos! Esta ha sido una visión general de alto 
@@ -448,20 +467,9 @@ esta manera, un arreglo puede convertirse rápidamente en una estructura de dato
 conocido como multidimensional, o arreglo anidado.Considera el siguiente ejemplo: */
 
 let nestedArray = [
-    ['deep'],
-    [
-        ['deeper'], ['deeper']
-    ],
-    [
-        [
-            ['deepest'], ['deepest']
-        ],
-        [
-            [
-                ['deepest-est?']
-            ]
-        ]
-    ]
+  ["deep"],
+  [["deeper"], ["deeper"]],
+  [[["deepest"], ["deepest"]], [[["deepest-est?"]]]],
 ];
 console.log(nestedArray);
 
@@ -478,7 +486,7 @@ console.log(nestedArray[2][1][0][0][0]);
 /*Esto registra la cadena deepest - est?.Y ahora que sabemos dónde está ese dato, podemos 
 restablecerlo si es necesario: */
 
-nestedArray[2][1][0][0][0] = 'deeper still';
+nestedArray[2][1][0][0][0] = "deeper still";
 
 console.log(nestedArray[2][1][0][0][0]);
 
@@ -491,24 +499,27 @@ algún lugar del tercer nivel, incluye la cadena deep, en el cuarto nivel, inclu
 y en el quinto nivel, incluye la cadena deepest. */
 
 let myNestedArray = [
-    // Cambia solo el código debajo de esta línea
-    ['unshift', false, 1, 2, 3, 'complex', 'nested'],
-    ['loop', 'shift', 6, 7, 1000, 'method',
-        ["deep", true, 15], ["third level"]
-    ],
-    ['concat', false, true, 'spread', 'array',
-        [
-            ["deeper", false, 3], ["fourth level"]
-        ]],
-    ['mutate', 1327.98, 'splice', 'slice', 'push',
-        [
-            [
-                ["deepest", true, 1985], ["fifth level"]
-            ]
-        ]
-    ],
-    ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth']
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  ["unshift", false, 1, 2, 3, "complex", "nested"],
+  ["loop", "shift", 6, 7, 1000, "method", ["deep", true, 15], ["third level"]],
+  [
+    "concat",
+    false,
+    true,
+    "spread",
+    "array",
+    [["deeper", false, 3], ["fourth level"]],
+  ],
+  [
+    "mutate",
+    1327.98,
+    "splice",
+    "slice",
+    "push",
+    [[["deepest", true, 1985], ["fifth level"]]],
+  ],
+  ["iterate", 1.3849, 7, "8.4876", "arbitrary", "depth"],
+  // Cambia solo el código encima de esta línea
 ];
 console.log(myNestedArray);
 
@@ -518,23 +529,23 @@ palabras, son piezas de datos(valores) asignados a identificadores únicos llama
 propiedades(claves).Mira un ejemplo: */
 
 const tekkenCharacter = {
-    player: 'Hwoarang',
-    fightingStyle: 'Tae Kwon Doe',
-    human: true
+  player: "Hwoarang",
+  fightingStyle: "Tae Kwon Doe",
+  human: true,
 };
 
 /* El código anterior define un objeto de un personaje del videojuego Tekken como tekkenCharacter.
 Tiene tres propiedades, cada una de las cuales se asigna un valor específico.Si se quiere agregar 
 una propiedad adicional, como "origin"(origen), se puede hacer asignando origin al objeto: */
 
-tekkenCharacter.origin = 'South Korea';
+tekkenCharacter.origin = "South Korea";
 console.log(tekkenCharacter);
 
 /* Esto usa la notación de puntos.Si observas el objeto tekkenCharacter, ahora incluirá la 
 propiedad origin.Hwoarang también tenía el cabello naranja.Puedes agregar esta propiedad con la 
 notación de corchetes: */
 
-tekkenCharacter['hair color'] = 'dyed orange';
+tekkenCharacter["hair color"] = "dyed orange";
 console.log(tekkenCharacter);
 
 /* La notación de corchetes es necesaria si tu propiedad tiene un espacio en ella o si se quiere 
@@ -543,9 +554,9 @@ comillas para denotar que es una cadena y se agregará exactamente como se muest
 se evaluará como una variable y el nombre de la propiedad será el valor que tenga la variable.He 
 aquí un ejemplo con una variable: */
 
-const eyes = 'eye color';
+const eyes = "eye color";
 
-tekkenCharacter[eyes] = 'brown';
+tekkenCharacter[eyes] = "brown";
 
 console.log(tekkenCharacter);
 
@@ -565,14 +576,14 @@ entradas más: bananas con el valor de 13, grapes con el valor de 35, y strawber
 27. */
 
 let foods = {
-    apples: 25,
-    oranges: 32,
-    plums: 28
+  apples: 25,
+  oranges: 32,
+  plums: 28,
 };
 // Cambia solo el código debajo de esta línea
 foods.bananas = 13;
-foods['grapes'] = 35;
-const addFood = 'strawberries';
+foods["grapes"] = 35;
+const addFood = "strawberries";
 foods[addFood] = 27;
 // Cambia solo el código encima de esta línea
 
@@ -584,17 +595,17 @@ profundidad arbitraria, y sus valores pueden ser cualquier tipo de datos soporta
 incluyendo arreglos e incluso otros objetos.Considera lo siguiente: */
 
 let nestedObject = {
-    id: 28802695164,
-    date: 'December 31, 2016',
-    data: {
-        totalUsers: 99,
-        online: 80,
-        onlineStatus: {
-            active: 67,
-            away: 13,
-            busy: 8
-        }
-    }
+  id: 28802695164,
+  date: "December 31, 2016",
+  data: {
+    totalUsers: 99,
+    online: 80,
+    onlineStatus: {
+      active: 67,
+      away: 13,
+      busy: 8,
+    },
+  },
 };
 
 /* nestedObject tiene tres propiedades: id(el valor es un número), date(el valor es una cadena), y 
@@ -610,12 +621,12 @@ console.log(nestedObject);
 Establece el valor de la clave online en 45. */
 
 let userActivity = {
-    id: 23894201352,
-    date: 'January 1, 2017',
-    data: {
-        totalUsers: 51,
-        online: 42
-    }
+  id: 23894201352,
+  date: "January 1, 2017",
+  data: {
+    totalUsers: 51,
+    online: 42,
+  },
 };
 
 // Cambia solo el código debajo de esta línea
@@ -644,18 +655,18 @@ Devuelve el valor actual de la clave scannedItem en el objeto foods.Puedes asumi
 proporcionarán claves válidas como argumento a checkInventory. */
 
 let foods1 = {
-    apples: 25,
-    oranges: 32,
-    plums: 28,
-    bananas: 13,
-    grapes: 35,
-    strawberries: 27
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27,
 };
 
 function checkInventory(scannedItem) {
-    // Cambia solo el código debajo de esta línea
-    return foods1[scannedItem];
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return foods1[scannedItem];
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(checkInventory("apples"));
@@ -680,12 +691,12 @@ console.log(foods1);
 foods. */
 
 let foods2 = {
-    apples: 25,
-    oranges: 32,
-    plums: 28,
-    bananas: 13,
-    grapes: 35,
-    strawberries: 27
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27,
 };
 
 // Cambia solo el código debajo de esta línea
@@ -712,37 +723,39 @@ Termina de escribir la función para que devuelva true si el objeto pasado conti
 nombres, Alan, Jeff, Sarah and Ryan y devuelva false en caso contrario. */
 
 let users = {
-    Alan: {
-        age: 27,
-        online: true
-    },
-    Jeff: {
-        age: 32,
-        online: true
-    },
-    Sarah: {
-        age: 48,
-        online: true
-    },
-    Ryan: {
-        age: 19,
-        online: true
-    }
+  Alan: {
+    age: 27,
+    online: true,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: true,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
 };
 
 function isEveryoneHere(userObj) {
-    // Cambia solo el código debajo de esta línea
-    /* Solución #1:
+  // Cambia solo el código debajo de esta línea
+  /* Solución #1:
     return userObj.hasOwnProperty('Alan')
         && userObj.hasOwnProperty('Jeff')
         && userObj.hasOwnProperty('Sarah')
         && userObj.hasOwnProperty('Ryan'); 
         Solucion #2:*/
-    return 'Alan' in userObj
-        && 'Jeff' in userObj
-        && 'Sarah' in userObj
-        && 'Ryan' in userObj;
-    // Cambia solo el código encima de esta línea
+  return (
+    "Alan" in userObj &&
+    "Jeff" in userObj &&
+    "Sarah" in userObj &&
+    "Ryan" in userObj
+  );
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(isEveryoneHere(users));
@@ -752,7 +765,7 @@ A veces es necesario iterar por todas las claves de un objeto.Esto requiere una 
 en JavaScript llamada sentencia for...in.Para nuestro objeto users, esto podría verse así: */
 
 for (let user in users) {
-    console.log(user);
+  console.log(user);
 }
 
 /* Esto devolvería Alan, Jeff, y Sarah - cada valor en su propia línea.
@@ -784,28 +797,28 @@ usuario tendrá una propiedad online con un valor true o false.
 } */
 
 const users1 = {
-    Alan: {
-        online: false
-    },
-    Jeff: {
-        online: true
-    },
-    Sarah: {
-        online: false
-    }
-}
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: false,
+  },
+};
 
 function countOnline(usersObj) {
-    // Cambia solo el código debajo de esta línea
-    let count = 0;
-    for (let user in usersObj) {
-        if (usersObj[user].online === true) {
-            count++;
-        }
+  // Cambia solo el código debajo de esta línea
+  let count = 0;
+  for (let user in usersObj) {
+    if (usersObj[user].online === true) {
+      count++;
     }
-    return count;
+  }
+  return count;
 
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(countOnline(users1));
@@ -820,28 +833,28 @@ Termina de escribir la función getArrayOfUsers para que devuelva un arreglo que
 propiedades del objeto que recibe como argumento. */
 
 let users2 = {
-    Alan: {
-        age: 27,
-        online: false
-    },
-    Jeff: {
-        age: 32,
-        online: true
-    },
-    Sarah: {
-        age: 48,
-        online: false
-    },
-    Ryan: {
-        age: 19,
-        online: true
-    }
+  Alan: {
+    age: 27,
+    online: false,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: false,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
 };
 
 function getArrayOfUsers(obj) {
-    // Cambia solo el código debajo de esta línea
-    return Object.keys(obj);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return Object.keys(obj);
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(getArrayOfUsers(users2));
@@ -864,30 +877,26 @@ agregue el nombre del argumento friend al arreglo almacenado en user.data.friend
 arreglo. */
 
 let user = {
-    name: 'Kenneth',
-    age: 28,
-    data: {
-        username: 'kennethCodesAllDay',
-        joinDate: 'March 26, 2016',
-        organization: 'freeCodeCamp',
-        friends: [
-            'Sam',
-            'Kira',
-            'Tomo'
-        ],
-        location: {
-            city: 'San Francisco',
-            state: 'CA',
-            country: 'USA'
-        }
-    }
+  name: "Kenneth",
+  age: 28,
+  data: {
+    username: "kennethCodesAllDay",
+    joinDate: "March 26, 2016",
+    organization: "freeCodeCamp",
+    friends: ["Sam", "Kira", "Tomo"],
+    location: {
+      city: "San Francisco",
+      state: "CA",
+      country: "USA",
+    },
+  },
 };
 
 function addFriend(userObj, friend) {
-    // Cambia solo el código debajo de esta línea
-    userObj.data.friends.push(friend);
-    return userObj.data.friends;
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  userObj.data.friends.push(friend);
+  return userObj.data.friends;
+  // Cambia solo el código encima de esta línea
 }
 
-console.log(addFriend(user, 'Pete'));
+console.log(addFriend(user, "Pete"));
