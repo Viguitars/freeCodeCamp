@@ -94,16 +94,16 @@ asignan ámbito a la variable declarada.Cuando programas una función similar a 
 este ejercicio, es a menudo mejor usar diferentes nombres de variables para evitar confusión. */
 
 function checkScope() {
-    let i = 'function scope';
-    if (false) {
-        i = 'block scope';
-        console.log('Block scope i is: ', i);
-    }
-    console.log('Function scope i is: ', i);
-    return i;
+  let i = "function scope";
+  if (false) {
+    i = "block scope";
+    console.log("Block scope i is: ", i);
+  }
+  console.log("Function scope i is: ", i);
+  return i;
 }
 
-console.log(checkScope());//debe devolver la cadena function scope
+console.log(checkScope()); //debe devolver la cadena function scope
 
 /* Muta un arreglo declarado con const
 Si no estás familiarizada con const, verifica este desafío sobre la palabra clave const.
@@ -135,18 +135,18 @@ asignaciones de elementos. */
 
 const s1 = [5, 7, 2];
 function editInPlace() {
-    // Cambia solo el código debajo de esta línea
+  // Cambia solo el código debajo de esta línea
 
-    // Usar s = [2, 5, 7] sería inválido
-    s1[0] = 2;
-    s1[1] = 5;
-    s1[2] = 7;
-    return s1;
+  // Usar s = [2, 5, 7] sería inválido
+  s1[0] = 2;
+  s1[1] = 5;
+  s1[2] = 7;
+  return s1;
 
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código encima de esta línea
 }
 
-console.log(editInPlace());//s debe ser igual a [2, 5, 7].
+console.log(editInPlace()); //s debe ser igual a [2, 5, 7].
 
 /* Prevenir la mutación del objeto
 Como se vio en el desafío anterior, la declaración const por sí sola no protege la información de 
@@ -157,8 +157,8 @@ Cualquier intento de cambiar el objeto será rechazado, lanzando un error si el 
 modo estricto (strict mode). */
 
 let obj = {
-    name: "FreeCodeCamp",
-    review: "Awesome"
+  name: "FreeCodeCamp",
+  review: "Awesome",
 };
 Object.freeze(obj);
 obj.review = "bad";
@@ -174,22 +174,22 @@ Necesitas congelar el objeto MATH_CONSTANTS para que nadie pueda alterar el valo
 borrar propiedades. */
 
 function freezeObj() {
-    const MATH_CONSTANTS = {
-        PI: 3.14
-    };
-    // Cambia solo el código debajo de esta línea
-    Object.freeze(MATH_CONSTANTS);
-    // Cambia solo el código encima de esta línea
-    try {
-        MATH_CONSTANTS.PI = 99;
-    } catch (ex) {
-        console.log(ex);
-    }
-    return MATH_CONSTANTS.PI;
+  const MATH_CONSTANTS = {
+    PI: 3.14,
+  };
+  // Cambia solo el código debajo de esta línea
+  Object.freeze(MATH_CONSTANTS);
+  // Cambia solo el código encima de esta línea
+  try {
+    MATH_CONSTANTS.PI = 99;
+  } catch (ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANTS.PI;
 }
 const PI = freezeObj();
 
-console.log(PI);//PI debe ser igual a 3.14.
+console.log(PI); //PI debe ser igual a 3.14.
 
 /* Usa funciones flecha para escribir funciones anónimas de manera breve
 En JavaScript, usualmente no necesitas nombrar tus funciones, especialmente cuando se pasa una 
@@ -199,18 +199,18 @@ necesitamos nombrar estas funciones porque no las reutilizamos en otro lugar.
 Para lograr esto, por lo general se usa la siguiente sintaxis: */
 
 const myFunc1 = function () {
-    const myVar = "value";
-    return myVar;
-}
+  const myVar = "value";
+  return myVar;
+};
 console.log(myFunc1());
 
 /* ES6 nos proporciona el azúcar sintáctico, para no tener que escribir funciones anónimas de este 
 modo. En su lugar, puedes usar la sintaxis de función flecha: */
 
 const myFunc2 = () => {
-    const myVar = "value";
-    return myVar;
-}
+  const myVar = "value";
+  return myVar;
+};
 console.log(myFunc2());
 
 /* Cuando la función no posee cuerpo y sólo tiene un valor de retorno, la sintaxis de "función de 
@@ -242,7 +242,7 @@ console.log(doubler1(4));
 Si una función flecha tiene un solo parámetro, los paréntesis que encierran el parámetro pueden ser 
 omitidos. */
 
-const doubler2 = item => item * 2;
+const doubler2 = (item) => item * 2;
 console.log(doubler2(4));
 
 //Es posible pasar más de un argumento a una función flecha.
@@ -299,7 +299,7 @@ dentro de la función.
 Echa un vistazo a este código: */
 
 function howMany(...args) {
-    return "You have passed " + args.length + " arguments.";
+  return "You have passed " + args.length + " arguments.";
 }
 console.log(howMany(0, 1, 2));
 console.log(howMany("string", null, [1, 2, 3], {}));
@@ -349,10 +349,10 @@ const spreaded = ...arr;
 
 Copia todo el contenido de arr1 en otro arreglo arr2 usando el operador de propagación. */
 
-const arr2 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+const arr2 = ["JAN", "FEB", "MAR", "APR", "MAY"];
 let arr3;
 
-arr3 = [...arr2];  // Cambia esta línea
+arr3 = [...arr2]; // Cambia esta línea
 
 console.log(arr3);
 
@@ -362,7 +362,7 @@ valores directamente desde un objeto.
 
 Considera el siguiente código ES5: */
 
-const user = { name: 'John Doe', age: 34 };
+const user = { name: "John Doe", age: 34 };
 
 const name = user.name;
 const age = user.age;
@@ -389,9 +389,9 @@ seguir asignando las variables today y tomorrow con los valores de today y tomor
 HIGH_TEMPERATURES. */
 
 const HIGH_TEMPERATURES = {
-    yesterday: 75,
-    today: 77,
-    tomorrow: 80
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80,
 };
 
 // Cambia solo el código debajo de esta línea
@@ -453,37 +453,43 @@ desde objetos anidados.
 Usando un objeto similar a los ejemplos anteriores: */
 
 const user1 = {
-    johnDoe: {
-        age: 34,
-        email: 'johnDoe@freeCodeCamp.com'
-    }
+  johnDoe: {
+    age: 34,
+    email: "johnDoe@freeCodeCamp.com",
+  },
 };
 
 /* Así es como se extraen los valores de propiedades de objetos y se los asigna a variables con el 
 mismo nombre: */
 
-const { johnDoe: { age1, email } } = user1;
+const {
+  johnDoe: { age1, email },
+} = user1;
 
 /* Y así es como se puede asignar los valores de las propiedades de un objeto a variables con 
 diferentes nombres: */
 
-const { johnDoe: { age: userAge1, email: userEmail } } = user1;
+const {
+  johnDoe: { age: userAge1, email: userEmail },
+} = user1;
 
 /* Reemplaza las dos asignaciones con una sintaxis de desestructuración equivalente. Todavía deben 
 seguir asignando las variables lowToday y highToday con los valores de today.low y today.high del 
 objeto LOCAL_FORECAST. */
 
 const LOCAL_FORECAST = {
-    yesterday: { low: 61, high: 75 },
-    today: { low: 64, high: 77 },
-    tomorrow: { low: 68, high: 80 }
+  yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 },
 };
 
 // Cambia solo el código debajo de esta línea
 
 /* const lowToday = LOCAL_FORECAST.today.low;
 const highToday = LOCAL_FORECAST.today.high; */
-const { today: { low: lowToday, high: highToday1 }, } = LOCAL_FORECAST
+const {
+  today: { low: lowToday, high: highToday1 },
+} = LOCAL_FORECAST;
 
 // Cambia solo el código encima de esta línea
 console.log(lowToday);
@@ -515,7 +521,8 @@ console.log(a, b, c);
 Utiliza la sintaxis de desestructuración para intercambiar los valores de a y b para que a reciba 
 el valor almacenado en b, y b reciba el valor almacenado en a. */
 
-let a2 = 8, b2 = 6;
+let a2 = 8,
+  b2 = 6;
 // Cambia solo el código debajo de esta línea
 [a2, b2] = [b2, a2];
 
@@ -546,12 +553,12 @@ Array.prototype.slice().removeFirstTwo() debe devolver un sub - arreglo del arre
 sin los dos primeros elementos. */
 
 function removeFirstTwo(list) {
-    // Cambia solo el código debajo de esta línea
-    const [a, b, ...shorterList] = list; // Cambia esta línea (primer solución)
-    //const [,, ...shorterList] = list; // Cambia esta línea (segunda solución)
+  // Cambia solo el código debajo de esta línea
+  const [a, b, ...shorterList] = list; // Cambia esta línea (primer solución)
+  //const [,, ...shorterList] = list; // Cambia esta línea (segunda solución)
 
-    // Cambia solo el código encima de esta línea
-    return shorterList;
+  // Cambia solo el código encima de esta línea
+  return shorterList;
 }
 
 const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -566,15 +573,13 @@ En algunos casos, se puede desestructurar el objeto en un propio argumento de fu
 Considera el siguiente código: */
 
 const profileUpdate = (profileData) => {
-    const { name, age, nationality, location } = profileData;
-}
+  const { name, age, nationality, location } = profileData;
+};
 
 /* Esto desestructura efectivamente el objeto enviado a la función.Esto también se puede hacer en 
 el lugar: */
 
-const profileUpdate1 = ({ name, age, nationality, location }) => {
-
-}
+const profileUpdate1 = ({ name, age, nationality, location }) => {};
 /* Cuando profileData es pasado a la función anterior, los valores son desestructurados desde el 
 parámetro de función para su uso dentro de la función.
 
@@ -582,12 +587,12 @@ Utiliza la sintaxis de desestructuración dentro del argumento de la función ha
 max y min dentro de la función. */
 
 const stats = {
-    max: 56.78,
-    standard_deviation: 4.34,
-    median: 34.54,
-    mode: 23.87,
-    min: -0.75,
-    average: 35.85
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85,
 };
 
 // Cambia solo el código debajo de esta línea
@@ -608,8 +613,8 @@ interpolación, para crearlas.
 Fíjese en el código debajo: */
 
 const person = {
-    name: "Zodiac Hasbro",
-    age: 56
+  name: "Zodiac Hasbro",
+  age: 56,
 };
 
 const greeting1 = `Hello, my name is ${person.name}!
@@ -645,19 +650,19 @@ Utiliza un método de iteración (cualquier tipo de bucle) para obtener el resul
 */
 
 const result = {
-    success: ["max-length", "no-amd", "prefer-arrow-functions"],
-    failure: ["no-var", "var-on-top", "linebreak"],
-    skipped: ["no-extra-semi", "no-dup-keys"]
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"],
 };
 function makeList(arr) {
-    // Cambia solo el código debajo de esta línea
-    const failureItems = [];
-    for (let i = 0; i < result.failure.length; i++) {
-        failureItems.push(`<li class="text-warning">${result.failure[i]}</li>`);
-    }
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  const failureItems = [];
+  for (let i = 0; i < result.failure.length; i++) {
+    failureItems.push(`<li class="text-warning">${result.failure[i]}</li>`);
+  }
+  // Cambia solo el código encima de esta línea
 
-    return failureItems;
+  return failureItems;
 }
 
 const failuresList = makeList(result.failure);
@@ -670,8 +675,8 @@ ES6 añade un buen soporte para definir fácilmente objetos literales.
 Considera el siguiente código: */
 
 const getMousePosition1 = (x, y) => ({
-    x: x,
-    y: y
+  x: x,
+  y: y,
 });
 
 /* getMousePosition es una función simple que devuelve un objeto que contiene dos propiedades. ES6 
@@ -685,10 +690,10 @@ const getMousePosition2 = (x, y) => ({ x, y });
 objeto con las propiedades name, age y gender. */
 
 const createPerson = (name, age, gender) => ({
-    // Cambia solo el código debajo de esta línea
-    name,
-    age,
-    gender
+  // Cambia solo el código debajo de esta línea
+  name,
+  age,
+  gender,
 });
 // Cambia solo el código encima de esta línea
 
@@ -700,10 +705,10 @@ Al definir funciones dentro de objetos en ES5, tenemos que utilizar la palabra c
 siguiente manera: */
 
 const person1 = {
-    name: "Taylor",
-    sayHello: function () {
-        return `Hello! My name is ${this.name}.`;
-    }
+  name: "Taylor",
+  sayHello: function () {
+    return `Hello! My name is ${this.name}.`;
+  },
 };
 
 console.log(person1);
@@ -712,10 +717,10 @@ console.log(person1);
 objetos.Aquí hay un ejemplo de esta sintaxis: */
 
 const person2 = {
-    name: "Taylor",
-    sayHello() {
-        return `Hello! My name is ${this.name}.`;
-    }
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  },
 };
 
 console.log(person2);
@@ -726,10 +731,10 @@ descrita arriba.
 
 // Cambia solo el código debajo de esta línea
 const bicycle = {
-    gear: 2,
-    setGear(newGear) {
-        this.gear = newGear;
-    }
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  },
 };
 // Cambia solo el código encima de esta línea
 bicycle.setGear(3);
@@ -750,22 +755,22 @@ argumentos. */
 
 // Explicit constructor
 class SpaceShuttle {
-    constructor(targetPlanet) {
-        this.targetPlanet = targetPlanet;
-    }
-    takeOff() {
-        console.log("To " + this.targetPlanet + "!");
-    }
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+  takeOff() {
+    console.log("To " + this.targetPlanet + "!");
+  }
 }
 
-// Implicit constructor 
+// Implicit constructor
 class Rocket {
-    launch() {
-        console.log("To the moon!");
-    }
+  launch() {
+    console.log("To the moon!");
+  }
 }
 
-const zeus = new SpaceShuttle('Jupiter');
+const zeus = new SpaceShuttle("Jupiter");
 // prints To Jupiter! in console
 zeus.takeOff();
 
@@ -790,13 +795,13 @@ constructor. */
 
 // Cambia solo el código debajo de esta línea
 class Vegetable {
-    constructor(name) {
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 }
 // Cambia solo el código encima de esta línea
 
-const carrot = new Vegetable('carrot');
+const carrot = new Vegetable("carrot");
 console.log(carrot.name); // Debería mostrar 'carrot'
 
 /* Utiliza getters(accesores) y setters(mutadores) para controlar el acceso a un objeto
@@ -812,21 +817,21 @@ basado en el valor pasado a la función setter.Este cambio podría implicar cál
 sobrescribir completamente el valor anterior. */
 
 class Book {
-    constructor(author) {
-        this._author = author;
-    }
-    // getter
-    get writer() {
-        return this._author;
-    }
-    // setter
-    set writer(updatedAuthor) {
-        this._author = updatedAuthor;
-    }
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
 }
-const novel = new Book('anonymous');
+const novel = new Book("anonymous");
 console.log(novel.writer);
-novel.writer = 'newAuthor';
+novel.writer = "newAuthor";
 console.log(novel.writer);
 
 /* La consola mostrará las cadenas anonymous y newAuthor.
@@ -857,17 +862,17 @@ En otras palabras, estás abstrayendo los detalles de la implementación del usu
 
 // Cambia solo el código debajo de esta línea
 class Thermostat {
-    constructor(tempFahrenheit) {
-        this._tempFahrenheit = tempFahrenheit;
-    }
-    //getter
-    get temperature() {
-        return 5 / 9 * (this._tempFahrenheit - 32);
-    }
-    //setter
-    set temperature(tempCelsius) {
-        this._tempFahrenheit = tempCelsius * 9.0 / 5 + 32;
-    }
+  constructor(tempFahrenheit) {
+    this._tempFahrenheit = tempFahrenheit;
+  }
+  //getter
+  get temperature() {
+    return (5 / 9) * (this._tempFahrenheit - 32);
+  }
+  //setter
+  set temperature(tempCelsius) {
+    this._tempFahrenheit = (tempCelsius * 9.0) / 5 + 32;
+  }
 }
 // Cambia solo el código encima de esta línea
 
@@ -1052,18 +1057,14 @@ cumples.Promise es una función constructora, así que tu necesitas usar la pala
 crear una.Recibe una función como su argumento, con dos parámetros: resolve y reject.Estos métodos 
 se utilizan para determinar el resultado de la promesa.Su sintaxis se ve así: */
 
-const myPromise = new Promise((resolve, reject) => {
-
-});
+const myPromise = new Promise((resolve, reject) => {});
 
 console.log(myPromise);
 
 /* Crea una nueva promesa llamada makeServerRequest.Pásale una función con parámetros resolve y 
 reject al constructor. */
 
-const makeServerRequest = new Promise((resolve, reject) => {
-
-});
+const makeServerRequest = new Promise((resolve, reject) => {});
 
 console.log(makeServerRequest);
 
@@ -1092,16 +1093,16 @@ We got the data.Si responseFromServer es false, utiliza el método reject y devu
 Data not received. */
 
 const makeServerRequest1 = new Promise((resolve, reject) => {
-    // responseFromServer representa una respuesta de un servidor
-    let responseFromServer1;
+  // responseFromServer representa una respuesta de un servidor
+  let responseFromServer1;
 
-    if (responseFromServer1) {
-        // Cambia esta línea
-        resolve('We got the data');
-    } else {
-        // Cambia esta línea
-        reject('Data not received');
-    }
+  if (responseFromServer1) {
+    // Cambia esta línea
+    resolve("We got the data");
+  } else {
+    // Cambia esta línea
+    reject("Data not received");
+  }
 });
 
 console.log(makeServerRequest1);
@@ -1114,9 +1115,7 @@ hacer algo con la respuesta del servidor.Esto se puede lograr utilizando el mét
 then, se ejecuta inmediatamente después de que tu promesa se cumple con resolve.A continuación un 
 ejemplo: */
 
-myPromise.then(result => {
-
-});
+myPromise.then((result) => {});
 
 /* result viene con el argumento proporcionado al método resolve.
 
@@ -1124,29 +1123,26 @@ Añade el método then a tu promesa.Usa result como parámetro de tu función ca
 imprime result en la consola. */
 
 const makeServerRequest2 = new Promise((resolve, reject) => {
-    /* responseFromServer1 es establecido a true para representar una respuesta satisfactoria del 
+  /* responseFromServer1 es establecido a true para representar una respuesta satisfactoria del 
     servidor */
-    let responseFromServer2 = true;
+  let responseFromServer2 = true;
 
-    if (responseFromServer2) {
-        resolve("We got the data");
-    } else {
-        reject("Data not received");
-    }
+  if (responseFromServer2) {
+    resolve("We got the data");
+  } else {
+    reject("Data not received");
+  }
 });
 
-makeServerRequest2.then(result => {
-    console.log(result);
-
+makeServerRequest2.then((result) => {
+  console.log(result);
 });
 
 /* Maneja una promesa rechazada usando catch
 catch es el método utilizado cuando tu promesa ha sido rechazada. Se ejecuta inmediatamente, 
 después de que se llama al método reject de una promesa. A continuación la sintaxis: */
 
-myPromise.catch(error => {
-
-});
+myPromise.catch((error) => {});
 
 /* error es el argumento pasado al método reject.
 
@@ -1154,21 +1150,21 @@ Añade el método catch a tu promesa. Usa error como el parámetro de tu funció
 error en la consola. */
 
 const makeServerRequest3 = new Promise((resolve, reject) => {
-    /* responseFromServer es establecido a false para representar una respuesta no satisfactoria 
+  /* responseFromServer es establecido a false para representar una respuesta no satisfactoria 
     del servidor */
-    let responseFromServer3 = false;
+  let responseFromServer3 = false;
 
-    if (responseFromServer3) {
-        resolve("We got the data");
-    } else {
-        reject("Data not received");
-    }
+  if (responseFromServer3) {
+    resolve("We got the data");
+  } else {
+    reject("Data not received");
+  }
 });
 
-makeServerRequest.then(result => {
-    console.log(result);
+makeServerRequest.then((result) => {
+  console.log(result);
 });
 
-makeServerRequest3.catch(error => {
-    console.log(error);
+makeServerRequest3.catch((error) => {
+  console.log(error);
 });
