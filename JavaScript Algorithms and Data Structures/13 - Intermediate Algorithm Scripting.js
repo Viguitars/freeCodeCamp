@@ -615,11 +615,12 @@ console.log(
 Aplana un arreglo anidado. Debes tener en cuenta los diferentes niveles de anidación. */
 
 function steamrollArray(arr) {
-  let newArr = [];
-  return arr.map((element) => element);
+  console.log(arr[2][1][0][0]);
+
+  return arr;
 }
 
-console.log(steamrollArray([[["a"]], [["b"]]])); //["a", "b"].
+//console.log(steamrollArray([[["a"]], [["b"]]])); //["a", "b"].
 console.log(steamrollArray([1, [2], [3, [[4]]]])); //[1, 2, 3, 4].
-console.log(steamrollArray([1, [], [3, [[4]]]])); //[1, 3, 4].
-console.log(steamrollArray([1, {}, [3, [[4]]]])); //[1, {}, 3, 4]
+//console.log(steamrollArray([1, [], [3, [[4]]]])); //[1, 3, 4].
+//console.log(steamrollArray([1, {}, [3, [[4]]]])); //[1, {}, 3, 4]
