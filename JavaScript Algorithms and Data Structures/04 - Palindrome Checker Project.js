@@ -14,33 +14,30 @@ Pasaremos cadenas con formatos variables, como racecar, RaceCar y race CAR entre
 También pasaremos cadenas con símbolos especiales, como 2A3 * 3a2, 2A3 3a2 y 2_A3 * 3#A2. */
 
 function cleanUpNonAlphanumericStr(str) {
-    return str.replace(/[\W_]/g, "");
+  return str.replace(/[\W_]/g, "");
 }
 
 function convertToUppercaseStr(str) {
-    return str.toUpperCase();
+  return str.toUpperCase();
 }
 
 function reverseStr(str) {
-    let result = "";
-    for (let i = str.length - 1; i >= 0; i--) {
-        result += str[i];
-    }
-    return result;
-
+  let result = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+  }
+  return result;
 }
 
 function palindrome(str) {
+  const cleanUpStr = cleanUpNonAlphanumericStr(str);
 
-    const cleanUpStr = cleanUpNonAlphanumericStr(str);
+  const uppercaseStr = convertToUppercaseStr(cleanUpStr);
 
-    const uppercaseStr = convertToUppercaseStr(cleanUpStr);
+  const turnStr = reverseStr(uppercaseStr);
 
-    const turnStr = reverseStr(uppercaseStr);
-
-    return uppercaseStr === turnStr;
+  return uppercaseStr === turnStr;
 }
-
 
 console.log(palindrome("eye")); //debe devolver true.
 console.log(palindrome("eye")); //debe devolver true.
@@ -53,5 +50,5 @@ console.log(palindrome("nope")); //debe devolver false.
 console.log(palindrome("almostomla")); //debe devolver false.
 console.log(palindrome("My age is 0, 0 si ega ym.")); //debe devolver true.
 console.log(palindrome("1 eye for of 1 eye.")); //debe devolver false.
-console.log(palindrome("0_0 (: /-\ :) 0-0")); //debe devolver true.
-console.log(palindrome("five|\_/|four")); //debe devolver false.
+console.log(palindrome("0_0 (: /- :) 0-0")); //debe devolver true.
+console.log(palindrome("five|_/|four")); //debe devolver false.
