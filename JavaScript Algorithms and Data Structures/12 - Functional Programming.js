@@ -28,18 +28,18 @@ En el editor de código, las funciones prepareTea y getTea ya están definidas.L
 getTea para obtener 40 tazas de té para el equipo y guárdalas en la variable tea4TeamFCC. */
 
 // Función que retorna una cadena de texto representando una taza de té verde
-const prepareTea = () => 'greenTea';
+const prepareTea = () => "greenTea";
 
 /*Dada una función (representando el tipo de té) y el número de tazas necesarias, la siguiente 
 función retorna un arreglo de cadenas de texto (cada una representando un tipo específico de té).*/
 const getTea = (numOfCups) => {
-    const teaCups = [];
+  const teaCups = [];
 
-    for (let cups = 1; cups <= numOfCups; cups += 1) {
-        const teaCup = prepareTea();
-        teaCups.push(teaCup);
-    }
-    return teaCups;
+  for (let cups = 1; cups <= numOfCups; cups += 1) {
+    const teaCup = prepareTea();
+    teaCups.push(teaCup);
+  }
+  return teaCups;
 };
 
 // Cambia solo el código debajo de esta línea
@@ -80,23 +80,23 @@ Nota: Los datos(el número de tazas de té) son suministrados como el último ar
 más sobre esto en lecciones posteriores. */
 
 // Función que retorna una cadena de texto representando una taza de té verde
-const prepareGreenTea = () => 'greenTea';
+const prepareGreenTea = () => "greenTea";
 
 // Función que retorna una cadena de texto representando una taza de té negro
-const prepareBlackTea = () => 'blackTea';
+const prepareBlackTea = () => "blackTea";
 
 /*
 Dada una función (representando el tipo de té) y el número de tazas necesarias, la siguiente 
 función retorna un arreglo de cadenas de texto (cada una representando un tipo específico de té).
 */
 const getTea1 = (prepareTea, numOfCups) => {
-    const teaCups = [];
+  const teaCups = [];
 
-    for (let cups = 1; cups <= numOfCups; cups += 1) {
-        const teaCup = prepareTea();
-        teaCups.push(teaCup);
-    }
-    return teaCups;
+  for (let cups = 1; cups <= numOfCups; cups += 1) {
+    const teaCup = prepareTea();
+    teaCups.push(teaCup);
+  }
+  return teaCups;
 };
 
 // Cambia solo el código debajo de esta línea
@@ -104,10 +104,7 @@ const tea4GreenTeamFCC = getTea1(prepareGreenTea, 27);
 const tea4BlackTeamFCC = getTea1(prepareBlackTea, 13);
 // Cambia solo el código encima de esta línea
 
-console.log(
-    tea4GreenTeamFCC,
-    tea4BlackTeamFCC
-);
+console.log(tea4GreenTeamFCC, tea4BlackTeamFCC);
 
 /* Comprende los peligros de usar el código imperativo
 La programación funcional es un buen hábito.Mantiene tu código fácil de manejar y evita que tengas 
@@ -167,46 +164,57 @@ Cambia Window.prototype.tabClose para que elimine la pestaña correcta. */
 
 // tabs es un arreglo de títulos de cada sitio abierto dentro de la ventana
 const Window = function (tabs) {
-    this.tabs = tabs; // Mantenemos un registro del arreglo dentro del objeto
+  this.tabs = tabs; // Mantenemos un registro del arreglo dentro del objeto
 };
 
 // Cuando unes dos ventanas en una
 Window.prototype.join = function (otherWindow) {
-    this.tabs = this.tabs.concat(otherWindow.tabs);
-    return this;
+  this.tabs = this.tabs.concat(otherWindow.tabs);
+  return this;
 };
 
 // Cuando abres una nueva pestaña al final
 Window.prototype.tabOpen = function (tab) {
-    this.tabs.push('new tab'); // Abramos una nueva pestaña por ahora
-    return this;
+  this.tabs.push("new tab"); // Abramos una nueva pestaña por ahora
+  return this;
 };
 
 // Cuando cierras una pestaña
 Window.prototype.tabClose = function (index) {
+  // Cambia solo el código debajo de esta línea
+  const tabsBeforeIndex = this.tabs.splice(0, index); // Obtiene las pestañas antes de la pestaña
+  const tabsAfterIndex = this.tabs.splice(1); // Obtiene las pestañas después de la pestaña
+  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // Únelos juntos
+  // Cambia solo el código encima de esta línea
 
-    // Cambia solo el código debajo de esta línea
-    const tabsBeforeIndex = this.tabs.splice(0, index); // Obtiene las pestañas antes de la pestaña
-    const tabsAfterIndex = this.tabs.splice(1); // Obtiene las pestañas después de la pestaña
-    this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // Únelos juntos
-    // Cambia solo el código encima de esta línea
-
-    return this;
+  return this;
 };
 
 // Vamos a crear tres ventanas del navegador
-const workWindow = new Window(['GMail', '😍Inbox😍', 'Work mail', 'Docs', 'freeCodeCamp']);
+const workWindow = new Window([
+  "GMail",
+  "😍Inbox😍",
+  "Work mail",
+  "Docs",
+  "freeCodeCamp",
+]);
 // Tu casilla de correo, drive y otros sitios de trabajo
-const socialWindow = new Window(['FB', 'Gitter', 'Reddit', 'Twitter', 'Medium']);
+const socialWindow = new Window([
+  "FB",
+  "Gitter",
+  "Reddit",
+  "Twitter",
+  "Medium",
+]);
 // Sitios sociales
-const videoWindow = new Window(['Netflix', 'YouTube', '😍Vimeo😍', 'Vine']);
+const videoWindow = new Window(["Netflix", "YouTube", "😍Vimeo😍", "Vine"]);
 // Sitios de entretenimiento
 
 // Ahora completa la apertura de la pestaña, cierre, y otras operaciones
 const finalTabs = socialWindow
-    .tabOpen() // Abre una nueva pestaña para memes de gatos
-    .join(videoWindow.tabClose(2)) // Cierra la tercera pestaña en videoWindow y une
-    .join(workWindow.tabClose(1).tabOpen());
+  .tabOpen() // Abre una nueva pestaña para memes de gatos
+  .join(videoWindow.tabClose(2)) // Cierra la tercera pestaña en videoWindow y une
+  .join(workWindow.tabClose(1).tabOpen());
 // Cierra la segunda pestaña en workWindow y abre una nueva pestaña
 console.log(finalTabs.tabs);
 
@@ -238,9 +246,9 @@ fixedValue incrementada en uno. */
 let fixedValue = 4;
 
 function incrementer() {
-    // Cambia solo el código debajo de esta línea
-    return fixedValue + 1;
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return fixedValue + 1;
+  // Cambia solo el código encima de esta línea
 }
 console.log(incrementer());
 console.log(fixedValue);
@@ -275,8 +283,8 @@ let fixedValue1 = 4;
 
 // Cambia solo el código debajo de esta línea
 function incrementer1(dynamicValue) {
-    return dynamicValue + 1;
-    // Cambia solo el código encima de esta línea
+  return dynamicValue + 1;
+  // Cambia solo el código encima de esta línea
 }
 console.log(incrementer1(fixedValue1));
 console.log(fixedValue1);
@@ -305,29 +313,29 @@ del parámetro bookName. */
 
 // La variable global
 const bookList = [
-    "The Hound of the Baskervilles",
-    "On The Electrodynamics of Moving Bodies",
-    "Philosophiæ Naturalis Principia Mathematica",
-    "Disquisitiones Arithmeticae"
+  "The Hound of the Baskervilles",
+  "On The Electrodynamics of Moving Bodies",
+  "Philosophiæ Naturalis Principia Mathematica",
+  "Disquisitiones Arithmeticae",
 ];
 
 // Cambia el código debajo de esta línea
 function add(list, bookName) {
-    let newList = [...list];
-    newList.push(bookName);
-    return newList;
-    // Cambia el código encima de esta línea
+  let newList = [...list];
+  newList.push(bookName);
+  return newList;
+  // Cambia el código encima de esta línea
 }
 
 // Cambia el código debajo de esta línea
 function remove(list, bookName) {
-    let newList = [...list];
-    const book_index = newList.indexOf(bookName);
-    if (book_index >= 0) {
-        newList.splice(book_index, 1);
-        return newList;
-        // Cambia el código encima de esta línea
-    }
+  let newList = [...list];
+  const book_index = newList.indexOf(bookName);
+  if (book_index >= 0) {
+    newList.splice(book_index, 1);
+    return newList;
+    // Cambia el código encima de esta línea
+  }
 }
 
 console.log(add(bookList, "A Brief History of Time"));
@@ -340,8 +348,11 @@ console.log(remove(bookList, "On The Electrodynamics of Moving Bodies"));
 /* ["The Hound of the Baskervilles", 
 "Philosophiæ Naturalis Principia Mathematica", 
 "Disquisitiones Arithmeticae"]. */
-console.log(remove(
-    add(bookList, "A Brief History of Time"), "On The Electrodynamics of Moving Bodies")
+console.log(
+  remove(
+    add(bookList, "A Brief History of Time"),
+    "On The Electrodynamics of Moving Bodies"
+  )
 );
 /* ["The Hound of the Baskervilles", 
 "Philosophiæ Naturalis Principia Mathematica", 
@@ -377,12 +388,12 @@ arreglo que contiene solo los nombres de los usuarios como elementos.Para que se
 ejemplo solo utiliza el primer argumento del callback. */
 
 const users = [
-    { name: 'John', age: 34 },
-    { name: 'Amy', age: 20 },
-    { name: 'camperCat', age: 10 }
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
 ];
 
-const names = users.map(user => user.name);
+const names = users.map((user) => user.name);
 console.log(names);
 
 /* La consola mostraría el valor['John', 'Amy', 'camperCat'].
@@ -395,116 +406,123 @@ que debes reemplazar la funcionalidad del bucle con tu expresión map. */
 
 // La variable global
 const watchList = [
-    {
-        "Title": "Inception",
-        "Year": "2010",
-        "Rated": "PG-13",
-        "Released": "16 Jul 2010",
-        "Runtime": "148 min",
-        "Genre": "Action, Adventure, Crime",
-        "Director": "Christopher Nolan",
-        "Writer": "Christopher Nolan",
-        "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
-        "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
-        "Language": "English, Japanese, French",
-        "Country": "USA, UK",
-        "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
-        "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-        "Metascore": "74",
-        "imdbRating": "8.8",
-        "imdbVotes": "1,446,708",
-        "imdbID": "tt1375666",
-        "Type": "movie",
-        "Response": "True"
-    },
-    {
-        "Title": "Interstellar",
-        "Year": "2014",
-        "Rated": "PG-13",
-        "Released": "07 Nov 2014",
-        "Runtime": "169 min",
-        "Genre": "Adventure, Drama, Sci-Fi",
-        "Director": "Christopher Nolan",
-        "Writer": "Jonathan Nolan, Christopher Nolan",
-        "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
-        "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-        "Language": "English",
-        "Country": "USA, UK",
-        "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
-        "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
-        "Metascore": "74",
-        "imdbRating": "8.6",
-        "imdbVotes": "910,366",
-        "imdbID": "tt0816692",
-        "Type": "movie",
-        "Response": "True"
-    },
-    {
-        "Title": "The Dark Knight",
-        "Year": "2008",
-        "Rated": "PG-13",
-        "Released": "18 Jul 2008",
-        "Runtime": "152 min",
-        "Genre": "Action, Adventure, Crime",
-        "Director": "Christopher Nolan",
-        "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
-        "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
-        "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
-        "Language": "English, Mandarin",
-        "Country": "USA, UK",
-        "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
-        "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
-        "Metascore": "82",
-        "imdbRating": "9.0",
-        "imdbVotes": "1,652,832",
-        "imdbID": "tt0468569",
-        "Type": "movie",
-        "Response": "True"
-    },
-    {
-        "Title": "Batman Begins",
-        "Year": "2005",
-        "Rated": "PG-13",
-        "Released": "15 Jun 2005",
-        "Runtime": "140 min",
-        "Genre": "Action, Adventure",
-        "Director": "Christopher Nolan",
-        "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
-        "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
-        "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
-        "Language": "English, Urdu, Mandarin",
-        "Country": "USA, UK",
-        "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
-        "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
-        "Metascore": "70",
-        "imdbRating": "8.3",
-        "imdbVotes": "972,584",
-        "imdbID": "tt0372784",
-        "Type": "movie",
-        "Response": "True"
-    },
-    {
-        "Title": "Avatar",
-        "Year": "2009",
-        "Rated": "PG-13",
-        "Released": "18 Dec 2009",
-        "Runtime": "162 min",
-        "Genre": "Action, Adventure, Fantasy",
-        "Director": "James Cameron",
-        "Writer": "James Cameron",
-        "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
-        "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-        "Language": "English, Spanish",
-        "Country": "USA, UK",
-        "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
-        "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
-        "Metascore": "83",
-        "imdbRating": "7.9",
-        "imdbVotes": "876,575",
-        "imdbID": "tt0499549",
-        "Type": "movie",
-        "Response": "True"
-    }
+  {
+    Title: "Inception",
+    Year: "2010",
+    Rated: "PG-13",
+    Released: "16 Jul 2010",
+    Runtime: "148 min",
+    Genre: "Action, Adventure, Crime",
+    Director: "Christopher Nolan",
+    Writer: "Christopher Nolan",
+    Actors: "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+    Plot: "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    Language: "English, Japanese, French",
+    Country: "USA, UK",
+    Awards: "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    Metascore: "74",
+    imdbRating: "8.8",
+    imdbVotes: "1,446,708",
+    imdbID: "tt1375666",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Interstellar",
+    Year: "2014",
+    Rated: "PG-13",
+    Released: "07 Nov 2014",
+    Runtime: "169 min",
+    Genre: "Adventure, Drama, Sci-Fi",
+    Director: "Christopher Nolan",
+    Writer: "Jonathan Nolan, Christopher Nolan",
+    Actors: "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    Plot: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    Language: "English",
+    Country: "USA, UK",
+    Awards: "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+    Metascore: "74",
+    imdbRating: "8.6",
+    imdbVotes: "910,366",
+    imdbID: "tt0816692",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "The Dark Knight",
+    Year: "2008",
+    Rated: "PG-13",
+    Released: "18 Jul 2008",
+    Runtime: "152 min",
+    Genre: "Action, Adventure, Crime",
+    Director: "Christopher Nolan",
+    Writer:
+      "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+    Actors: "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+    Plot: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+    Language: "English, Mandarin",
+    Country: "USA, UK",
+    Awards: "Won 2 Oscars. Another 146 wins & 142 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+    Metascore: "82",
+    imdbRating: "9.0",
+    imdbVotes: "1,652,832",
+    imdbID: "tt0468569",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Batman Begins",
+    Year: "2005",
+    Rated: "PG-13",
+    Released: "15 Jun 2005",
+    Runtime: "140 min",
+    Genre: "Action, Adventure",
+    Director: "Christopher Nolan",
+    Writer:
+      "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+    Actors: "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+    Plot: "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+    Language: "English, Urdu, Mandarin",
+    Country: "USA, UK",
+    Awards: "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+    Metascore: "70",
+    imdbRating: "8.3",
+    imdbVotes: "972,584",
+    imdbID: "tt0372784",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Avatar",
+    Year: "2009",
+    Rated: "PG-13",
+    Released: "18 Dec 2009",
+    Runtime: "162 min",
+    Genre: "Action, Adventure, Fantasy",
+    Director: "James Cameron",
+    Writer: "James Cameron",
+    Actors: "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+    Plot: "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+    Language: "English, Spanish",
+    Country: "USA, UK",
+    Awards: "Won 3 Oscars. Another 80 wins & 121 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+    Metascore: "83",
+    imdbRating: "7.9",
+    imdbVotes: "876,575",
+    imdbID: "tt0499549",
+    Type: "movie",
+    Response: "True",
+  },
 ];
 
 // Cambia solo el código debajo de esta línea
@@ -515,10 +533,10 @@ for (let i = 0; i < watchList.length; i++) {
 } 
 */
 const ratings = watchList.map((film) => {
-    return {
-        title: film.Title,
-        rating: film.imdbRating
-    }
+  return {
+    title: film.Title,
+    rating: film.imdbRating,
+  };
 });
 // Cambia solo el código encima de esta línea
 
@@ -547,20 +565,24 @@ prototype.map().No debes utilizar el método incorporado map.Se puede acceder a 
 Array en el método myMap usando this. */
 
 Array.prototype.myMap = function (callback) {
-    const newArray = [];
-    // Cambia solo el código debajo de esta línea
-    for (let i = 0; i < this.length; i++) {
-        newArray.push(callback(this[i], i, this));
-    }
-    // Cambia solo el código encima de esta línea
-    return newArray;
+  const newArray = [];
+  // Cambia solo el código debajo de esta línea
+  for (let i = 0; i < this.length; i++) {
+    newArray.push(callback(this[i], i, this));
+  }
+  // Cambia solo el código encima de esta línea
+  return newArray;
 };
 
-console.log([23, 65, 98, 5, 13].myMap(item => item * 2));
+console.log([23, 65, 98, 5, 13].myMap((item) => item * 2));
 //[46, 130, 196, 10, 26].
-console.log(["naomi", "quincy", "camperbot"].myMap(element => element.toUpperCase()));
+console.log(
+  ["naomi", "quincy", "camperbot"].myMap((element) => element.toUpperCase())
+);
 //["NAOMI", "QUINCY", "CAMPERBOT"].
-console.log([1, 1, 2, 5, 2].myMap((element, index, array) => array[index + 1] || array[0]));
+console.log(
+  [1, 1, 2, 5, 2].myMap((element, index, array) => array[index + 1] || array[0])
+);
 //[1, 2, 5, 2, 1].
 
 /* Usa el método de "filter" para extraer datos de un arreglo
@@ -581,12 +603,12 @@ devolver un nuevo arreglo que contiene sólo a los usuarios menores de 30 años.
 fácil, el ejemplo solo utiliza el primer argumento de la función callback. */
 
 const users1 = [
-    { name: 'John', age: 34 },
-    { name: 'Amy', age: 20 },
-    { name: 'camperCat', age: 10 }
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
 ];
 
-const usersUnder30 = users.filter(user => user.age < 30);
+const usersUnder30 = users.filter((user) => user.age < 30);
 console.log(usersUnder30);
 /* La consola muestra el valor[{ name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 }].
 
@@ -599,13 +621,13 @@ convertirlos en números para realizar operaciones matemáticas en ellos. */
 // Cambia solo el código debajo de esta línea
 
 const filteredList = watchList
-    .filter(list => list.imdbRating >= 8.0)
-    .map(list => {
-        return {
-            title: list.Title,
-            rating: list.imdbRating
-        }
-    });
+  .filter((list) => list.imdbRating >= 8.0)
+  .map((list) => {
+    return {
+      title: list.Title,
+      rating: list.imdbRating,
+    };
+  });
 // Cambia solo el código encima de esta línea
 
 console.log(filteredList);
@@ -624,22 +646,28 @@ filter().No debes utilizar el método incorporado filter.Se puede acceder a la i
 método myFilter usando this. */
 
 Array.prototype.myFilter = function (callback) {
-    const newArray = [];
-    // Cambia solo el código debajo de esta línea
-    for (let i = 0; i < this.length; i++) {
-        if (callback(this[i], i, this)) {
-            newArray.push(this[i]);
-        }
+  const newArray = [];
+  // Cambia solo el código debajo de esta línea
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      newArray.push(this[i]);
     }
-    // Cambia solo el código encima de esta línea
-    return newArray;
+  }
+  // Cambia solo el código encima de esta línea
+  return newArray;
 };
 
-console.log([23, 65, 98, 5, 13].myFilter(item => item % 2));
+console.log([23, 65, 98, 5, 13].myFilter((item) => item % 2));
 //[23, 65, 5, 13].
-console.log(["naomi", "quincy", "camperbot"].myFilter(element => element === "naomi"));
+console.log(
+  ["naomi", "quincy", "camperbot"].myFilter((element) => element === "naomi")
+);
 //["naomi"].
-console.log([1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index));
+console.log(
+  [1, 1, 2, 5, 2].myFilter(
+    (element, index, array) => array.indexOf(element) === index
+  )
+);
 //[1, 2, 5].
 
 /* Devolver parte de un arreglo mediante el método slice
@@ -661,10 +689,10 @@ Utiliza el método slice en la función sliceArray para retornar parte del arreg
 índices beginSlice y endSlice.La función debe devolver un arreglo. */
 
 function sliceArray(anim, beginSlice, endSlice) {
-    // Cambia solo el código debajo de esta línea
-    const newAnim = anim.slice();
-    return newAnim.slice(beginSlice, endSlice);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  const newAnim = anim.slice();
+  return newAnim.slice(beginSlice, endSlice);
+  // Cambia solo el código encima de esta línea
 }
 
 const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
@@ -703,9 +731,9 @@ elementos.
 No modifiques el arreglo original proporcionado en la función. */
 
 function nonMutatingSplice(cities) {
-    // Cambia solo el código debajo de esta línea
-    return cities.slice(0, 3);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return cities.slice(0, 3);
+  // Cambia solo el código encima de esta línea
 }
 
 const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
@@ -727,9 +755,9 @@ Usa el método concat en la función nonMutatingConcat para concatenar attach al
 función deber devolver el arreglo concatenado. */
 
 function nonMutatingConcat(original, attach) {
-    // Cambia solo el código debajo de esta línea
-    return original.concat(attach);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return original.concat(attach);
+  // Cambia solo el código encima de esta línea
 }
 
 const first = [1, 2, 3];
@@ -758,9 +786,9 @@ Cambia la función nonMutatingPush de manera que utilice concat para unir newIte
 original sin alterar los arreglos original o newItem.La función debe devolver un arreglo. */
 
 function nonMutatingPush(original, newItem) {
-    // Cambia solo el código debajo de esta línea
-    return original.concat(newItem);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return original.concat(newItem);
+  // Cambia solo el código encima de esta línea
 }
 
 const first1 = [1, 2, 3];
@@ -793,9 +821,9 @@ edades de los usuarios.Para hacerlo más fácil, el ejemplo sólo utiliza el pri
 argumento. */
 
 const users2 = [
-    { name: 'John', age: 34 },
-    { name: 'Amy', age: 20 },
-    { name: 'camperCat', age: 10 }
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
 ];
 
 const sumOfAges = users2.reduce((sum, user2) => sum + user2.age, 0);
@@ -807,14 +835,14 @@ En otro ejemplo, se puede observar cómo un objeto puede ser devuelto con los no
 usuarios como propiedades con las edades como valores. */
 
 const users3 = [
-    { name: 'John', age: 34 },
-    { name: 'Amy', age: 20 },
-    { name: 'camperCat', age: 10 }
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
 ];
 
 const usersObj = users3.reduce((obj, user3) => {
-    obj[user3.name] = user3.age;
-    return obj;
+  obj[user3.name] = user3.age;
+  return obj;
 }, {});
 console.log(usersObj);
 
@@ -828,30 +856,35 @@ con la función getRating.Ten en cuenta que los valores de calificación se guar
 el objeto y necesitan ser convertidos en números antes de ser utilizados en cualquier operación 
 matemática. */
 
-
 function getRating(watchList) {
-    // Cambia solo el código debajo de esta línea
+  // Cambia solo el código debajo de esta línea
 
-    // Se usa filter para buscar todas las peliculas de Christopher Nolan
-    const filmsDirectedBy = watchList.filter(film => film.Director === "Christopher Nolan");
-    console.log(filmsDirectedBy);
-    // Se usa map para convertir todos los ratings a numeros
-    const ratingsTurnedIntoNumbers = filmsDirectedBy.map(film => Number(film.imdbRating));
-    console.log(ratingsTurnedIntoNumbers);
-    // Largo del array de ratings
-    const ratingsLength = ratingsTurnedIntoNumbers.length;
-    console.log(ratingsLength);
-    // Se usa reduce para calular la suma de los ratings
-    const sumRatings = ratingsTurnedIntoNumbers.reduce((sum, rating) => sum + rating);
-    console.log(sumRatings);
-    // Se calula la calificación media del rating
-    let averageRating = sumRatings / ratingsLength;
+  // Se usa filter para buscar todas las peliculas de Christopher Nolan
+  const filmsDirectedBy = watchList.filter(
+    (film) => film.Director === "Christopher Nolan"
+  );
+  console.log(filmsDirectedBy);
+  // Se usa map para convertir todos los ratings a numeros
+  const ratingsTurnedIntoNumbers = filmsDirectedBy.map((film) =>
+    Number(film.imdbRating)
+  );
+  console.log(ratingsTurnedIntoNumbers);
+  // Largo del array de ratings
+  const ratingsLength = ratingsTurnedIntoNumbers.length;
+  console.log(ratingsLength);
+  // Se usa reduce para calular la suma de los ratings
+  const sumRatings = ratingsTurnedIntoNumbers.reduce(
+    (sum, rating) => sum + rating
+  );
+  console.log(sumRatings);
+  // Se calula la calificación media del rating
+  let averageRating = sumRatings / ratingsLength;
 
-    // Cambia solo el código encima de esta línea
-    return averageRating;
+  // Cambia solo el código encima de esta línea
+  return averageRating;
 }
 
-console.log(getRating(watchList));//8.675.
+console.log(getRating(watchList)); //8.675.
 
 /* Utiliza las funciones de orden superior "map", "filter" o "reduce" para resolver un problema 
 complejo
@@ -865,16 +898,16 @@ Un ejemplo de un arreglo que contiene números reales es[-3, 4.8, 5, 3, -3.2].
 
 Nota: Tu función no debe usar ningún tipo de bucle for o while o la función forEach(). */
 
-const squareList = arr => {
-    // Cambia solo el código debajo de esta línea
-    return arr
-        .filter(num => num > 0 && num % parseInt(num) === 0)
-        .map(num => num * num);;
-    // Cambia solo el código encima de esta línea
+const squareList = (arr) => {
+  // Cambia solo el código debajo de esta línea
+  return arr
+    .filter((num) => num > 0 && num % parseInt(num) === 0)
+    .map((num) => num * num);
+  // Cambia solo el código encima de esta línea
 };
 
 const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
-console.log(squaredIntegers);//[25, 9].
+console.log(squaredIntegers); //[25, 9].
 console.log(squareList([4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2]));
 //[16, 1764, 36].
 console.log(squareList([-3.7, -5, 3, 10, 12.5, 7, -4.5, -17, 0.3]));
@@ -886,21 +919,21 @@ El método sort ordena los elementos de un arreglo de acuerdo a la función call
 Por ejemplo: */
 
 function ascendingOrder(arr) {
-    return arr.sort(function (a, b) {
-        return a - b;
-    });
+  return arr.sort(function (a, b) {
+    return a - b;
+  });
 }
 
 console.log(ascendingOrder([1, 5, 2, 3, 4]));
 // Esto devolvería el valor de[1, 2, 3, 4, 5].
 
 function reverseAlpha(arr) {
-    return arr.sort(function (a, b) {
-        return a === b ? 0 : a < b ? 1 : -1;
-    });
+  return arr.sort(function (a, b) {
+    return a === b ? 0 : a < b ? 1 : -1;
+  });
 }
 
-console.log(reverseAlpha(['l', 'h', 'z', 'b', 's']));
+console.log(reverseAlpha(["l", "h", "z", "b", "s"]));
 /* Esto devolvería el valor de['z', 's', 'l', 'h', 'b'].
 
 Por defecto, JavaScript ordena basándose en el valor "Unicode" de la cadena de caracteres, lo cual 
@@ -916,9 +949,9 @@ Utiliza el método sort en la función alphabeticalOrder para ordenar los elemen
 alfabético.La función debe devolver el arreglo ordenado. */
 
 function alphabeticalOrder(arr) {
-    // Cambia solo el código debajo de esta línea
-    return arr.sort()
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return arr.sort();
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
@@ -940,20 +973,18 @@ orden ascendente.La función debe devolver un nuevo arreglo y no mutar la variab
 const globalArray = [5, 6, 3, 2, 9];
 
 function nonMutatingSort(arr) {
-    // Cambia solo el código debajo de esta línea
-    let newArray = [];
-    return newArray
-        .concat(arr)
-        .sort(function (a, b) {
-            return a - b;
-        });
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  let newArray = [];
+  return newArray.concat(arr).sort(function (a, b) {
+    return a - b;
+  });
+  // Cambia solo el código encima de esta línea
 }
 
-console.log(nonMutatingSort(globalArray));//[2, 3, 5, 6, 9].
+console.log(nonMutatingSort(globalArray)); //[2, 3, 5, 6, 9].
 console.log(globalArray);
-console.log(nonMutatingSort([1, 30, 4, 21, 100000]));//[1, 4, 21, 30, 100000].
-console.log(nonMutatingSort([140000, 104, 99]));//[99, 104, 140000].
+console.log(nonMutatingSort([1, 30, 4, 21, 100000])); //[1, 4, 21, 30, 100000].
+console.log(nonMutatingSort([140000, 104, 99])); //[99, 104, 140000].
 
 /* Divide una cadena en un arreglo utilizando el método "split"
 El método split divide una cadena en un arreglo de cadenas.Se necesita un argumento para el 
@@ -982,9 +1013,9 @@ función debe devolver un arreglo.Ten en cuenta que las palabras no siempre est�
 espacios y que el arreglo no debe contener signos de puntuación. */
 
 function splitify(str) {
-    // Cambia solo el código debajo de esta línea
-    return str.split(/\W/);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return str.split(/\W/);
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(splitify("Hello World,I-am code"));
@@ -1012,11 +1043,9 @@ de las palabras en la cadena str.La función debe devolver una cadena.Por ejempl
 Wars se convertiría en I like Star Wars.Para este desafío, no utilices el método replace. */
 
 function sentensify(str) {
-    // Cambia solo el código debajo de esta línea
-    return str
-        .split(/\W/)
-        .join(" ");
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return str.split(/\W/).join(" ");
+  // Cambia solo el código encima de esta línea
 }
 
 console.log(sentensify("May-the-force-be-with-you"));
@@ -1054,19 +1083,19 @@ El resultado no debe tener espacios */
 
 // Cambia solo el código debajo de esta línea
 function urlSlug(title) {
-    return title
-        .split(/\W+/)
-        .filter(word => /^\w/.test(word))
-        .join("-")
-        .toLowerCase();
+  return title
+    .split(/\W+/)
+    .filter((word) => /^\w/.test(word))
+    .join("-")
+    .toLowerCase();
 }
 // Cambia solo el código encima de esta línea
 
-console.log(urlSlug("Winter Is Coming"));//winter-is-coming
-console.log(urlSlug(" Winter Is  Coming"));//winter-is-coming
+console.log(urlSlug("Winter Is Coming")); //winter-is-coming
+console.log(urlSlug(" Winter Is  Coming")); //winter-is-coming
 console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
 //a-mind-needs-books-like-a-sword-needs-a-whetstone
-console.log(urlSlug("Hold The Door"));//hold-the-door
+console.log(urlSlug("Hold The Door")); //hold-the-door
 
 /* Usa el método "every" para comprobar que cada elemento de un arreglo atienda un criterio
 El método every funciona con arreglos para comprobar si every element pasa una prueba en particular.
@@ -1078,8 +1107,7 @@ Por ejemplo, el siguiente código comprobaría si cada elemento en el arreglo nu
 const numbers = [1, 5, 8, 0, 10, 11];
 
 numbers.every(function (currentValue) {
-    return currentValue < 10;
-
+  return currentValue < 10;
 });
 /* El método every devolvería false aquí.
 
@@ -1087,14 +1115,14 @@ Utiliza el método every dentro de la función checkPositive para comprobar si c
 es positivo.La función debe devolver un valor booleano. */
 
 function checkPositive(arr) {
-    // Cambia solo el código debajo de esta línea
-    return arr.every(num => num > 0);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return arr.every((num) => num > 0);
+  // Cambia solo el código encima de esta línea
 }
 
-console.log(checkPositive([1, 2, 3, -4, 5]));//false.
-console.log(checkPositive([1, 2, 3, 4, 5]));//true.
-console.log(checkPositive([1, -2, 3, -4, 5]));//false.
+console.log(checkPositive([1, 2, 3, -4, 5])); //false.
+console.log(checkPositive([1, 2, 3, 4, 5])); //true.
+console.log(checkPositive([1, -2, 3, -4, 5])); //false.
 
 /* Usa el método "some" para comprobar si algún elemento en un arreglo cumple un criterio
 El método some funciona con arreglos para comprobar si algún elemento pasa una prueba en particular.
@@ -1106,7 +1134,7 @@ Por ejemplo, el siguiente código comprobará si algún elemento en el arreglo n
 const numbers1 = [10, 50, 8, 220, 110, 11];
 
 numbers1.some(function (currentValue) {
-    return currentValue < 10;
+  return currentValue < 10;
 });
 
 /* El método some devolverá true.
@@ -1115,14 +1143,14 @@ Utiliza el método some dentro de la función checkPositive para comprobar si al
 es positivo.La función debe devolver un valor booleano. */
 
 function checkPositive1(arr) {
-    // Cambia solo el código debajo de esta línea
-    return arr.some(num => num > 0);
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return arr.some((num) => num > 0);
+  // Cambia solo el código encima de esta línea
 }
 
-console.log(checkPositive1([1, 2, 3, -4, 5]));//true.
-console.log(checkPositive1([1, 2, 3, 4, 5]));//true.
-console.log(checkPositive1([-1, -2, -3, -4, -5]));//false.
+console.log(checkPositive1([1, 2, 3, -4, 5])); //true.
+console.log(checkPositive1([1, 2, 3, 4, 5])); //true.
+console.log(checkPositive1([-1, -2, -3, -4, -5])); //false.
 
 /* Introducción a la currificación y a la aplicación de funciones parciales
 La aridad de una función es el número de argumentos que requiere.Currificar una función significa 
@@ -1134,18 +1162,18 @@ función que toma el siguiente argumento, y así sucesivamente.
 A continuación un ejemplo: */
 
 function unCurried(x, y) {
-    return x + y;
+  return x + y;
 }
 
 function curried(x) {
-    return function (y) {
-        return x + y;
-    }
+  return function (y) {
+    return x + y;
+  };
 }
 
-const curried1 = x => y => x + y
+const curried1 = (x) => (y) => x + y;
 
-console.log(curried(1)(2));// devolverá 3.
+console.log(curried(1)(2)); // devolverá 3.
 
 /*Esto es útil en tu programa si no puedes proporcionar todos los argumentos a una función al 
 mismo tiempo.Puedes guardar la llamada a cada función dentro de una variable, la cual mantendrá la 
@@ -1160,7 +1188,7 @@ argumentos a la función al mismo tiempo y devolviendo una función que se aplic
 continuación un ejemplo: */
 
 function impartial(x, y, z) {
-    return x + y + z;
+  return x + y + z;
 }
 
 const partialFn = impartial.bind(this, 1, 2);
@@ -1170,17 +1198,17 @@ console.log(partialFn(10)); // 13
 y 'z'. */
 
 function add1(x) {
-    // Cambia solo el código debajo de esta línea
-    return function (y) {
-        return function (z) {
-            return x + y + z;
-        }
-    }
-    // Cambia solo el código encima de esta línea
+  // Cambia solo el código debajo de esta línea
+  return function (y) {
+    return function (z) {
+      return x + y + z;
+    };
+  };
+  // Cambia solo el código encima de esta línea
 }
 
 // Solución alternativa: const add1 = x => y => z => x + y + z;
 
-console.log(add1(10)(20)(30));//60.
-console.log(add1(1)(2)(3));//6.
-console.log(add1(11)(22)(33));//66.
+console.log(add1(10)(20)(30)); //60.
+console.log(add1(1)(2)(3)); //6.
+console.log(add1(11)(22)(33)); //66.
