@@ -25,8 +25,8 @@ comportamientos como sus contrapartes del mundo real.Aquí hay un ejemplo usando
 para crear un objeto duck(pato): */
 
 let duck = {
-    name: "Aflac",
-    numLegs: 2
+  name: "Aflac",
+  numLegs: 2,
 };
 
 /* El objeto duck tiene dos pares propiedad / valor: un name(nombre) de Aflac y un numLegs(número 
@@ -36,8 +36,8 @@ Crea un objeto dog con las propiedades name y numLegs y asígnales una cadena y 
 respectivamente. */
 
 let dog = {
-    name: "Tangerine",
-    numLegs: 4
+  name: "Tangerine",
+  numLegs: 4,
 };
 
 /* Utiliza notación de puntos para acceder a las propiedades de un objeto
@@ -45,8 +45,8 @@ En el último desafío creaste un objeto con varias propiedades.Ahora verás có
 valores de esas propiedades.Por ejemplo: */
 
 let duck1 = {
-    name: "Aflac",
-    numLegs: 2
+  name: "Aflac",
+  numLegs: 2,
 };
 console.log(duck1.name);
 
@@ -56,8 +56,8 @@ propiedad, name, para acceder al valor de Aflac.
 Imprime ambas propiedades del objeto dog en tu consola. */
 
 let dog1 = {
-    name: "Spot",
-    numLegs: 4
+  name: "Spot",
+  numLegs: 4,
 };
 // Cambia solo el código debajo de esta línea
 console.log(dog1.name);
@@ -70,9 +70,11 @@ Los métodos son propiedades que son funciones.Estos agregan diferentes comporta
 objetos.Aquí esta el ejemplo de duck con un método: */
 
 let duck2 = {
-    name: "Aflac",
-    numLegs: 2,
-    sayName: function () { return "The name of this duck is " + duck2.name + "."; }
+  name: "Aflac",
+  numLegs: 2,
+  sayName: function () {
+    return "The name of this duck is " + duck2.name + ".";
+  },
 };
 duck2.sayName();
 
@@ -84,9 +86,11 @@ Usando el objeto dog, asígnale un método llamado sayLegs.El método debe devol
 has 4 legs. */
 
 let dog2 = {
-    name: "Spot",
-    numLegs: 4,
-    sayLegs: function () { return `This dog has ${dog2.numLegs} legs.` }
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function () {
+    return `This dog has ${dog2.numLegs} legs.`;
+  },
 };
 
 console.log(dog2.sayLegs());
@@ -105,13 +109,14 @@ un objeto tiene muchas referencias a sus propiedades hay una mayor probabilidad 
 Una forma de evitar estos problemas es con palabra clave this: */
 
 let duck3 = {
-    name: "Aflac",
-    numLegs: 2,
-    sayName: function () { return "The name of this duck is " + this.name + "."; }
+  name: "Aflac",
+  numLegs: 2,
+  sayName: function () {
+    return "The name of this duck is " + this.name + ".";
+  },
 };
 
 console.log(duck3.sayName());
-
 
 /* this es un tema profundo, y el ejemplo anterior es sólo una forma de usarlo.En el contexto 
 actual, this se refiere al objeto con el que el método está asociado: duck.Si el nombre del objeto 
@@ -122,9 +127,11 @@ Modifica el método dog.sayLegs para eliminar cualquier referencia a dog.Utiliza
 como orientación. */
 
 let dog3 = {
-    name: "Spot",
-    numLegs: 4,
-    sayLegs: function () { return "This dog has " + this.numLegs + " legs."; }
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function () {
+    return "This dog has " + this.numLegs + " legs.";
+  },
 };
 
 console.log(dog3.sayLegs());
@@ -136,9 +143,9 @@ pertenecerán al nuevo objeto.Piensa que son el modelo para la creación de nuev
 A continuación se muestra un ejemplo de un constructor: */
 
 function Bird() {
-    this.name = "Albert";
-    this.color = "blue";
-    this.numLegs = 2;
+  this.name = "Albert";
+  this.color = "blue";
+  this.numLegs = 2;
 }
 
 /*Este constructor define un objeto Bird con las propiedades name, color y numLegs establecidas a 
@@ -155,9 +162,9 @@ Crea un constructor, Dog, con las propiedades name, color y numLegs que se estab
 una cadena y un número respectivamente.*/
 
 function Dog() {
-    this.name = "Tangerine";
-    this.color = "orange"
-    this.numLegs = 4;
+  this.name = "Tangerine";
+  this.color = "orange";
+  this.numLegs = 4;
 }
 
 /*Utiliza un constructor para crear objetos
@@ -184,16 +191,16 @@ console.log(blueBird.numLegs);
 
 /* Al igual que cualquier otro objeto, sus propiedades pueden ser accedidas y modificadas: */
 
-blueBird.name = 'Elvira';
+blueBird.name = "Elvira";
 console.log(blueBird.name);
 
 /* Utiliza el constructor Dog de la última lección para crear una nueva instancia de Dog, 
 asignándolo a una variable hound.*/
 
 function Dog() {
-    this.name = "Rupert";
-    this.color = "brown";
-    this.numLegs = 4;
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
 }
 // Cambia solo el código debajo de esta línea
 let hound = new Dog();
@@ -215,9 +222,9 @@ las propiedades a diferentes valores para cada una.Para crear más fácilmente d
 Bird, puedes diseñar tu constructor de aves para aceptar parámetros: */
 
 function Bird(name, color) {
-    this.name = name;
-    this.color = color;
-    this.numLegs = 2;
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
 }
 
 /* Luego pasa los valores como argumentos para definir cada ave única en el constructor Bird:*/
@@ -228,9 +235,9 @@ let cardinal = new Bird("Bruce", "red");
 y red, respectivamente.La propiedad numLegs aún está establecida en 2. El cardinal tiene estas 
 propiedades:*/
 
-cardinal.name
-cardinal.color
-cardinal.numLegs
+cardinal.name;
+cardinal.color;
+cardinal.numLegs;
 
 /*El constructor es más flexible.Ahora es posible definir las propiedades para cada Bird en el 
 momento que se crea.Esta es una manera en que los constructores de JavaScript son tan útiles.Estos 
@@ -242,9 +249,9 @@ propiedad numLegs fija a 4. Luego crea un nuevo Dog almacenado en una variable t
 cadenas de texto como argumentos para las propiedades name y color. */
 
 function Dog(name, color) {
-    this.name = name;
-    this.color = color;
-    this.numLegs = 4;
+  this.name = name;
+  this.color = color;
+  this.numLegs = 4;
 }
 
 let terrier = new Dog("Tangerine", "orange");
@@ -256,10 +263,10 @@ instanceof.instanceof permite comparar un objeto con un constructor, devuelve tr
 en si ese objeto fue creado o no con dicho constructor.Aquí hay un ejemplo:*/
 
 let Bird1 = function (name, color) {
-    this.name = name;
-    this.color = color;
-    this.numLegs = 2;
-}
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
+};
 
 let crow = new Bird1("Alexis", "black");
 
@@ -271,9 +278,9 @@ Si un objeto es creado sin usar un constructor, instanceof verificará que no es
 ese constructor: */
 
 let canary = {
-    name: "Mildred",
-    color: "Yellow",
-    numLegs: 2
+  name: "Mildred",
+  color: "Yellow",
+  numLegs: 2,
 };
 
 console.log(canary instanceof Bird);
@@ -284,7 +291,7 @@ Crea una nueva instancia del constructor House, llamándola myHouse y pasando el
 habitaciones.Luego, usa instanceof para verificar que es una instancia de House. */
 
 function House(numBedrooms) {
-    this.numBedrooms = numBedrooms;
+  this.numBedrooms = numBedrooms;
 }
 // Cambia solo el código debajo de esta línea
 let myHouse = new House(5);
@@ -294,8 +301,8 @@ console.log(myHouse instanceof House);
 En el siguiente ejemplo, el constructor Bird define dos propiedades: name y numLegs: */
 
 function Bird(name) {
-    this.name = name;
-    this.numLegs = 2;
+  this.name = name;
+  this.numLegs = 2;
 }
 
 let duck4 = new Bird("Donald");
@@ -309,9 +316,9 @@ siguiente código añade todas las propiedades directas de duck al arreglo ownPr
 let ownProps = [];
 
 for (let property in duck4) {
-    if (duck4.hasOwnProperty(property)) {
-        ownProps.push(property);
-    }
+  if (duck4.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
 }
 
 console.log(ownProps);
@@ -321,17 +328,17 @@ console.log(ownProps);
 Agrega todas las propiedades directas de canary al arreglo ownProps. */
 
 function Bird(name) {
-    this.name = name;
-    this.numLegs = 2;
+  this.name = name;
+  this.numLegs = 2;
 }
 
 let canary2 = new Bird("Tweety");
 let ownProps1 = [];
 // Cambia solo el código debajo de esta línea
 for (let property in canary2) {
-    if (canary2.hasOwnProperty(property)) {
-        ownProps1.push(property);
-    }
+  if (canary2.hasOwnProperty(property)) {
+    ownProps1.push(property);
+  }
 }
 console.log(ownProps1);
 
@@ -361,7 +368,7 @@ propiedad prototype que es parte de la función constructora que lo creó.
 Añade una propiedad numLegs al prototype de Dog */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 Dog.prototype.numLegs = 4;
 // Cambia solo el código encima de esta línea
@@ -373,7 +380,7 @@ propiedades directas se definen directamente en la propia instancia del objeto.Y
 prototype se definen en el prototype. */
 
 function Bird(name) {
-    this.name = name;  //own property
+  this.name = name; //own property
 }
 
 Bird.prototype.numLegs = 2; // prototype property
@@ -387,11 +394,11 @@ let ownProps2 = [];
 let prototypeProps = [];
 
 for (let property in duck5) {
-    if (duck5.hasOwnProperty(property)) {
-        ownProps2.push(property);
-    } else {
-        prototypeProps.push(property);
-    }
+  if (duck5.hasOwnProperty(property)) {
+    ownProps2.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
 }
 
 console.log(ownProps2);
@@ -404,7 +411,7 @@ Agrega todas las propiedades directas de beagle al arreglo ownProps.Agrega todas
 prototype de Dog al arreglo prototypeProps. */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 
 Dog.prototype.numLegs = 4;
@@ -417,11 +424,11 @@ let prototypeProps1 = [];
 // Cambia solo el código debajo de esta línea
 
 for (let property in beagle1) {
-    if (beagle1.hasOwnProperty(property)) {
-        ownProps3.push(property);
-    } else {
-        prototypeProps1.push(property);
-    }
+  if (beagle1.hasOwnProperty(property)) {
+    ownProps3.push(property);
+  } else {
+    prototypeProps1.push(property);
+  }
 }
 
 console.log(ownProps3);
@@ -444,11 +451,11 @@ instancia.La ventaja de la propiedad constructor es que es posible verificar est
 averiguar qué tipo de objeto es.Así es como se podría utilizar: */
 
 function joinBirdFraternity(candidate) {
-    if (candidate.constructor === Bird) {
-        return true;
-    } else {
-        return false;
-    }
+  if (candidate.constructor === Bird) {
+    return true;
+  } else {
+    return false;
+  }
 }
 /* Nota: dado que la propiedad constructor se puede sobreescribir(se verá en los próximos dos 
 desafíos), por lo general, es mejor utilizar el método instanceof para verificar el tipo de un 
@@ -458,12 +465,12 @@ Escribe una función joinDogFraternity que tome como parámetro candidate y que 
 constructor, devuelva true si el candidato es un Dog y si no lo es debería devolver false. */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 
 // Cambia solo el código debajo de esta línea
 function joinDogFraternity(candidate) {
-    return candidate.constructor === Dog;
+  return candidate.constructor === Dog;
 }
 
 /* Cambia el prototipo a un nuevo objeto
@@ -474,42 +481,42 @@ Bird.prototype.numLegs = 2;
 /* Esto se vuelve tedioso después de varias propiedades. */
 
 Bird.prototype.eat = function () {
-    console.log("nom nom nom");
-}
+  console.log("nom nom nom");
+};
 
 Bird.prototype.describe = function () {
-    console.log("My name is " + this.name);
-}
+  console.log("My name is " + this.name);
+};
 
 /* Una forma más eficiente es establecer el prototype a un nuevo objeto que ya contenga las 
 propiedades.De esta forma, las propiedades son añadidas todas a la vez: */
 
 Bird.prototype = {
-    numLegs: 2,
-    eat: function () {
-        console.log("nom nom nom");
-    },
-    describe: function () {
-        console.log("My name is " + this.name);
-    }
+  numLegs: 2,
+  eat: function () {
+    console.log("nom nom nom");
+  },
+  describe: function () {
+    console.log("My name is " + this.name);
+  },
 };
 
 /* Agrega la propiedad numLegs, y los dos métodos eat() y describe() al prototype de Dog, 
 estableciendo prototype a un nuevo objeto. */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 
 Dog.prototype = {
-    // Cambia solo el código debajo de esta línea
-    numLegs: 4,
-    eat: function () {
-        console.log("ñam ñam ñam");
-    },
-    describe: function () {
-        console.log(`"My name is " + this.name`);
-    }
+  // Cambia solo el código debajo de esta línea
+  numLegs: 4,
+  eat: function () {
+    console.log("ñam ñam ñam");
+  },
+  describe: function () {
+    console.log(`"My name is " + this.name`);
+  },
 };
 
 /* Recuerda establecer la propiedad "constructor" al cambiar el prototipo
@@ -528,32 +535,32 @@ Para solucionar esto, cada vez que un prototipo se establece de forma manual a u
 recuerda definir la propiedad constructor: */
 
 Bird.prototype = {
-    constructor: Bird,
-    numLegs: 2,
-    eat: function () {
-        console.log("nom nom nom");
-    },
-    describe: function () {
-        console.log("My name is " + this.name);
-    }
+  constructor: Bird,
+  numLegs: 2,
+  eat: function () {
+    console.log("nom nom nom");
+  },
+  describe: function () {
+    console.log("My name is " + this.name);
+  },
 };
 
 /* Define la propiedad constructor en el Dog prototype. */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 
 // Cambia solo el código debajo de esta línea
 Dog.prototype = {
-    constructor: Dog,
-    numLegs: 4,
-    eat: function () {
-        console.log("nom nom nom");
-    },
-    describe: function () {
-        console.log("My name is " + this.name);
-    }
+  constructor: Dog,
+  numLegs: 4,
+  eat: function () {
+    console.log("nom nom nom");
+  },
+  describe: function () {
+    console.log("My name is " + this.name);
+  },
 };
 
 /* Entendiendo de dónde viene el prototipo de un objeto
@@ -562,7 +569,7 @@ directamente de la función constructor que lo creó.Por ejemplo, aquí el const
 objeto duck: */
 
 function Bird(name) {
-    this.name = name;
+  this.name = name;
 }
 
 let duck7 = new Bird("Donald");
@@ -577,7 +584,7 @@ console.log(Bird.prototype.isPrototypeOf(duck7));
 Utiliza isPrototypeOf para comprobar el prototype de beagle. */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 
 let beagle3 = new Dog("Snoopy");
@@ -591,7 +598,7 @@ Todos los objetos en JavaScript(con algunas excepciones) tienen un prototype.Ade
 un objeto en sí mismo es un objeto. */
 
 function Bird(name) {
-    this.name = name;
+  this.name = name;
 }
 
 console.log(typeof Bird.prototype);
@@ -615,12 +622,12 @@ cualquier objeto puede utilizar el método hasOwnProperty.
 Modifica el código para mostrar la cadena de prototipos correcta. */
 
 function Dog(name) {
-    this.name = name;
+  this.name = name;
 }
 
 let beagle4 = new Dog("Snoopy");
 
-Dog.prototype.isPrototypeOf(beagle);  // produce true
+Dog.prototype.isPrototypeOf(beagle); // produce true
 
 // Arregla el código de abajo para que evalúe a true
 console.log(Object.prototype.isPrototypeOf(Dog.prototype));
@@ -634,76 +641,76 @@ para errores.
 Observa en el siguiente ejemplo como el método describe es compartido por Bird y Dog: */
 
 Bird.prototype = {
-    constructor: Bird,
-    describe: function () {
-        console.log("My name is " + this.name);
-    }
+  constructor: Bird,
+  describe: function () {
+    console.log("My name is " + this.name);
+  },
 };
 
 Dog.prototype = {
-    constructor: Dog,
-    describe: function () {
-        console.log("My name is " + this.name);
-    }
+  constructor: Dog,
+  describe: function () {
+    console.log("My name is " + this.name);
+  },
 };
 
 /* El método describe se repite en dos lugares.El código se puede editar para seguir el principio 
 DRY creando un supertype(o padre) llamado Animal: */
 
-function Animal() { };
+function Animal() {}
 
 Animal.prototype = {
-    constructor: Animal,
-    describe: function () {
-        console.log("My name is " + this.name);
-    }
+  constructor: Animal,
+  describe: function () {
+    console.log("My name is " + this.name);
+  },
 };
 
 /* Dado que Animal incluye el método describe, puedes eliminarlo de Bird y Dog: */
 
 Bird.prototype = {
-    constructor: Bird
+  constructor: Bird,
 };
 
 Dog.prototype = {
-    constructor: Dog
+  constructor: Dog,
 };
 
 /* El método eat se repite tanto en Cat como Bear.Edita el código utilizando el principio DRY, 
 moviendo el método eat al supertype Animal. */
 
 function Cat(name) {
-    this.name = name;
+  this.name = name;
 }
 
 Cat.prototype = {
-    constructor: Cat
+  constructor: Cat,
 };
 
 function Bear(name) {
-    this.name = name;
+  this.name = name;
 }
 
 Bear.prototype = {
-    constructor: Bear
+  constructor: Bear,
 };
 
-function Animal() { }
+function Animal() {}
 
 Animal.prototype = {
-    constructor: Animal,
-    eat: function () {
-        console.log("nom nom nom");
-    }
+  constructor: Animal,
+  eat: function () {
+    console.log("nom nom nom");
+  },
 };
 
 /* Hereda comportamientos de un supertipo(supertype)
 En el desafío anterior, creaste un supertype llamado Animal que definía comportamientos compartidos 
 por todos los animales: */
 
-function Animal() { }
+function Animal() {}
 Animal.prototype.eat = function () {
-    console.log("nom nom nom");
+  console.log("nom nom nom");
 };
 
 /* Este desafío y el siguiente cubrirán como reutilizar los métodos de Animal dentro de Bird y Dog 
@@ -731,13 +738,13 @@ console.log(animal instanceof Animal);
 
 Utiliza Object.create para crear dos instancias de Animal llamadas duck y beagle. */
 
-function Animal() { }
+function Animal() {}
 
 Animal.prototype = {
-    constructor: Animal,
-    eat: function () {
-        console.log("nom nom nom");
-    }
+  constructor: Animal,
+  eat: function () {
+    console.log("nom nom nom");
+  },
 };
 
 // Cambia solo el código debajo de esta línea
@@ -764,16 +771,16 @@ duck10.eat();
 
 Modifica el código para que las instancias de Dog hereden de Animal. */
 
-function Animal() { }
+function Animal() {}
 
 Animal.prototype = {
-    constructor: Animal,
-    eat: function () {
-        console.log("nom nom nom");
-    }
+  constructor: Animal,
+  eat: function () {
+    console.log("nom nom nom");
+  },
 };
 
-function Dog() { }
+function Dog() {}
 
 // Cambia solo el código debajo de esta línea
 
@@ -786,7 +793,7 @@ del supertipo.
 
 Por ejemplo: */
 
-function Bird() { }
+function Bird() {}
 Bird.prototype = Object.create(Animal.prototype);
 let duck11 = new Bird();
 console.log(duck11.constructor);
@@ -801,9 +808,9 @@ console.log(duck11.constructor);
 /* Corrige el código para que duck.constructor y beagle.constructor devuelvan sus constructores r
 espectivos. */
 
-function Animal() { }
-function Bird() { }
-function Dog() { }
+function Animal() {}
+function Bird() {}
+function Dog() {}
 
 Bird.prototype = Object.create(Animal.prototype);
 Dog.prototype = Object.create(Animal.prototype);
@@ -812,7 +819,6 @@ Dog.prototype = Object.create(Animal.prototype);
 
 Bird.prototype.constructor = Bird;
 Dog.prototype.constructor = Dog;
-
 
 let duck12 = new Bird();
 let beagle7 = new Dog();
@@ -826,11 +832,11 @@ seguir teniendo sus propios métodos además de los heredados.
 
 Por ejemplo, Bird es un constructor que hereda su prototype de Animal: */
 
-function Animal() { }
+function Animal() {}
 Animal.prototype.eat = function () {
-    console.log("nom nom nom");
+  console.log("nom nom nom");
 };
-function Bird() { }
+function Bird() {}
 Bird.prototype = Object.create(Animal.prototype);
 Bird.prototype.constructor = Bird;
 
@@ -839,7 +845,7 @@ objetos Bird.Aquí, Bird obtendrá una función fly().Las funciones se añaden a
 del mismo modo que cualquier función constructor: */
 
 Bird.prototype.fly = function () {
-    console.log("I'm flying!");
+  console.log("I'm flying!");
 };
 
 /* Ahora las instancias de Bird tendrán métodos tanto eat() como fly(): */
@@ -847,7 +853,7 @@ Bird.prototype.fly = function () {
 let duck13 = new Bird();
 duck13.eat();
 duck13.fly();
-duck13.eat()
+duck13.eat();
 
 /* mostrará la cadena nom nom nom en consola, y duck.fly() mostrará la cadena I'm flying!.
 
@@ -855,17 +861,19 @@ Añade el código necesario para que el objeto Dog herede de Animal y el constru
 sea establecido en Dog.A continuación agrega el método bark() al objeto Dog, para que beagle pueda 
 "comer" eat() y "ladrar" bark().El método bark() debe imprimir Woof! por consola. */
 
-function Animal() { }
-Animal.prototype.eat = function () { console.log("nom nom nom"); };
+function Animal() {}
+Animal.prototype.eat = function () {
+  console.log("nom nom nom");
+};
 
-function Dog() { }
+function Dog() {}
 
 // Cambia solo el código debajo de esta línea
 
 Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
 Dog.prototype.bark = function () {
-    console.log("Woof!");
+  console.log("Woof!");
 };
 
 // Cambia solo el código encima de esta línea
@@ -886,16 +894,16 @@ Es posible sobreescribir un método heredado.Se hace de la misma manera: agregan
 ChildObject.prototype usando el mismo nombre de método que el que se va a sobrescribir.Aquí hay un 
 ejemplo de Bird sobrescribiendo el método eat() heredado de Animal: */
 
-function Animal() { }
+function Animal() {}
 Animal.prototype.eat = function () {
-    return "nom nom nom";
+  return "nom nom nom";
 };
-function Bird() { }
+function Bird() {}
 
 Bird.prototype = Object.create(Animal.prototype);
 
 Bird.prototype.eat = function () {
-    return "peck peck peck";
+  return "peck peck peck";
 };
 
 /* Si tienes una instancia de let duck = new Bird(); y llamas a duck.eat(), así es como JavaScript 
@@ -910,17 +918,19 @@ nivel.
 Sobrescribe el método fly() para Penguin de manera que devuelva la cadena de texto Alas, this is a 
 flightless bird. */
 
-function Bird() { }
+function Bird() {}
 
-Bird.prototype.fly = function () { return "I am flying!"; };
+Bird.prototype.fly = function () {
+  return "I am flying!";
+};
 
-function Penguin() { }
+function Penguin() {}
 Penguin.prototype = Object.create(Bird.prototype);
 Penguin.prototype.constructor = Penguin;
 
 // Cambia solo el código debajo de esta línea
 Penguin.prototype.fly = function () {
-    return "Alas, this is a flightless bird.";
+  return "Alas, this is a flightless bird.";
 };
 // Cambia solo el código encima de esta línea
 
@@ -937,21 +947,21 @@ Para objetos no relacionados es mejor utilizar mixins.Un "mixin" permite a otros
 una colección de funciones. */
 
 let flyMixin = function (obj) {
-    obj.fly = function () {
-        console.log("Flying, wooosh!");
-    }
+  obj.fly = function () {
+    console.log("Flying, wooosh!");
+  };
 };
 
 /* El flyMixin toma a cualquier objeto y le da el método fly. */
 
 let bird = {
-    name: "Donald",
-    numLegs: 2
+  name: "Donald",
+  numLegs: 2,
 };
 
 let plane = {
-    model: "777",
-    numPassengers: 524
+  model: "777",
+  numPassengers: 524,
 };
 
 flyMixin(bird);
@@ -972,19 +982,19 @@ Crea un mixin llamado glideMixin que defina un método llamado glide.Luego utili
 para dar a bird y boat la habilidad de planear. */
 
 let bird1 = {
-    name: "Donald",
-    numLegs: 2
+  name: "Donald",
+  numLegs: 2,
 };
 
 let boat = {
-    name: "Warrior",
-    type: "race-boat"
+  name: "Warrior",
+  type: "race-boat",
 };
 // Cambia solo el código debajo de esta línea
 let glideMixin = function (obj) {
-    obj.glide = function () {
-        console.log("Glide, wooosh!");
-    }
+  obj.glide = function () {
+    console.log("Glide, wooosh!");
+  };
 };
 glideMixin(bird);
 glideMixin(boat);
@@ -1005,11 +1015,11 @@ constructora versus disponible globalmente.De este modo, la variable solo puede 
 cambiable por métodos que también estén dentro de la función constructora. */
 
 function Bird() {
-    let hatchedEgg = 10;
+  let hatchedEgg = 10;
 
-    this.getHatchedEggCount = function () {
-        return hatchedEgg;
-    };
+  this.getHatchedEggCount = function () {
+    return hatchedEgg;
+  };
 }
 let ducky = new Bird();
 console.log(ducky.getHatchedEggCount());
@@ -1023,18 +1033,18 @@ Cambia como weight es declarada en la función Bird para que sea una variable pr
 crea un método getWeight que devuelva el valor 15 para weight. */
 
 function Bird() {
-    let weight = 15;
+  let weight = 15;
 
-    this.getWeight = function () {
-        return weight;
-    }
+  this.getWeight = function () {
+    return weight;
+  };
 }
 
 /* Comprende las funciones que son invocadas inmediatamente(IIFE)
 Un patrón común en JavaScript es la ejecución de una función apenas declarada: */
 
 (function () {
-    console.log("Chirp, chirp!");
+  console.log("Chirp, chirp!");
 })();
 
 /* Esta es una expresión de función anónima que se ejecuta de inmediato y produce Chirp, chirp! 
@@ -1049,7 +1059,7 @@ Reescribe la función makeNest y elimina su llamada, por lo que es una expresió
 inmediatamente invocada(IIFE). */
 
 (function () {
-    console.log("A cozy nest is ready");
+  console.log("A cozy nest is ready");
 })();
 
 makeNest();
@@ -1073,18 +1083,18 @@ function flyMixin(obj) {
 Podemos agrupar estos mixins en un módulo: */
 
 let motionModule = (function () {
-    return {
-        glideMixin: function (obj) {
-            obj.glide = function () {
-                console.log("Gliding on the water");
-            };
-        },
-        flyMixin: function (obj) {
-            obj.fly = function () {
-                console.log("Flying, wooosh!");
-            };
-        }
-    }
+  return {
+    glideMixin: function (obj) {
+      obj.glide = function () {
+        console.log("Gliding on the water");
+      };
+    },
+    flyMixin: function (obj) {
+      obj.fly = function () {
+        console.log("Flying, wooosh!");
+      };
+    },
+  };
 })();
 
 /* Ten en cuenta que has invocado una IIFE que devuelve un objeto motionModule.El objeto devuelto 
@@ -1099,16 +1109,16 @@ console.log(duck.glide());
 debe devolver un objeto. */
 
 let funModule = (function () {
-    return {
-        isCuteMixin: function (obj) {
-            obj.isCute = function () {
-                return true;
-            };
-        },
-        singMixin: function (obj) {
-            obj.sing = function () {
-                console.log("Singing to an awesome tune");
-            };
-        }
-    }
+  return {
+    isCuteMixin: function (obj) {
+      obj.isCute = function () {
+        return true;
+      };
+    },
+    singMixin: function (obj) {
+      obj.sing = function () {
+        console.log("Singing to an awesome tune");
+      };
+    },
+  };
 })();
