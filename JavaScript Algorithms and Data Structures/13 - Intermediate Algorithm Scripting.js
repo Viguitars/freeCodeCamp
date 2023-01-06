@@ -615,12 +615,307 @@ console.log(
 Aplana un arreglo anidado. Debes tener en cuenta los diferentes niveles de anidación. */
 
 function steamrollArray(arr) {
-  console.log(arr[2][1][0][0]);
+  let flattenedArray = [];
+  arr.map((item) => {
+    if (!Array.isArray(item)) {
+      flattenedArray.push(item);
+    } else {
+      flattenedArray.push(...steamrollArray(item));
+    }
+  });
+  return flattenedArray;
+}
 
+console.log(steamrollArray([[["a"]], [["b"]]])); //["a", "b"].
+console.log(steamrollArray([1, [2], [3, [[4]]]])); //[1, 2, 3, 4].
+console.log(steamrollArray([1, [], [3, [[4]]]])); //[1, 3, 4].
+console.log(steamrollArray([1, {}, [3, [[4]]]])); //[1, {}, 3, 4]
+
+/* Agentes binarios
+Devuelve una frase traducida al inglés de una cadena binaria pasada.
+
+La cadena binaria estará separada por espacios. */
+
+function binaryAgent(str) {
+  return str
+    .split(" ")
+    .map((item) => item.replace(/\d+/, String.fromCharCode(parseInt(item, 2))))
+    .join("");
+}
+
+console.log(
+  binaryAgent(
+    "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+  )
+); //Aren't bonfires fun!?
+console.log(
+  binaryAgent(
+    "01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"
+  )
+); //I love FreeCodeCamp!
+
+/* Todo sea verdad
+Comprueba si el predicado (segundo argumento) es truthy en todos los elementos de una colección 
+(primer argumento).
+
+En otras palabras, se te da una colección de arreglos de objetos. El predicado pre será una 
+propiedad del objeto y debe devolver true si su valor es truthy. De lo contrario, devuelve false.
+
+En JavaScript, los valores truthy son valores que se traducen en true cuando se evalúan en un 
+contexto booleano.
+
+Recuerda, puedes acceder a las propiedades del objeto mediante la notación de puntos o la notación 
+de corchetes []. */
+
+function truthCheck(collection, pre) {
+  return collection.every((item) => Boolean(item[pre]));
+}
+
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "isBot"
+  )
+); //false.
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "name"
+  )
+); //true.
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "role"
+  )
+); //false.
+console.log(
+  truthCheck(
+    [
+      { name: "Pikachu", number: 25, caught: 3 },
+      { name: "Togepi", number: 175, caught: 1 },
+    ],
+    "number"
+  )
+); //true.
+console.log(
+  truthCheck(
+    [
+      { name: "Pikachu", number: 25, caught: 3 },
+      { name: "Togepi", number: 175, caught: 1 },
+      { name: "MissingNo", number: NaN, caught: 0 },
+    ],
+    "caught"
+  )
+); //false.
+console.log(
+  truthCheck(
+    [
+      { name: "Pikachu", number: 25, caught: 3 },
+      { name: "Togepi", number: 175, caught: 1 },
+      { name: "MissingNo", number: NaN, caught: 0 },
+    ],
+    "number"
+  )
+); //false.
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", username: "QuincyLarson" },
+      { name: "Naomi", username: "nhcarrigan" },
+      { name: "Camperbot" },
+    ],
+    "username"
+  )
+); //false.
+console.log(
+  truthCheck(
+    [
+      { name: "freeCodeCamp", users: [{ name: "Quincy" }, { name: "Naomi" }] },
+      { name: "Code Radio", users: [{ name: "Camperbot" }] },
+      { name: "", users: [] },
+    ],
+    "users"
+  )
+); //true.
+console.log(
+  truthCheck(
+    [
+      {
+        id: 1,
+        data: { url: "https://freecodecamp.org", name: "freeCodeCamp" },
+      },
+      {
+        id: 2,
+        data: { url: "https://coderadio.freecodecamp.org/", name: "CodeRadio" },
+      },
+      { id: null, data: {} },
+    ],
+    "data"
+  )
+); //true.
+console.log(
+  truthCheck(
+    [
+      {
+        id: 1,
+        data: { url: "https://freecodecamp.org", name: "freeCodeCamp" },
+      },
+      {
+        id: 2,
+        data: { url: "https://coderadio.freecodecamp.org/", name: "CodeRadio" },
+      },
+      { id: null, data: {} },
+    ],
+    "id"
+  )
+); //false
+
+/* Argumentos opcionales
+Crea una función que sume dos argumentos. Si sólo se proporciona un argumento, entonces devuelve 
+una función que espera un argumento y devuelve la suma.
+
+Por ejemplo, addTogether(2, 3) debe devolver 5 y addTogether(2) debe devolver una función.
+
+Si se llama a esta función devuelta con un solo argumento, se obtendrá la suma:
+
+var sumTwoAnd = addTogether(2);
+sumTwoAnd(3) devuelve 5.
+
+Si cualquiera de los dos argumentos no es un número válido, devuelve undefined. */
+
+function addTogether() {
+  const [num1, num2] = arguments;
+  if (typeof num1 !== "number") {
+    return undefined;
+  }
+  if (arguments.length === 1) {
+    return (num2) => addTogether(num1, num2);
+  }
+  if (typeof num2 !== "number") {
+    return undefined;
+  }
+  return num1 + num2;
+}
+
+console.log(addTogether(2, 3)); //5.
+console.log(addTogether(23, 30)); //53.
+console.log(addTogether(5)(7)); //12.
+console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); //undefined.
+console.log(addTogether(2, "3")); //undefined.
+console.log(addTogether(2)([3])); //undefined.
+console.log(addTogether("2", 3)); //undefined.
+console.log(addTogether(5, undefined)); //undefined */
+
+/* Crea una persona
+Completa el constructor de objetos con los siguientes métodos:
+
+getFirstName();
+getLastName();
+getFullName();
+setFirstName(first);
+setLastName(last);
+setFullName(firstAndLast);
+
+Ejecuta las pruebas para ver el resultado esperado para cada método. Los métodos que toman un 
+argumento deben aceptar sólo un argumento y tiene que ser una cadena. Estos métodos deben ser el 
+único medio disponible para interactuar con el objeto. */
+
+const Person = function (firstAndLast) {
+  let fullName = firstAndLast;
+
+  this.getFirstName = function () {
+    return fullName.split(" ")[0];
+  };
+  this.getLastName = function () {
+    return fullName.split(" ")[1];
+  };
+  this.getFullName = function () {
+    return fullName;
+  };
+  this.setFirstName = function (first) {
+    fullName = `${first} ${fullName.split(" ")[1]}`;
+  };
+  this.setLastName = function (last) {
+    fullName = `${fullName.split(" ")[0]} ${last}`;
+  };
+  this.setFullName = function (firstAndLast) {
+    fullName = firstAndLast;
+  };
+};
+
+const bob = new Person("Bob Ross");
+console.log(bob.getFullName());
+
+console.log(Object.keys(bob).length); //6.
+console.log(bob instanceof Person); //true.
+console.log(bob.firstName); //undefined.
+console.log(bob.lastName); //undefined.
+console.log(bob.getFirstName()); //Bob.
+console.log(bob.getLastName()); //Ross.
+console.log(bob.getFullName()); //Bob Ross.
+
+bob.setFirstName("Haskell");
+console.log(bob.getFullName()); //Haskell Ross.
+
+bob.setLastName("Curry");
+console.log(bob.getFullName()); //Haskell Curry.
+
+bob.setFullName("Haskell Curry");
+console.log(bob.getFullName()); //Haskell Curry
+console.log(bob.getFirstName()); //Haskell
+console.log(bob.getLastName()); //Curry
+
+/* Mapea el Debris
+De acuerdo con la Tercera Ley de Kepler, el período orbital  T  de dos puntos se orbitan mutuamente 
+en una órbita circular o elíptica es:
+
+T=2π√a3/μ
+ 
+- a es el eje semi-mayor de la órbita
+- μ=GM  es el parámetro gravitatorio estándar
+- G es la constante gravitatoria,
+- M es la masa del cuerpo más masivo.
+
+Devuelve un nuevo arreglo que transforma la altitud media de los elementos en sus periodos 
+orbitales (en segundos).
+
+El arreglo contendrá objetos en el formato {name: 'name', avgAlt: avgAlt}.
+
+Los valores deben redondearse al número entero más cercano. El cuerpo orbitado es la Tierra.
+
+El radio de la tierra es de, 6367.4447 kilómetros y el valor GM de la tierra es de, 398600.4418 
+km3s-2. */
+
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
   return arr;
 }
 
-//console.log(steamrollArray([[["a"]], [["b"]]])); //["a", "b"].
-console.log(steamrollArray([1, [2], [3, [[4]]]])); //[1, 2, 3, 4].
-//console.log(steamrollArray([1, [], [3, [[4]]]])); //[1, 3, 4].
-//console.log(steamrollArray([1, {}, [3, [[4]]]])); //[1, {}, 3, 4]
+console.log(orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }]));
+//[{name: "sputnik", orbitalPeriod: 86400}].
+console.log(
+  orbitalPeriod([
+    { name: "iss", avgAlt: 413.6 },
+    { name: "hubble", avgAlt: 556.7 },
+    { name: "moon", avgAlt: 378632.553 },
+  ])
+);
+/* [
+  { name: "iss", orbitalPeriod: 5557 },
+  { name: "hubble", orbitalPeriod: 5734 },
+  { name: "moon", orbitalPeriod: 2377399 },
+]; */
