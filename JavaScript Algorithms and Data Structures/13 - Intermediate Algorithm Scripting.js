@@ -557,9 +557,23 @@ dividido por todos los números entre 1 y 3. La respuesta sería 6. */
 
 function smallestCommons(arr) {
   const [min, max] = arr.sort((a, b) => a - b);
-  return arr;
+  const numberDivisors = max - min + 1;
+  let upperBound = 1;
+  for (let i = min; i <= max; i++) {
+    upperBound *= i;
+  }
+  for (let multiple = max; multiple <= upperBound; multiple += max) {
+    let divisorCount = 0;
+    for (let i = min; i <= max; i++) {
+      if (multiple % i === 0) {
+        divisorCount += 1;
+      }
+    }
+    if (divisorCount === numberDivisors) {
+      return multiple;
+    }
+  }
 }
-
 console.log(smallestCommons([1, 5])); //60.
 console.log(smallestCommons([5, 1])); //60.
 console.log(smallestCommons([2, 10])); //2520.
@@ -902,7 +916,20 @@ km3s-2. */
 function orbitalPeriod(arr) {
   const GM = 398600.4418;
   const earthRadius = 6367.4447;
-  return arr;
+  const a = 2 * Math.PI;
+  const newArr = [];
+  const getOrbPeriod = function (obj) {
+    const c = Math.pow(earthRadius + obj.avgAlt, 3);
+    const b = Math.sqrt(c / GM);
+    const orbPeriod = Math.round(a * b);
+    // create new object
+    return { name: obj.name, orbitalPeriod: orbPeriod };
+  };
+  for (let elem in arr) {
+    newArr.push(getOrbPeriod(arr[elem]));
+  }
+
+  return newArr;
 }
 
 console.log(orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }]));
