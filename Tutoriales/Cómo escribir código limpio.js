@@ -1,9 +1,10 @@
 /* cSpell: disable; */
 /* ¿Qué significa escribir un "código limpio" y por qué debería importarme?
-Código limpio es un término que se utiliza para describir un código informático 
-que es fácil de leer, comprender y mantener. El código limpio está escrito de 
-una manera que lo hace simple, conciso y expresivo. Sigue un conjunto de 
-convenciones, estándares y prácticas que lo hacen fácil de leer y seguir.
+Código limpio es un término que se utiliza para describir un código 
+informático que es fácil de leer, comprender y mantener. El código limpio está 
+escrito de una manera que lo hace simple, conciso y expresivo. Sigue un 
+conjunto de convenciones, estándares y prácticas que lo hacen fácil de leer y 
+seguir.
 
 El código limpio está libre de complejidad, redundancia y otros olores de 
 código y antipatrones que pueden dificultar el mantenimiento, la depuración y 
@@ -30,13 +31,13 @@ convenciones.
 
 
 Las pruebas también son un aspecto importante del código limpio. Ayuda a 
-garantizar que el código funcione como se espera y pueda detectar errores antes 
-de tiempo.
+garantizar que el código funcione como se espera y pueda detectar errores 
+antes de tiempo.
 
 Hay varias herramientas, prácticas y convenciones que puede implementar para 
 garantizar una base de código limpia. Al implementar estas herramientas y 
-prácticas, los desarrolladores pueden crear una base de código que sea fácil de 
-leer, comprender y mantener.
+prácticas, los desarrolladores pueden crear una base de código que sea fácil 
+de leer, comprender y mantener.
 
 También es importante recordar que hay una cantidad inevitable de subjetividad 
 relacionada con este tema, y ​hay varias opiniones y consejos diferentes. Lo 
@@ -48,15 +49,15 @@ un código más limpio, así que pasemos a eso ahora.
 
 Consejos y convenciones para escribir código más limpio
 Eficacia, Eficiencia y Simplicidad
-Cada vez que necesito pensar en cómo implementar una nueva función en un código 
-base ya existente, o cómo abordar la solución de un problema específico, 
-siempre priorizo ​estas tres cosas simples.
+Cada vez que necesito pensar en cómo implementar una nueva función en un 
+código base ya existente, o cómo abordar la solución de un problema 
+específico, siempre priorizo ​estas tres cosas simples.
 
 Eficacia
 Primero, nuestro código debe ser efectivo , lo que significa que debe resolver 
 el problema que se supone que debe resolver. Por supuesto, esta es la 
-expectativa más básica que podríamos tener para nuestro código, pero si nuestra 
-implementación no funciona, no vale la pena pensar en otra cosa.
+expectativa más básica que podríamos tener para nuestro código, pero si 
+nuestra implementación no funciona, no vale la pena pensar en otra cosa.
 
 Eficiencia
 En segundo lugar, una vez que sabemos que nuestro código resuelve el problema, 
@@ -67,8 +68,8 @@ usando una cantidad razonable de recursos en términos de tiempo y espacio?
 La complejidad algorítmica es algo que debe tener en cuenta para evaluar esto. 
 Si no está familiarizado con él, puede consultar este artículo que escribí .
 
-Para ampliar la eficiencia, aquí hay dos ejemplos de una función que calcula la 
-suma de todos los números en una matriz. */
+Para ampliar la eficiencia, aquí hay dos ejemplos de una función que calcula 
+la suma de todos los números en una matriz. */
 
 // Inefficient Example
 function sumArrayInefficient(array) {
