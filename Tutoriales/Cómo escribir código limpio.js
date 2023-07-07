@@ -102,15 +102,15 @@ sobre la matriz y realiza la operación de suma en cada elemento a medida que
 avanza.
 
 Sencillez
-Y por último viene la simplicidad . Este es el más difícil de evaluar porque es 
-subjetivo, depende de la persona que lee el código. Pero algunas pautas que 
+Y por último viene la simplicidad . Este es el más difícil de evaluar porque 
+es subjetivo, depende de la persona que lee el código. Pero algunas pautas que 
 podemos seguir son:
 
 ¿Puedes entender fácilmente lo que hace el programa en cada línea?
 ¿Las funciones y variables tienen nombres que representan claramente sus 
 responsabilidades?
-¿El código está correctamente sangrado y espaciado con el mismo formato en todo 
-el código base?
+¿El código está correctamente sangrado y espaciado con el mismo formato en 
+todo el código base?
 ¿Hay alguna documentación disponible para el código? ¿Se utilizan comentarios 
 para explicar partes complejas del programa?
 ¿Qué tan rápido puede identificar en qué parte del código base se encuentran 
@@ -123,8 +123,8 @@ en componentes?
 igual en todo el código base?
 Siguiendo y priorizando estos tres conceptos de eficacia, eficiencia y 
 sencillez, siempre podremos tener una pauta a seguir a la hora de pensar en 
-cómo implementar una solución. Ahora ampliemos algunas de las pautas que pueden 
-ayudarnos a simplificar nuestro código.
+cómo implementar una solución. Ahora ampliemos algunas de las pautas que 
+pueden ayudarnos a simplificar nuestro código.
 
 Formato y Sintaxis
 Usar un formato y una sintaxis coherentes en todo el código base es un aspecto 
@@ -168,16 +168,17 @@ function multiplyByThree(number) {
 }
 console.log(multiplyByThree(3));
 
-/* Nuevamente, aquí tenemos funciones muy similares implementadas con diferente 
-sintaxis. La primera es una función de flecha, sin dos puntos y sin retorno, 
-mientras que la otra es una función común que usa dos puntos y un retorno.
+/* Nuevamente, aquí tenemos funciones muy similares implementadas con 
+diferente sintaxis. La primera es una función de flecha, sin dos puntos y sin 
+retorno, mientras que la otra es una función común que usa dos puntos y un 
+retorno.
 
 Ambos funcionan y están bien, pero debemos tratar de usar siempre la misma 
 sintaxis para operaciones similares, ya que se vuelve más uniforme y legible a 
 lo largo de la base de código.
 
-Linterns y formateadores de código son excelentes herramientas que podemos usar 
-en nuestros proyectos para automatizar la sintaxis y las convenciones de 
+Linterns y formateadores de código son excelentes herramientas que podemos 
+usar en nuestros proyectos para automatizar la sintaxis y las convenciones de 
 formato en nuestra base de código. Si no está familiarizado con estas 
 herramientas, consulte este otro artículo mío .
 
@@ -260,15 +261,15 @@ function countVowels1(s) {
 }
 console.log(countVowels1('hello word'));
 
-/* Este ejemplo usa una función tradicional y expresiones regulares para contar 
-el número de vocales en una cadena dada, pero lo hace de una manera clara y 
-fácil de entender. El nombre de la función y los nombres de las variables son 
-descriptivos, y el patrón de expresiones regulares se almacena en una variable 
-con un nombre claro. Esto facilita ver qué está haciendo la función y cómo 
-funciona.
+/* Este ejemplo usa una función tradicional y expresiones regulares para 
+contar el número de vocales en una cadena dada, pero lo hace de una manera 
+clara y fácil de entender. El nombre de la función y los nombres de las 
+variables son descriptivos, y el patrón de expresiones regulares se almacena 
+en una variable con un nombre claro. Esto facilita ver qué está haciendo la 
+función y cómo funciona.
 
-Es importante lograr un equilibrio entre la concisión y la claridad al escribir 
-código. Si bien el código conciso puede mejorar la legibilidad y el 
+Es importante lograr un equilibrio entre la concisión y la claridad al 
+escribir código. Si bien el código conciso puede mejorar la legibilidad y el 
 mantenimiento, es importante asegurarse de que el código siga siendo claro y 
 fácil de entender para otros desarrolladores que puedan trabajar con el código 
 base en el futuro.
@@ -287,8 +288,8 @@ mejorar en gran medida la eficiencia y la productividad del desarrollo de
 software al reducir la cantidad de código que debe escribirse y probarse.
 
 Al reutilizar el código existente, los desarrolladores pueden ahorrar tiempo y 
-esfuerzo, mejorar la calidad y la consistencia del código y minimizar el riesgo 
-de introducir fallas y errores. El código reutilizable también permite 
+esfuerzo, mejorar la calidad y la consistencia del código y minimizar el 
+riesgo de introducir fallas y errores. El código reutilizable también permite 
 arquitecturas de software más modulares y escalables, lo que facilita el 
 mantenimiento y la actualización de las bases de código a lo largo del tiempo. 
 */
@@ -318,8 +319,8 @@ rectángulo y un triángulo, respectivamente. Cada función realiza una tarea
 específica, pero ninguna de ellas es reutilizable para otras tareas similares.
 
 Además, el uso de un valor de PI codificado de forma rígida puede generar 
-errores si es necesario cambiar el valor en el futuro. El código es ineficiente 
-ya que repite la misma lógica varias veces. */
+errores si es necesario cambiar el valor en el futuro. El código es 
+ineficiente ya que repite la misma lógica varias veces. */
 
 // Example 2: Implementing re-usability
 function calculateArea(shape, ...args) {
@@ -344,3 +345,54 @@ const rectangleArea1 = calculateArea('rectangle', 4, 6);
 const triangleArea1 = calculateArea('triangle', 3, 7);
 
 console.log(circleArea1, rectangleArea1, triangleArea1);
+
+/* Este ejemplo define una sola función calculateAreaque toma un 
+shapeargumento y un número variable de argumentos. Según el shapeargumento, la 
+función realiza el cálculo adecuado y devuelve el resultado.
+
+Este enfoque es mucho más eficiente ya que elimina la necesidad de repetir el 
+código para tareas similares. También es más flexible y extensible, ya que se 
+pueden agregar fácilmente formas adicionales en el futuro.
+
+Flujo claro de ejecución
+Tener un flujo de ejecución claro es esencial para escribir código limpio 
+porque hace que el código sea más fácil de leer, comprender y mantener. El 
+código que sigue una estructura clara y lógica es menos propenso a errores, 
+más fácil de modificar y ampliar, y más eficiente en términos de tiempo y 
+recursos.
+
+Por otro lado, el código de espagueti es un término que se usa para describir 
+el código complicado y difícil de seguir, a menudo caracterizado por bloques 
+de código largos, enredados y desorganizados. El código espagueti puede ser el 
+resultado de malas decisiones de diseño, acoplamiento excesivo o falta de 
+documentación y comentarios adecuados.
+
+Aquí hay dos ejemplos de código JavaScript que realizan la misma tarea, uno 
+con un flujo claro de ejecución y el otro con código espagueti: */
+
+// Example 1: Clear flow of execution
+function calculateDiscount(price, discountPercentage) {
+	const discountAmount = price * (discountPercentage / 100);
+	const discountPrice = price - discountAmount;
+	return discountPrice;
+}
+const originalPrice = 100;
+const discountPercentage = 20;
+const finalPrice = calculateDiscount(originalPrice, discountPercentage);
+
+console.log(finalPrice);
+
+// Example 2: Spaghetti code
+const originalPrice2 = 100;
+const discountPercentage2 = 20;
+
+let discountedPrice2;
+let discountAmount2;
+if (originalPrice2 && discountPercentage2) {
+	discountAmount2 = originalPrice2 * (discountPercentage2 / 100);
+	discountedPrice2 = originalPrice2 - discountAmount2;
+}
+
+if (discountedPrice2) {
+	console.log(discountedPrice2);
+}
